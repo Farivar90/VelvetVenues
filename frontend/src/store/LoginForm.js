@@ -12,10 +12,6 @@ const LoginForm = () => {
 
   const dispatch = useDispatch(); // Get the dispatch function
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,18 +31,29 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="credential"
-        value={formData.credential}
-        onChange={handleInputChange}
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleInputChange}
-      />
+      <h1>Login</h1>
+      <p>
+        Don't have an account?{' '}
+        <a href="/register">Register</a>
+      </p>
+      <div>
+        <label htmlFor="credential">Email</label>
+        <input
+          type="text"
+          name="credential"
+          value={formData.credential}
+          onChange={(e) => setFormData({ ...formData, credential: e.target.value })}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        />
+      </div>
       <button type="submit">Login</button>
     </form>
   );

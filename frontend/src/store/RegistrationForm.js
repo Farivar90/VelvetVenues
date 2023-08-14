@@ -26,11 +26,23 @@ const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-      <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
-      <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
-      <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} />
-      <button type="submit">Register</button>
+      <div>
+        <label htmlFor="username">Username</label>
+        <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+      </div>
+      <div>
+        <label htmlFor="fullName">Full Name(Optional)</label>
+        <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} />
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
+      </div>
+        <button type="submit">Register</button>
     </form>
   );
 };
