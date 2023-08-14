@@ -1,9 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RegistrationForm from './store/RegistrationForm';
+import LoginForm from './store/LoginForm';
 
-function App() {
+const App = () => {
   return (
-    <h1>Hello world!</h1>
+    <Router>
+      <Switch>
+        <Route path="/register" component={RegistrationForm} />
+        <Route path="/login" component={LoginForm} />
+        {/* Add other routes */}
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
