@@ -1,0 +1,13 @@
+
+
+.registration-login-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .registration-form,
+  .login-form {
+    width: 45%; /* Adjust the width as needed */
+  }
+  

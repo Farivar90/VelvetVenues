@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import csrfFetch from './csrf';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -11,50 +11,66 @@ const RegistrationForm = () => {
   });
 
   const [invitationError, setInvitationError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#])(?=.{8,})/;
+    return passwordRegex.test(password);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check invitation code validity before submitting
-    const isValidInvitation = await checkInvitation(formData.invitationCode);
-    if (!isValidInvitation) {
+    setInvitationError('');
+    setEmailError('');
+    setPasswordError('');
+
+    if (!isValidEmail(formData.email)) {
+      setEmailError('Invalid email format');
+      return;
+    }
+
+    if (!isValidPassword(formData.password)) {
+      setPasswordError('Invalid password format');
+      return;
+    }
+
+    // Check if the invitation code is 'Test'
+    if (formData.invitationCode !== 'Test') {
       setInvitationError('Invalid invitation code');
       return;
     }
 
     try {
-      const response = await axios.post('/api/users', formData);
-      if (response.data.success) {
-        // Clear invitation error (if any)
-        setInvitationError('');
-        
-        // Handle successful registration (e.g., show success message, redirect)
-        // For example, you can show a success message and redirect the user
-        alert('Registration successful! You can now log in.');
-        // You might use a library like React Router to handle redirection
+      const response = await csrfFetch('/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Registration successful, show a success message or redirect
+        console.log('Registration successful');
       } else {
-        // Handle registration error (e.g., show error message)
-        // This might occur if there's an issue with the registration process on the backend
-        console.error('Registration error:', response.data.error);
+        // Registration failed, handle the error
+        const errorData = await response.json();
+        console.error('Registration error:', errorData);
       }
     } catch (error) {
-      // Handle registration error (e.g., show error message)
       console.error('Registration error:', error);
-    }
-  };
-
-  const checkInvitation = async (code) => {
-    try {
-      const response = await axios.get(`/api/check-invitation?code=${code}`);
-      return response.data.isValid;
-    } catch (error) {
-      console.error('Error checking invitation:', error);
-      return false;
     }
   };
 
@@ -67,6 +83,7 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+        {emailError && <p>{emailError}</p>}
       </div>
       <div>
         <label htmlFor="fullName">Full Name (Optional)</label>
@@ -74,7 +91,14 @@ const RegistrationForm = () => {
       </div>
       <div>
         <label htmlFor="password">Password</label>
+        <p>The password must contain at least one lowercase alphabetical character. <br />
+        The password must contain at least one uppercase alphabetical character. <br />
+        The password must contain at least one numeric character. <br />
+        The password must contain at least one special character from the set !@#. <br />
+        The password must be at least 8 characters long.
+        </p>
         <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
+        {passwordError && <p>{passwordError}</p>}
       </div>
       <div>
         <label htmlFor="invitationCode">Invitation Code</label>

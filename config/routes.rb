@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :show, :destroy]
-    resources :users, only: [:index, :show, :create, :update, :destroy] 
+    resources :users
     # get '/users/current', to: 'users#current'
   end
 
