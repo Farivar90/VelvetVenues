@@ -5,7 +5,7 @@ const MainPage = () => {
   return (
     <div>
       <h1>Welcome to Velvet Venues!</h1>
-      <Link to="/registration">Register</Link>
+      <Link to="/register">Register</Link>
       <Link to="/login">Login</Link>
     </div>
   );
