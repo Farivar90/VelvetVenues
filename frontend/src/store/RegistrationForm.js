@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import csrfFetch from './csrf';
+import { useHistory } from 'react-router-dom';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const RegistrationForm = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const history = useHistory();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -69,6 +71,8 @@ const RegistrationForm = () => {
       if (response.ok) {
         // Registration successful, show a success message or redirect
         console.log('Registration successful');
+        const user = await response.json();
+        history.push(`/users/${user.id}`);
       } else {
         // Registration failed, handle the error
         const errorData = await response.json();

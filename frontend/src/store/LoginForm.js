@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import csrfFetch from './csrf';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const LoginForm = () => {
   });
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   // useEffect(() => {
   //   // Fetch the CSRF token from the meta tag
@@ -25,8 +28,10 @@ const LoginForm = () => {
 
       dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
       // Handle successful login (e.g., redirect)
+      history.push(`/users/${user.id}`);
     } catch (error) {
       // Handle login error (e.g., show error message)
+
     }
   };
 
