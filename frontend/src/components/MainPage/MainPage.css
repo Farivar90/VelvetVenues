@@ -1,0 +1,25 @@
+.registration-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form-container {
+  width: 45%;
+}
+
+.toggle-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+body {
+  background-color: rgb(54, 30, 84);
+  color: aliceblue;
+}
+
+.headmain-image { 
+height: 200px;
+}

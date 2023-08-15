@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import csrfFetch from './csrf';
+import csrfFetch from '../../store/csrf';
 import { useHistory } from 'react-router-dom';
 
 const RegistrationForm = () => {
@@ -16,6 +16,7 @@ const RegistrationForm = () => {
   const [passwordError, setPasswordError] = useState('');
 
   const history = useHistory();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -48,13 +49,12 @@ const RegistrationForm = () => {
       return;
     }
 
-    // Check if the invitation code is 'Test'
     if (formData.invitationCode !== 'Test') {
       setInvitationError('Invalid invitation code');
       return;
     }
 
-    if (formData.username.length < 1) {
+    if (formData.username.trim().length < 1) {
       setInvitationError('Invalid Username');
       return;
     }
@@ -69,12 +69,10 @@ const RegistrationForm = () => {
       });
 
       if (response.ok) {
-        // Registration successful, show a success message or redirect
-        console.log('Registration successful');
         const user = await response.json();
+        console.log('Registration successful');
         history.push(`/users/${user.id}`);
       } else {
-        // Registration failed, handle the error
         const errorData = await response.json();
         console.error('Registration error:', errorData);
       }
@@ -92,7 +90,7 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-        {emailError && <p>{emailError}</p>}
+        {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
       </div>
       <div>
         <label htmlFor="fullName">Full Name (Optional)</label>
@@ -101,23 +99,22 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="password">Password*</label>
         <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
-        {passwordError && <p>{passwordError}</p>}
+        {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
       </div>
       <div>
         <label htmlFor="invitationCode">Invitation Code</label>
         <input type="text" name="invitationCode" value={formData.invitationCode} onChange={handleInputChange} />
-        {invitationError && <p>{invitationError}</p>}
+        {invitationError && <p style={{ color: 'red' }}>{invitationError}</p>}
       </div>
       <button type="submit">Register</button>
       <div>
-        <p>* <br />
-        The password must contain at least one lowercase alphabetical character. <br />
-        The password must contain at least one uppercase alphabetical character. <br />
-        The password must contain at least one numeric character. <br />
-        The password must contain at least one special character from the set !@#. <br />
-        The password must be at least 8 characters long.
+        <p>
+          * The password must contain at least one lowercase alphabetical character.<br />
+          * The password must contain at least one uppercase alphabetical character.<br />
+          * The password must contain at least one numeric character.<br />
+          * The password must contain at least one special character from the set !@#.<br />
+          * The password must be at least 8 characters long.
         </p>
-
       </div>
     </form>
   );
