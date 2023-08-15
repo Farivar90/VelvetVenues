@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; // Update import
+import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -14,41 +14,17 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
 }
 
-function Root() {
-  return (
+// Define the root element where your app should be rendered
+const rootElement = document.getElementById('root');
+
+// Render the application inside the root element
+ReactDOM.render(
+  <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  );
-}
-
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </Provider>
-  );
-}
-
-const renderApplication = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Root />
-    </React.StrictMode>,
-    rootElement
-  );
-}
-
-if (
-  sessionStorage.getItem("currentUser") === null ||
-  sessionStorage.getItem("X-CSRF-Token") === null 
-) {
-  store.dispatch(sessionActions.restoreSession()).then(renderApplication);
-} else {
-  renderApplication();
-}
+  </React.StrictMode>,
+  rootElement
+);

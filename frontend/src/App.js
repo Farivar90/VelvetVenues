@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import RegistrationForm from './store/RegistrationForm';
 import LoginForm from './store/LoginForm';
 import MainPage from './components/MainPage';

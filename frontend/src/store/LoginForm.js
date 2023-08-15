@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import csrfFetch from './csrf';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -10,14 +11,19 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   // Fetch the CSRF token from the meta tag
+  //   const csrfToken = document.querySelector('[name=csrf-token]').content;
+  //   axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+  // }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/session', formData);
+      const response = await csrfFetch('/api/session', formData);
       const { user } = response.data;
 
       dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
-
       // Handle successful login (e.g., redirect)
     } catch (error) {
       // Handle login error (e.g., show error message)
