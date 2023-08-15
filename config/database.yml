@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: BlueBloodBungalows_production
-  username: BlueBloodBungalows
-  password: <%= ENV["BLUEBLOODBUNGALOWS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

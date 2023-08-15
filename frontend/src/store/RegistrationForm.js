@@ -52,6 +52,11 @@ const RegistrationForm = () => {
       return;
     }
 
+    if (formData.username.length < 1) {
+      setInvitationError('Invalid Username');
+      return;
+    }
+
     try {
       const response = await csrfFetch('/api/users', {
         method: 'POST',
@@ -90,13 +95,7 @@ const RegistrationForm = () => {
         <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
-        <p>The password must contain at least one lowercase alphabetical character. <br />
-        The password must contain at least one uppercase alphabetical character. <br />
-        The password must contain at least one numeric character. <br />
-        The password must contain at least one special character from the set !@#. <br />
-        The password must be at least 8 characters long.
-        </p>
+        <label htmlFor="password">Password*</label>
         <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
         {passwordError && <p>{passwordError}</p>}
       </div>
@@ -106,6 +105,16 @@ const RegistrationForm = () => {
         {invitationError && <p>{invitationError}</p>}
       </div>
       <button type="submit">Register</button>
+      <div>
+        <p>* <br />
+        The password must contain at least one lowercase alphabetical character. <br />
+        The password must contain at least one uppercase alphabetical character. <br />
+        The password must contain at least one numeric character. <br />
+        The password must contain at least one special character from the set !@#. <br />
+        The password must be at least 8 characters long.
+        </p>
+
+      </div>
     </form>
   );
 };

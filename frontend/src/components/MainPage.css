@@ -11,3 +11,12 @@
     width: 45%; /* Adjust the width as needed */
   }
   
+  body {
+    background-color: rgb(47, 23, 78);
+    color: aliceblue;
+  }
+
+  /* #root {
+    background-color: blueviolet;
+    color: aliceblue;
+  } */
