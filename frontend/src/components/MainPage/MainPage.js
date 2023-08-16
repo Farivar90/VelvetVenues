@@ -1,35 +1,98 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom'; // Import from react-router-dom, not the cjs min version
+import { Redirect } from 'react-router-dom';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LoginForm from '../LoginForm/LoginForm';
 import './MainPage.css';
 
+import background1 from './BackgroundPic/b1.jpg';
+import background2 from './BackgroundPic/b2.jpg';
+import background3 from './BackgroundPic/b3.jpg';
+import background4 from './BackgroundPic/b4.jpg';
+import background5 from './BackgroundPic/b5.jpg';
+import background6 from './BackgroundPic/b6.jpg';
+import background7 from './BackgroundPic/b7.jpg';
+import background8 from './BackgroundPic/b8.jpg';
+import background9 from './BackgroundPic/b9.jpg';
+import background10 from './BackgroundPic/b10.jpg';
+import background11 from './BackgroundPic/b11.jpg';
+import background12 from './BackgroundPic/b12.jpg';
+import background13 from './BackgroundPic/b13.jpg';
+import background14 from './BackgroundPic/b14.jpg';
+import background15 from './BackgroundPic/b15.jpg';
+import background16 from './BackgroundPic/b16.jpg';
+import background17 from './BackgroundPic/b17.jpg';
+import background18 from './BackgroundPic/b18.jpg';
+import background19 from './BackgroundPic/b19.jpg';
+import background20 from './BackgroundPic/b20.jpg';
+import background21 from './BackgroundPic/b21.jpg';
+import background22 from './BackgroundPic/b22.jpg';
+import background23 from './BackgroundPic/b23.jpg';
+import background24 from './BackgroundPic/b24.jpg';
+import background25 from './BackgroundPic/b25.jpg';
+import background26 from './BackgroundPic/b26.jpg';
+import background27 from './BackgroundPic/b27.jpg';
+import background28 from './BackgroundPic/b28.jpg';
+import background29 from './BackgroundPic/b29.jpg';
+import background30 from './BackgroundPic/b30.jpg';
+import background31 from './BackgroundPic/b31.jpg';
+import background32 from './BackgroundPic/b32.jpg';
+import background33 from './BackgroundPic/b33.jpg';
+
+const backgroundImages = [background1, background2, background3, background4, background5, background6, background7, background8, background9, background10, background11, background12, background13, background14, background15, background16, background17, background18, background19, background20, background21, background22, background23, background24, background25, background26, background27, background28, background29, background30, background31, background32, background33];
+
+const IMAGES_PER_ROTATION = 5;
+
 const MainPage = () => {
-  const [activeForm, setActiveForm] = useState('login'); // 'login' or 'registration'
+  const [activeForm, setActiveForm] = useState('login');
+  const [currentImageIndexes, setCurrentImageIndexes] = useState([]);
+  const [rotationIndex, setRotationIndex] = useState(0);
 
   const currentUser = useSelector(state => state.session.user);
-
-  if (currentUser) return <Redirect to={`/users/${currentUser.id}`} />; // Use currentUser instead of user
-
   const toggleForm = () => {
     setActiveForm(activeForm === 'login' ? 'registration' : 'login');
   };
-
+  
+  useEffect(() => {
+    
+    const interval = setInterval(() => {
+      const start = rotationIndex * IMAGES_PER_ROTATION;
+      const nextIndexes = Array.from({ length: IMAGES_PER_ROTATION }, (_, i) => (start + i) % backgroundImages.length);
+      
+      setCurrentImageIndexes(nextIndexes);
+      setRotationIndex(prevIndex => (prevIndex + 1) % Math.ceil(backgroundImages.length / IMAGES_PER_ROTATION));
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [ rotationIndex]);
+  if (currentUser) return <Redirect to={`/users/${currentUser.id}`} />;
+  
   return (
     <div>
-      <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
-      <h1> Welcome to VelvetVenues</h1>
-      <h2>Please Login to "Discover Luxury, Your Way"</h2>
+      <div>
+        <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
+        <h1> Welcome to VelvetVenues</h1>
+        <h2>Please Login to "Discover Luxury, Your Way"</h2>
+      </div>
       <div className="registration-login-container">
-        <div className="form-container">
-          <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
-          {activeForm === 'login' ? <LoginForm /> : <RegistrationForm />}
+        <div className="background-overlay">
+          {currentImageIndexes.map((imageIndex, index) => (
+            <img
+              key={index}
+              src={backgroundImages[imageIndex]}
+              alt={`background-${imageIndex}`}
+              className="background-image"
+            />
+          ))}
+          <div className="form-container">
+            <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
+            {activeForm === 'login' ? <LoginForm /> : <RegistrationForm />}
+          </div>
         </div>
       </div>
       <div className="toggle-button-container">
         <button onClick={toggleForm}>
-          {activeForm === 'login' ? 'Don`t have an accout? Please Register' : 'Already have an account? Login'}
+          {activeForm === 'login' ? 'Don`t have an account? Please Register' : 'Already have an account? Login'}
         </button>
       </div>
     </div>
@@ -37,3 +100,44 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
+
+// import React, { useState } from 'react';
+// import { useSelector } from 'react-redux';
+// import { Redirect } from 'react-router-dom'; // Import from react-router-dom, not the cjs min version
+// import RegistrationForm from '../RegistrationForm/RegistrationForm';
+// import LoginForm from '../LoginForm/LoginForm';
+// import './MainPage.css';
+
+// const MainPage = () => {
+//   const [activeForm, setActiveForm] = useState('login'); // 'login' or 'registration'
+
+//   const currentUser = useSelector(state => state.session.user);
+
+//   if (currentUser) return <Redirect to={`/users/${currentUser.id}`} />; // Use currentUser instead of user
+
+//   const toggleForm = () => {
+//     setActiveForm(activeForm === 'login' ? 'registration' : 'login');
+//   };
+
+//   return (
+//     <div>
+//       <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
+//       <h1> Welcome to VelvetVenues</h1>
+//       <h2>Please Login to "Discover Luxury, Your Way"</h2>
+//       <div className="registration-login-container">
+//         <div className="form-container">
+//           <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
+//           {activeForm === 'login' ? <LoginForm /> : <RegistrationForm />}
+//         </div>
+//       </div>
+//       <div className="toggle-button-container">
+//         <button onClick={toggleForm}>
+//           {activeForm === 'login' ? 'Don`t have an accout? Please Register' : 'Already have an account? Login'}
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MainPage;

@@ -3,6 +3,25 @@
   justify-content: center;
   align-items: center;
   height: 50vh;
+  position: relative;
+}
+
+.background-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  max-width: 20%; /* Adjust as needed */
+  height: auto;
+  margin: 0 10px;
 }
 
 .form-container {
@@ -13,14 +32,4 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
-}
-
-body {
-  justify-content: center;
-}
-
-.headmain-image { 
-height: 200px;
-justify-content: center;
-align-items: center;
 }
