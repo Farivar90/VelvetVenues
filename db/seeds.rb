@@ -16,7 +16,6 @@ demo_user = User.create!(
   username: 'demo_user',
   full_name: 'Demo User',
   password: 'Password!123',
-  session_token: SecureRandom.base64(64)
 )
 
 puts "Demo user created with email: #{demo_user.email}"

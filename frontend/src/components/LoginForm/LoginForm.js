@@ -25,10 +25,9 @@ const LoginForm = () => {
         },
         body: JSON.stringify(formData)
       });
-
       if (response.ok) {
         const user = await response.json();
-        dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
+        dispatch({ type: 'session/setCurrentUser', payload: user.id});
         history.push(`/users/${user.id}`);
       } else {
         // Handle login failure
@@ -37,13 +36,13 @@ const LoginForm = () => {
       // Handle error
     }
   };
-
+  
   const handleLoginDemoUser = async () => {
     const demoFormData = {
       credential: 'demo_user',
       password: 'Password!123'
     };
-
+    
     try {
       const response = await csrfFetch('/api/session', {
         method: 'POST',
@@ -52,16 +51,16 @@ const LoginForm = () => {
         },
         body: JSON.stringify(demoFormData)
       });
-
+      
       if (response.ok) {
         const user = await response.json();
-        dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
+        dispatch({ type: 'session/setCurrentUser', payload: user.id });
         history.push(`/users/${user.id}`);
       } else {
         // Handle demo user login failure
       }
     } catch (error) {
-      // Handle error
+      
     }
   };
 

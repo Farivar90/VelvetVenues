@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import csrfFetch from '../../store/csrf';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 const RegistrationForm = () => {
@@ -11,10 +12,13 @@ const RegistrationForm = () => {
     invitationCode: '',
   });
 
+
+
   const [invitationError, setInvitationError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleInputChange = (e) => {
@@ -70,7 +74,7 @@ const RegistrationForm = () => {
 
       if (response.ok) {
         const user = await response.json();
-        console.log('Registration successful');
+        dispatch({ type: 'session/setCurrentUser', payload: user.id});
         history.push(`/users/${user.id}`);
       } else {
         const errorData = await response.json();

@@ -26,11 +26,14 @@ const App = () => {
   const location = useLocation();
 
   // Check if the current path is not the main page
-  const isMainPage = location.pathname === '/';
-
+  // const isMainPage = location.pathname === '/';
+  // {isMainPage ? null : <HeadNav />}
+  
   return (
     <Router>
-      {isMainPage ? null : <HeadNav />}
+      <Route path="/" component={({ location }) => (
+        location.pathname !== "/" ? <HeadNav /> : null
+      )}/>
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/users/:userId" component={UsersPage} />

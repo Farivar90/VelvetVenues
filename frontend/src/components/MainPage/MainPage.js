@@ -80,7 +80,7 @@ const MainPage = () => {
     
     return () => clearInterval(interval);
   }, [ rotationIndex]);
-  if (currentUser) return <Redirect to={`/users/${currentUser.id}`} />;
+  if (currentUser) return <Redirect to={`/users/${currentUser}`} />;
   
   return (
     <div>
