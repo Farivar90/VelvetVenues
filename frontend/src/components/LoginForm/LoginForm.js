@@ -89,7 +89,6 @@ const LoginForm = () => {
       <button type="button" onClick={handleLoginDemoUser}>
         Login Demo User
       </button>
-      {/* ... Display error message ... */}
     </form>
   );
 };

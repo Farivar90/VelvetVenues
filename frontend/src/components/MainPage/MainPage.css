@@ -1,20 +1,28 @@
 .registration-login-container {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
   align-items: center;
-  justify-content: center; /* Align items at the top */
-  height: 100vh; /* Adjust the height as needed */
-  background-color: rgb(54, 30, 84);
-  color: aliceblue;
+  height: 50vh;
 }
-
 
 .form-container {
   width: 45%;
-  margin-top: 20px; /* Add some spacing between the image and the form */
+}
+
+.toggle-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+body {
+  background-color: rgb(54, 30, 84);
+  color: aliceblue;
+  justify-content: center;
 }
 
 .headmain-image { 
-  height: 200px;
-  background-color: rgb(54, 30, 84);
+height: 200px;
+justify-content: center;
+align-items: center;
 }
