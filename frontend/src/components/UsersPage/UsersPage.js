@@ -1,9 +1,14 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux'; 
 
 const UsersPage = () => {
-  // Get the userId parameter from the route
+  const currentUser = useSelector(state => state.session.user);
   const { userId } = useParams();
+
+  if (!currentUser) {
+    return <Redirect to={`/`} />;
+  }
 
   return (
     <div>
@@ -14,3 +19,4 @@ const UsersPage = () => {
 };
 
 export default UsersPage;
+

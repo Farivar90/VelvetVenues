@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import csrfFetch from '../../store/csrf';
 import { useHistory } from 'react-router-dom';
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
