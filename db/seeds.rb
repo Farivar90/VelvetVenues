@@ -8,8 +8,10 @@
 
 # db/seeds.rb
 
+User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
 demo_user = User.create!(
-    id: 33,
   email: 'demo@example.com',
   username: 'demo_user',
   full_name: 'Demo User',

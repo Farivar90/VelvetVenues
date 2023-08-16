@@ -75,7 +75,7 @@ const MainPage = () => {
     <div>
     <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
       <h1 id= 'mainWelcome'>Welcome to VelvetVenues</h1>
-      <h2 id= 'mainModal' onClick={openModal} style={{ cursor: 'pointer' }}>Click here to "Discover Luxury, Your Way"</h2>
+      <h2 id= 'main-modal-opener' onClick={openModal} style={{ cursor: 'pointer' }}>Click here to "Discover Luxury, Your Way"</h2>
     
     <div className="main-content">
       {currentImageIndexes.map((imageIndex, index) => (
@@ -88,7 +88,7 @@ const MainPage = () => {
   ))}
   </div>
 
-  <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Login Modal">
+  <Modal id= "main-modal" isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Login Modal">
     <div className="background-overlay">
       <div className="form-container">
         <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
