@@ -6,7 +6,7 @@ import LogoutButton from '../LogoutButton/LogoutButton';
 const HeadNav = () => {
   return (
     <div>
-      <Link to="/">Logo</Link> {/* Replace with your logo */}
+      <Link to='/'>Home</Link>
       <LogoutButton />
     </div>
   );

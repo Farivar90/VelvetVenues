@@ -19,7 +19,8 @@ const MainPage = () => {
   return (
     <div>
       <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
-      <h1></h1>
+      <h1> Welcome to VelvetVenues</h1>
+      <h2>Please Login to "Discover Luxury, Your Way"</h2>
       <div className="registration-login-container">
         <div className="form-container">
           <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
@@ -28,7 +29,7 @@ const MainPage = () => {
       </div>
       <div className="toggle-button-container">
         <button onClick={toggleForm}>
-          Switch to {activeForm === 'login' ? 'Registration' : 'Login'}
+          {activeForm === 'login' ? 'Don`t have an accout? Please Register' : 'Already have an account? Login'}
         </button>
       </div>
     </div>
