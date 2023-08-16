@@ -48,8 +48,10 @@ import background39 from './BackgroundPic/b39.jpg';
 import background40 from './BackgroundPic/b40.jpg';
 import background41 from './BackgroundPic/b41.jpg';
 import background42 from './BackgroundPic/b42.jpg';
+import background43 from './BackgroundPic/b43.jpg';
+import background44 from './BackgroundPic/b44.jpg';
 
-const backgroundImages = [background1, background2, background3, background4, background5, background6, background7, background8, background9, background10, background11, background12, background13, background14, background15, background16, background17, background18, background19, background20, background21, background22, background23, background24, background25, background26, background27, background28, background29, background30, background31, background32, background33, background34, background35, background36, background37, background38, background39, background40, background41, background42];
+const backgroundImages = [background1, background2, background3, background4, background5, background6, background7, background8, background9, background10, background11, background12, background13, background14, background15, background16, background17, background18, background19, background20, background21, background22, background23, background24, background25, background26, background27, background28, background29, background30, background31, background32, background33, background34, background35, background36, background37, background38, background39, background40, background41, background42, background43, background44];
 
 const IMAGES_PER_ROTATION = 5;
 
