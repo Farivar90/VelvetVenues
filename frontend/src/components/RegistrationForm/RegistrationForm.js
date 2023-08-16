@@ -19,6 +19,8 @@ const RegistrationForm = () => {
   const [passwordError, setPasswordError] = useState('');
   const [usernameError, setUsernameError] = useState(''); 
   const [apiError, setApiError] = useState(''); 
+  const [showPasswordRequirements, setShowPasswordRequirements] = useState(false);
+
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -27,6 +29,15 @@ const RegistrationForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const handlePasswordInputFocus = () => {
+    setShowPasswordRequirements(true);
+  };
+  
+  const handlePasswordInputBlur = () => {
+    setShowPasswordRequirements(false);
+  };
+  
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -105,7 +116,7 @@ const RegistrationForm = () => {
       </div>
       <div>
         <label htmlFor="password">Password*</label>
-        <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
+        <input type="password" name="password" value={formData.password} onChange={handleInputChange} onFocus={handlePasswordInputFocus} onBlur={handlePasswordInputBlur} />
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
       </div>
       <div>
@@ -115,15 +126,17 @@ const RegistrationForm = () => {
       </div>
       <button type="submit">Register</button>
       {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
-      <div>
-        <p>
-          * The password must contain at least one lowercase alphabetical character.<br />
-          * The password must contain at least one uppercase alphabetical character.<br />
-          * The password must contain at least one numeric character.<br />
-          * The password must contain at least one special character from the set !@#.<br />
-          * The password must be at least 8 characters long.
-        </p>
-      </div>
+      {showPasswordRequirements && (
+        <div className="password-requirements">
+          <p>
+            * The password must contain at least one lowercase alphabetical character.<br />
+            * The password must contain at least one uppercase alphabetical character.<br />
+            * The password must contain at least one numeric character.<br />
+            * The password must contain at least one special character from the set !@#.<br />
+            * The password must be at least 8 characters long.
+          </p>
+        </div>
+        )}
     </form>
   );
 };

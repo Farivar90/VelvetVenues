@@ -60,13 +60,18 @@ export const signup = (user) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  const response = await csrfFetch("/api/session", {
-    method: "DELETE"
-  });
-  storeCurrentUser(null);
-  dispatch(removeCurrentUser());
-  return response;
+  try {
+    const response = await csrfFetch("/api/session", {
+      method: "DELETE"
+    });
+    storeCurrentUser(null);
+    dispatch(removeCurrentUser());
+    return response;
+  } catch (error) {
+    console.error("Logout Error:", error);
+  }
 };
+
 
 const initialState = { 
   user: JSON.parse(sessionStorage.getItem("currentUser"))
