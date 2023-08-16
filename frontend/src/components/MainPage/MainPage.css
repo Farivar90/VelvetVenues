@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
@@ -18,12 +20,6 @@
   align-items: center;
 }
 
-.background-image {
-  max-width: 20%; /* Adjust as needed */
-  height: auto;
-  margin: 0 10px;
-}
-
 .form-container {
   width: 45%;
 }
@@ -31,5 +27,34 @@
 .toggle-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
+.headmain-image { 
+  width: 100%;
+  }
+  
+  .main-content {
+    position: relative;
+  }
+  
+  .background-image {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+  }
+
+  h1{
+    font-size: 50px;
+    color: rgb(73, 4, 82);
+    text-align: center;
+  }
+
+  h2{
+    font-size: 30px;
+    color: rgb(73, 4, 82);
+    text-align: center;
+  }

@@ -23,5 +23,8 @@
   "homepage": "https://github.com/Farivar90/VelvetVenues#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "react-modal": "^3.16.1"
   }
 }
