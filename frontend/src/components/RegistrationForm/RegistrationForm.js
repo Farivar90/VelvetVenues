@@ -17,6 +17,8 @@ const RegistrationForm = () => {
   const [invitationError, setInvitationError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [usernameError, setUsernameError] = useState(''); 
+  const [apiError, setApiError] = useState(''); 
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -90,6 +92,7 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="username">Username</label>
         <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+        {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
       </div>
       <div>
         <label htmlFor="email">Email</label>
@@ -111,6 +114,7 @@ const RegistrationForm = () => {
         {invitationError && <p style={{ color: 'red' }}>{invitationError}</p>}
       </div>
       <button type="submit">Register</button>
+      {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
       <div>
         <p>
           * The password must contain at least one lowercase alphabetical character.<br />

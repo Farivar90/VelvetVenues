@@ -1,5 +1,3 @@
-// LoginForm.js
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import csrfFetch from '../../store/csrf';
@@ -14,9 +12,11 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     try {
       const response = await csrfFetch('/api/session', {
         method: 'POST',
@@ -30,10 +30,16 @@ const LoginForm = () => {
         dispatch({ type: 'session/setCurrentUser', payload: user.id});
         history.push(`/users/${user.id}`);
       } else {
-        // Handle login failure
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (jsonError) {
+          errorData = "An error occurred. Please try again.";
+        }
+        setError(errorData.errors || errorData);
       }
     } catch (error) {
-      // Handle error
+      setError("An error occurred. Please try again.", error)
     }
   };
   
@@ -42,7 +48,7 @@ const LoginForm = () => {
       credential: 'demo_user',
       password: 'Password!123'
     };
-    
+    setError(null);
     try {
       const response = await csrfFetch('/api/session', {
         method: 'POST',
@@ -57,10 +63,17 @@ const LoginForm = () => {
         dispatch({ type: 'session/setCurrentUser', payload: user.id });
         history.push(`/users/${user.id}`);
       } else {
-        // Handle demo user login failure
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (jsonError) {
+          errorData = "An error occurred. Please try again.";
+        }
+        setError(errorData.errors || errorData);
+        console.error(errorData);
       }
     } catch (error) {
-      
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -89,6 +102,7 @@ const LoginForm = () => {
       <button type="button" onClick={handleLoginDemoUser}>
         Login Demo User
       </button>
+      {error && <div style={{ color: 'red' }} className="error">{error}</div>}
     </form>
   );
 };
