@@ -115,7 +115,7 @@ const RegistrationForm = () => {
         <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} />
       </div>
       <div>
-        <label htmlFor="password">Password*</label>
+        <label htmlFor="password">Password</label>
         <input type="password" name="password" value={formData.password} onChange={handleInputChange} onFocus={handlePasswordInputFocus} onBlur={handlePasswordInputBlur} />
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
       </div>

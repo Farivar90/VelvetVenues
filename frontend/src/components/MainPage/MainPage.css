@@ -9,7 +9,7 @@
 }
 
 .background-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(54, 30, 84);
   position: absolute;
   top: 0;
   left: 0;
@@ -18,6 +18,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  color:  rgb(252, 216, 170);
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 1;
 
 }
 
@@ -61,7 +69,7 @@
 
   #main-modal {
     color: rgb(73, 4, 82);
-    width:25%;
+    width:35%;
   }
 
   body {
