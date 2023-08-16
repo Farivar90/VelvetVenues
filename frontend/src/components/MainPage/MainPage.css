@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 30vh;
+  width: 40%;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -21,7 +22,7 @@
 }
 
 .form-container {
-  width: 45%;
+  width: 20%;
 }
 
 .toggle-button-container {
@@ -39,7 +40,6 @@
   }
   
   .background-image {
-    /* position: absolute; */
     top: 0;
     left: 0;
     width: 20%;
@@ -47,13 +47,13 @@
     object-fit: cover;
   }
 
-  h1{
+  #mainWelcome {
     font-size: 50px;
     color: rgb(73, 4, 82);
     text-align: center;
   }
 
-  h2{
+  #mainModal {
     font-size: 30px;
     color: rgb(73, 4, 82);
     text-align: center;

@@ -74,8 +74,8 @@ const MainPage = () => {
   return (
     <div>
     <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
-      <h1>Welcome to VelvetVenues</h1>
-      <h2 onClick={openModal} style={{ cursor: 'pointer' }}>Please click here to "Discover Luxury, Your Way"</h2>
+      <h1 id= 'mainWelcome'>Welcome to VelvetVenues</h1>
+      <h2 id= 'mainModal' onClick={openModal} style={{ cursor: 'pointer' }}>Click here to "Discover Luxury, Your Way"</h2>
     
     <div className="main-content">
       {currentImageIndexes.map((imageIndex, index) => (
