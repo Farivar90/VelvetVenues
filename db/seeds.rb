@@ -6,18 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!(
-    id: 123456789,
-  email: 'user1@example.com',
-  username: 'user1',
-  full_name: 'User One',
-  password: 'Password!123'
+# db/seeds.rb
+
+demo_user = User.create!(
+  email: 'demo@example.com',
+  username: 'demo_user',
+  full_name: 'Demo User',
+  password: 'Password!123',
+  session_token: SecureRandom.base64(64)
 )
 
-User.create!(
-    id: 234567890,
-  email: 'user2@example.com',
-  username: 'user2',
-  full_name: 'User Two',
-  password: 'secret456'
-)
+puts "Demo user created with email: #{demo_user.email}"

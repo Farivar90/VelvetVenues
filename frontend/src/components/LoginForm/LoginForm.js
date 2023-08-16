@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+// LoginForm.js
+
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import csrfFetch from '../../store/csrf';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +10,6 @@ const LoginForm = () => {
     credential: '',
     password: ''
   });
-  const [errorMessage, setErrorMessage] = useState(null);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -29,18 +30,18 @@ const LoginForm = () => {
         dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
         history.push(`/users/${user.id}`);
       } else {
-        setErrorMessage('Invalid credentials. Please try again.');
+        // Handle login failure
       }
     } catch (error) {
-      setErrorMessage('An error occurred. Please try again later.');
+      // Handle error
     }
   };
 
   const handleLoginDemoUser = async () => {
-    setFormData({
-      credential: 'user1', 
+    const demoFormData = {
+      credential: 'demo_user',
       password: 'Password!123'
-    });
+    };
 
     try {
       const response = await csrfFetch('/api/session', {
@@ -48,7 +49,7 @@ const LoginForm = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(demoFormData)
       });
 
       if (response.ok) {
@@ -56,10 +57,10 @@ const LoginForm = () => {
         dispatch({ type: 'LOGIN_SUCCESS', payload: user.session_token });
         history.push(`/users/${user.id}`);
       } else {
-        setErrorMessage('Demo user login failed.');
+        // Handle demo user login failure
       }
     } catch (error) {
-      setErrorMessage(error);
+      // Handle error
     }
   };
 
@@ -88,7 +89,7 @@ const LoginForm = () => {
       <button type="button" onClick={handleLoginDemoUser}>
         Login Demo User
       </button>
-      {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+      {/* ... Display error message ... */}
     </form>
   );
 };
