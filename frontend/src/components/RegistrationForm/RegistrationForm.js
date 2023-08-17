@@ -20,7 +20,11 @@ const RegistrationForm = () => {
   const [usernameError, setUsernameError] = useState(''); 
   const [apiError, setApiError] = useState(''); 
   const [showPasswordRequirements, setShowPasswordRequirements] = useState(false);
-
+  const [reEnteredPassword, setReEnteredPassword] = useState('');
+  const [reEnteredPasswordError, setReEnteredPasswordError] = useState('');
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -55,6 +59,8 @@ const RegistrationForm = () => {
     setInvitationError('');
     setEmailError('');
     setPasswordError('');
+    setReEnteredPasswordError('');
+
 
     if (!isValidEmail(formData.email)) {
       setEmailError('Invalid email format');
@@ -75,6 +81,18 @@ const RegistrationForm = () => {
       setInvitationError('Invalid Username');
       return;
     }
+
+    if (formData.password !== reEnteredPassword) {
+      setReEnteredPasswordError('Passwords do not match');
+      return;
+    }
+
+    if (!acceptedTerms) {
+      setApiError('You must accept the Terms of Use before registering.');
+      return;
+    }
+
+  
 
     try {
       const response = await csrfFetch('/api/users', {
@@ -99,32 +117,61 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className='rl-form' onSubmit={handleSubmit}>
+      <div className='rl-div' >
         <label htmlFor="username">Username</label>
-        <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+        <input className='rl-input' type="text" name="username" placeholder="Enter your username" value={formData.username} onChange={handleInputChange} />
         {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
       </div>
-      <div>
+      <div className='rl-div' >
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+        <input className='rl-input' type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleInputChange} />
         {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
       </div>
-      <div>
+      <div className='rl-div' >
         <label htmlFor="fullName">Full Name (Optional)</label>
-        <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} />
+        <input className='rl-input' type="text" name="fullName" placeholder="Enter your name (optional)" value={formData.fullName} onChange={handleInputChange} />
       </div>
-      <div>
+      <div className='rl-div' >
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" value={formData.password} onChange={handleInputChange} onFocus={handlePasswordInputFocus} onBlur={handlePasswordInputBlur} />
+        <input className='rl-input' type="password" name="password" placeholder="Enter your password" value={formData.password} onChange={handleInputChange} onFocus={handlePasswordInputFocus} onBlur={handlePasswordInputBlur} />
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
       </div>
-      <div>
+      <div className='rl-div' >
+        <label htmlFor="reEnterPassword">Re-enter Password</label>
+          <input className='rl-input'
+            type="password" 
+            name="reEnterPassword" 
+            placeholder="Re-enter your password"
+            value={reEnteredPassword} 
+            onChange={(e) => setReEnteredPassword(e.target.value)} 
+            />
+          {reEnteredPasswordError && <p style={{ color: 'red' }}>{reEnteredPasswordError}</p>}
+      </div>
+      <div className='rl-div' >
         <label htmlFor="invitationCode">Invitation Code</label>
-        <input type="text" name="invitationCode" value={formData.invitationCode} onChange={handleInputChange} />
+        <input className='rl-input' type="text" name="invitationCode" placeholder="You must have an invitation code" value={formData.invitationCode} onChange={handleInputChange} />
         {invitationError && <p style={{ color: 'red' }}>{invitationError}</p>}
       </div>
-      <button type="submit">Register</button>
+      <div className='rl-div' >
+        <input className='rl-input'
+          type="checkbox" 
+          id="termsCheckbox" 
+          checked={acceptedTerms} 
+         onChange={(e) => setAcceptedTerms(e.target.checked)} 
+      />
+    <label htmlFor="termsCheckbox"> 
+        By signing in, I accept the 
+        <span 
+            style={{ color: 'white', textDecoration: 'underline', cursor: 'pointer' }} 
+            onClick={() => setShowTermsModal(true)}
+        >
+            Terms of Use
+        </span>
+    </label>
+</div>
+
+      <button  className='rl-button' type="submit">Register</button>
       {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
       {showPasswordRequirements && (
         <div className="password-requirements">
@@ -137,6 +184,22 @@ const RegistrationForm = () => {
           </p>
         </div>
         )}
+      {showTermsModal && (
+        <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'white',
+            padding: '20px',
+            zIndex: 1000
+        }}>
+            <h2>Terms of Use</h2>
+            <p>t </p>
+            <button onClick={() => setShowTermsModal(false)}>Close</button>
+        </div>
+    )}
+    
     </form>
   );
 };

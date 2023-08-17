@@ -102,10 +102,10 @@ const MainPage = () => {
   <Modal id= "main-modal" isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Login Modal">
     <div className="background-overlay">
       <div className="form-container">
-        <h2>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
+        <h2 id='rl-head'>{activeForm === 'login' ? 'Login' : 'Register'}</h2>
         {activeForm === 'login' ? <LoginForm /> : <RegistrationForm />}
         <div className="toggle-button-container">
-          <button onClick={toggleForm}>
+          <button className='rl-button' onClick={toggleForm}>
             {activeForm === 'login' ? 'Don`t have an account? Please Register' : 'Already have an account? Login'}
           </button>
         </div>

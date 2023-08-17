@@ -78,10 +78,10 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="credential">Email or Username</label>
-        <input
+    <form className='rl-form' onSubmit={handleSubmit}>
+      <div className='rl-div'>
+        <label className='rl-label' htmlFor="credential">Email or Username</label>
+        <input className='rl-input'
           type="text"
           name="credential"
           placeholder="Enter your email or username"
@@ -89,17 +89,18 @@ const LoginForm = () => {
           onChange={(e) => setFormData({ ...formData, credential: e.target.value })}
         />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
+      <div className='rl-div'>
+        <label className='login-label' htmlFor="password">Password</label>
+        <input className='rl-input'
           type="password"
           name="password"
+          placeholder="Enter your password"
           value={formData.password}
           onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         />
       </div>
-      <button type="submit">Login</button>
-      <button type="button" onClick={handleLoginDemoUser}>
+      <button className='rl-button' id='login-button' type="submit">Login</button>
+      <button className='rl-button' id='demo-login-button' type="button" onClick={handleLoginDemoUser}>
         Login Demo User
       </button>
       {error && <div style={{ color: 'red' }} className="error">{error}</div>}
