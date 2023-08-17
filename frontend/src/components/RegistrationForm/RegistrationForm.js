@@ -59,6 +59,7 @@ const RegistrationForm = () => {
 
     setInvitationError('');
     setEmailError('');
+    setUsernameError('');
     setPasswordError('');
     setReEnteredPasswordError('');
     setError(null);
