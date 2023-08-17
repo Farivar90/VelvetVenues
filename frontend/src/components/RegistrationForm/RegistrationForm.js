@@ -185,20 +185,71 @@ const RegistrationForm = () => {
         </div>
         )}
       {showTermsModal && (
-        <div style={{
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            backgroundColor: 'white',
-            padding: '20px',
-            zIndex: 1000
-        }}>
-            <h2>Terms of Use</h2>
-            <p>t </p>
-            <button onClick={() => setShowTermsModal(false)}>Close</button>
+        <div className='terms-modal'>
+          <div className='terms-content'>
+            <h2 className='terms-heading' >VelvetVenues Terms of Use </h2>
+            <div className='terms-text'>
+              <p> <br /><br /><br />
+             
+Last updated: August 16, 2023 <br /><br /><br />
+
+
+Welcome to VelvetVenues<br />
+Step into the digital realm where opulence meets elegance. Before you immerse yourself in our luxury listings, please take a moment to acquaint yourself with our terms of use.
+<br /><br />
+By accessing or using our platform, you are agreeing to the terms outlined below. If you do not agree, kindly refrain from using the platform.
+<br /><br />
+Acceptance of Terms<br />
+Your access to and use of VelvetVenues confirms your agreement to be bound by these terms.
+<br /><br />
+Eligibility<br />
+To use our services, you must be at least 18 years old. By using VelvetVenues, you confirm that you are of legal age and have the capacity to form a binding contract.
+<br /><br />
+Account Security<br />
+The security of your login credentials is your responsibility. Any activity conducted under your account will be attributed to you.
+<br /><br />
+Usage Authorization<br />
+VelvetVenues is exclusively accessible through invitation codes. Utilizing someone else's invitation code for registration, especially for fraudulent purposes, may lead to charges of misdemeanor or felony.
+<br /><br />
+Intellectual Property<br />
+All content, branding, and interfaces within VelvetVenues are the property of F.A. Imperial Estates and are safeguarded by copyright laws. Any unauthorized use, reproduction, or dissemination is strictly prohibited.
+<br /><br />
+Property Listings<br />
+Every property listing on VelvetVenues must meet our minimum price guidelines. Listings not meeting our standards may be removed without prior notice.
+<br /><br />
+User Interactions<br />
+You are solely responsible for your interactions with other users. VelvetVenues will not be held responsible for disputes or disagreements between users.
+<br /><br />
+Limitation of Liability<br />
+VelvetVenues provides a platform for luxury property listings but does not guarantee the accuracy, completeness, or reliability of any content on the platform. VelvetVenues will not be liable for any losses or damages incurred due to reliance on platform content.
+<br /><br />
+Privacy<br />
+We highly value your privacy. Detailed information on how we collect, use, and protect your data is available in our privacy policy.
+<br /><br />
+Modifications<br />
+VelvetVenues reserves the right to amend these terms of use at any time. Continued use of the platform after changes indicates your agreement to the modified terms.
+<br /><br />
+
+ Termination <br />
+We retain the right to suspend or terminate your account if you violate any of our terms.
+<br />
+<br />
+Dispute Resolution<br />
+Any disputes arising from your use of VelvetVenues will be governed by the laws of the jurisdiction in which VelvetVenues is based, without regard to conflict of law provisions.
+<br /><br />
+Contact Us<br />
+For inquiries or concerns about these terms, please don't hesitate to reach out to us.
+<br /><br />
+By proceeding, you acknowledge and accept these terms, ensuring a seamless and luxurious experience for all VelvetVenues members. Remember, luxury thrives on respect—please use our platform responsibly.
+<br /><br /><br />
+© 2023 by F.A. Imperial Estates.<br />
+ All rights reserved.
+            </p>
+            </div>
+            <button className='terms-close-btn' onClick={() => setShowTermsModal(false)}>Close</button>
+          </div>
         </div>
-    )}
+      )}
     
     </form>
   );

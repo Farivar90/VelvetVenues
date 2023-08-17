@@ -39,7 +39,12 @@ const LoginForm = () => {
         setError(errorData.errors || errorData);
       }
     } catch (error) {
-      setError("An error occurred. Please try again.", error)
+      if (error.response) {
+        const errorData = await error.response.json();
+        setError(errorData.errors || "An error occurred. Please try again.");
+      } else {
+        setError('The provided credentials were invalid.');
+      }
     }
   };
   
@@ -73,8 +78,13 @@ const LoginForm = () => {
         console.error(errorData);
       }
     } catch (error) {
-      console.log(error)
-      setError("An error occurred. Please try again.");
+      if (error.response) {
+        const errorData = await error.response.json();
+        setError(errorData.errors || "An error occurred. Please try again.");
+        console.error(errorData);
+      } else {
+        setError("An error occurred. Please try again.");
+      }
     }
   };
 
