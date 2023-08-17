@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import UsersPage from './components/UsersPage/UsersPage';
 import HeadNav from './components/HeadNav/HeadNav';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 const App = () => {
   // const location = useLocation();
@@ -19,6 +20,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/users/:userId" component={UsersPage} />
+        <Redirect to="/"/>
       </Switch>
     </Router>
   );

@@ -73,6 +73,7 @@ const LoginForm = () => {
         console.error(errorData);
       }
     } catch (error) {
+      console.log(error)
       setError("An error occurred. Please try again.");
     }
   };
