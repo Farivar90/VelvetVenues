@@ -24,7 +24,8 @@ const RegistrationForm = () => {
   const [reEnteredPasswordError, setReEnteredPasswordError] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
-  
+  const [error, setError] = useState(null);
+
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -60,6 +61,7 @@ const RegistrationForm = () => {
     setEmailError('');
     setPasswordError('');
     setReEnteredPasswordError('');
+    setError(null);
 
 
     if (!isValidEmail(formData.email)) {
@@ -105,14 +107,28 @@ const RegistrationForm = () => {
 
       if (response.ok) {
         const user = await response.json();
+        console.log(user.id, 'ui')
         dispatch({ type: 'session/setCurrentUser', payload: user.id});
         history.push(`/users/${user.id}`);
       } else {
-        const errorData = await response.json();
         console.error('Registration error:', errorData);
+        setError(errorData.errors || "An error occurred. Please try again.");
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (jsonError) {
+          errorData = "An error occurred. Please try again.";
+        }
+        setError(errorData.errors || errorData);
       }
     } catch (error) {
-      console.error('Registration error:', error);
+      if (error.response) {
+        const errorData = await error.response.json();
+        setError(errorData.errors || "An error occurred. Please try again.");
+        console.error(errorData);
+      } else {
+        setError("Username or Email exist!");
+      }
     }
   };
 
@@ -173,6 +189,7 @@ const RegistrationForm = () => {
 
       <button  className='rl-button' type="submit">Register</button>
       {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
+      {error && <div style={{ color: 'red' }} className="error">{error}</div>}
       {showPasswordRequirements && (
         <div className="password-requirements">
           <p>
