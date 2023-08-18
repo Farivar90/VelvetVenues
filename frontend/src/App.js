@@ -8,11 +8,6 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import'./App.css';
 
 const App = () => {
-  // const location = useLocation();
-
-  // Check if the current path is not the main page
-  // const isMainPage = location.pathname === '/';
-  // {isMainPage ? null : <HeadNav />}
   
   return (
     <Router>
