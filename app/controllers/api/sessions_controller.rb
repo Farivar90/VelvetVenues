@@ -1,6 +1,5 @@
 class Api::SessionsController < ApplicationController
 
-  before_action :require_logged_in, only: [:destroy]
   
   def show
     if current_user

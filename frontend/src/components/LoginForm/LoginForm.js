@@ -28,7 +28,7 @@ const LoginForm = () => {
       if (response.ok) {
         const user = await response.json();
         dispatch({ type: 'session/setCurrentUser', payload: user.id});
-        history.push(`/users/${user.id}`);
+        history.push(`/listings`);
       } else {
         let errorData;
         try {
@@ -66,7 +66,7 @@ const LoginForm = () => {
       if (response.ok) {
         const user = await response.json();
         dispatch({ type: 'session/setCurrentUser', payload: user.id });
-        history.push(`/users/${user.id}`);
+        history.push(`/listings`);
       } else {
         let errorData;
         try {

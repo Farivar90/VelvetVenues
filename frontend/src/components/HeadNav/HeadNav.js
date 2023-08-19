@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HeadNav.css';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 
 const HeadNav = () => {
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user);
+
 
   const handleLogout = () => {
     dispatch(sessionActions.logout());
@@ -21,7 +24,7 @@ const HeadNav = () => {
           <span></span>
         </label>
 
-        <Link to="/" className="menu-logo">
+        <Link to="/listings" className="menu-logo">
           <img src="/resfiles/navlogo.png" alt="navlogo" />
         </Link>
 
@@ -31,15 +34,15 @@ const HeadNav = () => {
               <Link to="/listings">Properties</Link>
             </li>
             <li>
-              <Link to="">Favorites</Link>
+              <Link to="/favorites">Favorites</Link>
             </li>
             <li>
-              <Link to="">Search</Link>
+              <Link to="/search">Search</Link>
             </li>
           </ul>
           <ul>
             <li>
-              <Link to="">Profile</Link>
+              <Link to={`/users/${currentUser}`}>Profile</Link>
             </li>
             <li className="menu li">
             <a className="menu-container a" onClick={handleLogout}>Logout</a>

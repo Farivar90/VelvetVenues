@@ -54,16 +54,25 @@ const RegistrationForm = () => {
     return passwordRegex.test(password);
   };
 
+  const isValidUsername = username =>{
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
+    return usernameRegex.test(username);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setInvitationError('');
     setUsernameError('');
+    setInvitationError('');
     setEmailError('');
     setPasswordError('');
     setReEnteredPasswordError('');
     setError(null);
 
+    if (!isValidUsername(formData.username)) {
+      setUsernameError('Invalid username format');
+      return;
+    }
 
     if (!isValidEmail(formData.email)) {
       setEmailError('Invalid email format');
@@ -80,10 +89,6 @@ const RegistrationForm = () => {
       return;
     }
 
-    if (formData.username.trim().length < 1) {
-      setInvitationError('Invalid Username');
-      return;
-    }
 
     if (formData.password !== reEnteredPassword) {
       setReEnteredPasswordError('Passwords do not match');
@@ -110,11 +115,10 @@ const RegistrationForm = () => {
         const user = await response.json();
         console.log(user.id, 'ui')
         dispatch({ type: 'session/setCurrentUser', payload: user.id});
-        history.push(`/users/${user.id}`);
+        history.push(`/listings`);
       } else {
-        console.error('Registration error:', errorData);
-        setError(errorData.errors || "An error occurred. Please try again.");
         let errorData;
+        setError(errorData.errors || "An error occurred. Please try again.");
         try {
           errorData = await response.json();
         } catch (jsonError) {

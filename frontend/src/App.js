@@ -6,6 +6,8 @@ import HeadNav from './components/HeadNav/HeadNav';
 import Listings from './components/Listings/Listings';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import'./App.css';
+import Favorites from './components/Favorites/Favorites';
+import Search from './components/Search/Search';
 
 const App = () => {
   
@@ -17,7 +19,10 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/listings" component={Listings} />
+        {/* <Route path="/listings/:listingId" component={ListingDetail} /> */}
         <Route path="/users/:userId" component={UsersPage} />
+        <Route path="/favorites" component={Favorites} />
+        <Route path="/search" component={Search} />
         <Redirect to="/"/>
       </Switch>
       <footer id="footer">

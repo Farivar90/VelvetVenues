@@ -19,3 +19,40 @@ demo_user = User.create!(
 )
 
 puts "Demo user created with email: #{demo_user.email}"
+
+
+Amenity.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('amenities')
+
+amenities = [
+  "Swimming Pool",
+  "Home Theater",
+  "Spa and Wellness Area",
+  "Wine Cellar",
+  "Home Automation System",
+  "Outdoor Entertainment Area",
+  "Private Gym",
+  "Private Spa",
+  "Elevator",
+  "Landscaped Gardens",
+  "Guest House",
+  "Home Office",
+  "Chef's Kitchen",
+  "Outdoor Pool House",
+  "Tennis Court",
+  "Art Gallery or Display Space",
+  "Greenhouse",
+  "Library",
+  "Smart Security System",
+  "Waterfront Access"
+]
+
+amenities.each do |amenity_name|
+  Amenity.create!(amenity: amenity_name)
+end
+
+puts "Amenities seeded successfully!"
+
+
+
+
