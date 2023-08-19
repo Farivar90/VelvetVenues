@@ -1,4 +1,4 @@
-class Api::Listing < ApplicationRecord
+class Listing < ApplicationRecord
     has_many :listings_amenities
     belongs_to :user
     has_many :amenities,
