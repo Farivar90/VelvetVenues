@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import csrfFetch from '../../store/csrf';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './RegistrationForm.css';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,12 @@ const RegistrationForm = () => {
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [error, setError] = useState(null);
   const [apiError, setApiError] = useState(''); 
-
+  const [lowercaseRequirementMet, setLowercaseRequirementMet] = useState(false);
+  const [uppercaseRequirementMet, setUppercaseRequirementMet] = useState(false);
+  const [numericRequirementMet, setNumericRequirementMet] = useState(false);
+  const [specialCharRequirementMet, setSpecialCharRequirementMet] = useState(false);
+  const [lengthRequirementMet, setLengthRequirementMet] = useState(false);
+  
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -51,8 +57,17 @@ const RegistrationForm = () => {
 
   const isValidPassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#])(?=.{8,})/;
-    return passwordRegex.test(password);
+    const isValid = passwordRegex.test(password);
+  
+    setLowercaseRequirementMet(/[a-z]/.test(password));
+    setUppercaseRequirementMet(/[A-Z]/.test(password));
+    setNumericRequirementMet(/[0-9]/.test(password));
+    setSpecialCharRequirementMet(/[!@#]/.test(password));
+    setLengthRequirementMet(password.length >= 6);
+
+    return isValid;
   };
+  
 
   const isValidUsername = username =>{
     const usernameRegex = /^[a-zA-Z0-9]+$/;
@@ -196,16 +211,17 @@ const RegistrationForm = () => {
       {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
       {error && <div style={{ color: 'red' }} className="error">{error}</div>}
       {showPasswordRequirements && (
-        <div className="password-requirements">
-          <p>
-            * The password must contain at least one lowercase alphabetical character.<br />
-            * The password must contain at least one uppercase alphabetical character.<br />
-            * The password must contain at least one numeric character.<br />
-            * The password must contain at least one special character from the set !@#.<br />
-            * The password must be at least 8 characters long.
-          </p>
-        </div>
-        )}
+      <div className="password-requirements">
+      <p>
+      * <span className={lowercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one lowercase alphabetical character.</span><br />
+      * <span className={uppercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one uppercase alphabetical character.</span><br />
+      * <span className={numericRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one numeric character.</span><br />
+      * <span className={specialCharRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one special character from the set !@#.</span><br />
+      * <span className={lengthRequirementMet ? 'requirement-met' : 'requirement'}>The password must be at least 6 characters long.</span>
+       </p>
+      </div>
+      )}
+
       {showTermsModal && (
         <div className='terms-modal'>
           <div className='terms-content'>
