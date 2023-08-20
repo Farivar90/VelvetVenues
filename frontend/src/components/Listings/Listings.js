@@ -1,6 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import listingsReducer, { setListings } from '../../store/listingsReducer';
+import './Listings.css';
 
 function ListingsPage() {
   const [state, dispatch] = useReducer(listingsReducer, []);
@@ -20,13 +22,12 @@ function ListingsPage() {
   }, []);
 
   return (
-    <div>
-      {state.map(listing => (
-        <div key={listing.id}>
+    <div className="listings-container">
+      {state.map((listing) => (
+        <Link to={`/listings/${listing.id}`} key={listing.id} className="listing-card">
           <h2>{listing.location}</h2>
-          <p>Price: ${listing.price}</p>
-          {/* Display other property details */}
-        </div>
+          <p className="price">${listing.price}</p>
+        </Link>
       ))}
     </div>
   );

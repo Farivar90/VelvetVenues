@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import'./App.css';
 import Favorites from './components/Favorites/Favorites';
 import Search from './components/Search/Search';
+import ListingDetailsPage from './components/Listings/ListingDetailsPage';
 
 const App = () => {
   
@@ -18,11 +19,11 @@ const App = () => {
       )}/>
       <Switch>
         <Route exact path="/" component={MainPage} />
-        <Route path="/listings" component={Listings} />
-        {/* <Route path="/listings/:listingId" component={ListingDetail} /> */}
-        <Route path="/users/:userId" component={UsersPage} />
-        <Route path="/favorites" component={Favorites} />
-        <Route path="/search" component={Search} />
+        <Route exact path="/listings" component={Listings} />
+        <Route exact path="/listings/:id" component={ListingDetailsPage} />
+        <Route exact path="/users/:userId" component={UsersPage} />
+        <Route exact path="/favorites" component={Favorites} />
+        <Route exact path="/search" component={Search} />
         <Redirect to="/"/>
       </Switch>
       <footer id="footer">
