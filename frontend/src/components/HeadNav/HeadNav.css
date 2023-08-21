@@ -41,6 +41,41 @@ body {
   -webkit-touch-callout: none;
 }
 
+/* Hide the submenu by default */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #f2efef;
+  padding: 10px;
+  z-index: 10;
+}
+
+/* Display the submenu when hovering over the "Properties" link */
+.menu li:hover .submenu {
+  display: block;
+}
+
+
+/* Add styling to the submenu links */
+.submenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.submenu a {
+  color: #331c52;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  color: #f2c6b4;
+}
+
+
 /* Burger menu */
 .menu-container span {
   display: block;

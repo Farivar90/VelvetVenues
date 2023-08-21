@@ -1,0 +1,42 @@
+
+  #listing-detail-page .loading {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+  
+  .listing-detail-container {
+    width: 80%;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .price {
+    color: #0074e4;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin: 15px 0;
+  }
+  
+  .contact-info, .posted-by {
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .amenities-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .amenity-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  

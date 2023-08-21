@@ -9,6 +9,7 @@ import'./App.css';
 import Favorites from './components/Favorites/Favorites';
 import Search from './components/Search/Search';
 import ListingDetailsPage from './components/Listings/ListingDetailsPage';
+import CreateListingPage from './components/Listings/CreateListing';
 
 const App = () => {
   
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path="/" component={MainPage} />
         <Route exact path="/listings" component={Listings} />
         <Route exact path="/listings/:id" component={ListingDetailsPage} />
+        <Route path="/create-listing" component={CreateListingPage} />
         <Route exact path="/users/:userId" component={UsersPage} />
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/search" component={Search} />

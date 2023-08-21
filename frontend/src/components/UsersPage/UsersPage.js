@@ -9,7 +9,6 @@ const UsersPage = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetch user information when the component mounts
     axios.get(`/api/users/${userId}`)
       .then(response => {
         setUser(response.data);
@@ -22,7 +21,7 @@ const UsersPage = () => {
   if (!currentUser) {
     return <Redirect to={`/`} />;
   }
-console.log(user);
+
   return (
     <div>
       Logged in as user with ID: {currentUser}.
@@ -35,6 +34,9 @@ console.log(user);
           <p>Full Name: {user.fullName}</p>
           <p>Created At: {user.createdAt}</p>
           <p>Updated At: {user.updatedAt}</p>
+          <div>
+            <img src={user.photo.imageUrl} alt={`${user.fullName}'s profile`} style={{width: "200px"}} />
+          </div>
         </div>
       )}
     </div>

@@ -5,15 +5,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
-
 const HeadNav = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
 
-
   const handleLogout = () => {
     dispatch(sessionActions.logout());
   };
+
   return (
     <div className="headnav">
       <nav className="menu-container">
@@ -32,6 +31,16 @@ const HeadNav = () => {
           <ul>
             <li>
               <Link to="/listings">Properties</Link>
+              <div className="submenu">
+                <ul>
+                  <li>
+                    <Link to="/listings">Buy</Link>
+                  </li>
+                  <li>
+                    <Link to="/create-listing">Sell</Link>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
               <Link to="/favorites">Favorites</Link>
@@ -45,7 +54,9 @@ const HeadNav = () => {
               <Link to={`/users/${currentUser}`}>Profile</Link>
             </li>
             <li className="menu li">
-            <a className="menu-container a" onClick={handleLogout}>Logout</a>
+              <a className="menu-container a" onClick={handleLogout}>
+                Logout
+              </a>
             </li>
           </ul>
         </div>

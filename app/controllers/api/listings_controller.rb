@@ -23,6 +23,10 @@ class Api::ListingsController < ApplicationController
         end
     end
 
+    def edit
+        @listing = Listing.find(params[:id])
+    end
+
     def update
         @listing = Listing.find(params[:id])
         if @listing.update(listing_params)

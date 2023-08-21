@@ -22,6 +22,11 @@ demo_user = User.create!(
   full_name: 'Shamim Amiri',
   password: 'Password!123',
 )
+
+demo_user.photo.attach(
+  io: File.open('app/assets/images/1-shamim-amiri.jpg'),
+  filename: '1-shamim-amiri.jpg',
+)
   
 puts "Demo user created with email: #{demo_user.email}"
   
@@ -32,6 +37,11 @@ user1 =  User.create!(
   full_name: "John Doe",
   password: "Password!223",
 )
+
+user1.photo.attach(
+  io: File.open('app/assets/images/2-john-doe.jpg'),
+  filename: '2-john-doe.jpg'
+)
   
 realtor2 = User.create!(
   email: "realtor2@example.com",
@@ -39,12 +49,22 @@ realtor2 = User.create!(
   full_name: "Jane Smith",
   password: "Password!323",
 )
+
+realtor2.photo.attach(
+  io: File.open('app/assets/images/3-jane-smith.jpg'),
+  filename: '3-jane-smith.jpg'
+)
   
 realtor3 = User.create!(
   email: "realtor3@example.com",
   username: "realtor3",
   full_name: "Michael Johanson",
   password: "Password!123",
+)
+
+realtor3.photo.attach(
+  io: File.open('app/assets/images/4-Michael Johanson.jpg'),
+  filename: '4-michael-johanson.jpg'
 )
   
 realtor4 = User.create!(
@@ -54,11 +74,21 @@ realtor4 = User.create!(
   password: "Password!123",
 )
 
+realtor4.photo.attach(
+  io: File.open('app/assets/images/5-Emily Brown.jpg'),
+  filename: '5-emily-brown.jpg'
+)
+
 realtor5 = User.create!(
   email: "realtor5@example.com",
   username: "realtor5",
   full_name: "William Wilson",
   password: "Password!123",
+)
+
+realtor5.photo.attach(
+  io: File.open('app/assets/images/6-William Wilson.jpg'),
+  filename: '6-william-wilson.jpg'
 )
 
 user6 = User.create!(
@@ -68,11 +98,21 @@ user6 = User.create!(
   password: "Password!123",
 )
 
+user6.photo.attach(
+  io: File.open('app/assets/images/7-Grace Thompson.jpg'),
+  filename: '7-grace-thompson.jpg'
+)
+
 user7 = User.create!(
   email: "mrlucky@example.com",
   username: "lucky",
   full_name: "Lucas Rodriguez",
   password: "Password!123",
+)
+
+user7.photo.attach(
+  io: File.open('app/assets/images/8-Lucas Rodriguez.jpg'),
+  filename: '8-lucas-rodriguez.jpg'
 )
 
 user8 = User.create!(
@@ -82,11 +122,21 @@ user8 = User.create!(
   password: "Password!123",
 )
 
+user8.photo.attach(
+  io: File.open('app/assets/images/9-Emily Harris.jpg'),
+  filename: '9-emily-harris.jpg'
+)
+
 user9 = User.create!(
   email: "miakh@example.com",
   username: "khaj",
   full_name: "Mia Khaj",
   password: "Password!123",
+)
+
+user9.photo.attach(
+  io: File.open('app/assets/images/10-Mia Khaj.jpg'),
+  filename: '10-mia-khaj.jpg'
 )
 
 user10 = User.create!(
@@ -96,11 +146,21 @@ user10 = User.create!(
   password: "Password!123",
 )
 
+user10.photo.attach(
+  io: File.open('app/assets/images/11-Noah Martinez.jpg'),
+  filename: '11-noah-martinez.jpg'
+)
+
 user11 = User.create!(
   email: "piere@example.com",
   username: "mromidyar",
   full_name: "Pierre Morad Omidyar",
   password: "Password!123",
+)
+
+user11.photo.attach(
+  io: File.open('app/assets/images/12-Pierre Morad Omidyar.jpg'),
+  filename: '12-pierre-morad-omidyar.jpg'
 )
 
 user12 = User.create!(
@@ -110,11 +170,21 @@ user12 = User.create!(
   password: "Password!123",
 )
 
+user12.photo.attach(
+  io: File.open('app/assets/images/13-Isabella Carter.jpg'),
+  filename: '13-isabella-carter.jpg'
+)
+
 user13 = User.create!(
   email: "snowwhite@example.com",
   username: "eth",
   full_name: "Ethan White",
   password: "Password!123",
+)
+
+user13.photo.attach(
+  io: File.open('app/assets/images/14-Ethan White.jpg'),
+  filename: '14-ethan-white.jpg'
 )
 
 user14 = User.create!(
@@ -124,6 +194,11 @@ user14 = User.create!(
   password: "Password!123",
 )
 
+user14.photo.attach(
+  io: File.open('app/assets/images/15-Sophia Allen.jpg'),
+  filename: '15-sophia-allen.jpg'
+)
+
 user15 = User.create!(
   email: "msram@example.com",
   username: "ramdokht",
@@ -131,11 +206,45 @@ user15 = User.create!(
   password: "Password!123",
 )
 
+user15.photo.attach(
+  io: File.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+  filename: '16-ramdokht-hakhamaneshi.jpg'
+)
+
 user16 = User.create!(
-  email: "azalia@example.com",
-  username: "azalia",
-  full_name: "Azalia Hakhamaneshi",
+  email: "artemis@example.com",
+  username: "artemis",
+  full_name: "Artemis Hakhamaneshi",
   password: "Password!123",
+)
+
+user16.photo.attach(
+  io: File.open('app/assets/images/17-Artemis Hakhamaneshi.jpg'),
+  filename: '17-artemis-hakhamaneshi.jpg'
+)
+
+user17 = User.create!(
+  email: "sanazghafari@example.com",
+  username: "sanny",
+  full_name: "Sanaz Ghafari",
+  password: "Password!123",
+)
+
+user17.photo.attach(
+  io: File.open('app/assets/images/18-Sanaz Ghafari.jpg'),
+  filename: '18-sanaz-ghafari.jpg'
+)
+
+user18 = User.create!(
+  email: "liu@example.com",
+  username: "crystalll",
+  full_name: "Crystal Liu",
+  password: "Password!123",
+)
+
+user18.photo.attach(
+  io: File.open('app/assets/images/19-Crystal Liu.jpg'),
+  filename: '19-crystal-liu.jpg'
 )
 
 puts "Users created"
@@ -433,169 +542,191 @@ list13 = Listing.create!(
   contact_info: "call Mike"
 )
 
-# list14 = Listing.create!(
-#   user_id: 4,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "call Mike"
-# )
+list14 = Listing.create!(
+  user_id: 4,
+  price: 21500000,
+  lot_size: 20,
+  living_area: 15394,
+  location: "Austin, TX, United States",
+  longitude: -97.743061,
+  latitude: 30.267153,
+  bedrooms: 6,
+  full_baths: 7,
+  half_baths: 6,
+  garage: 20,
+  built: 2004,
+  description: "'Villa Del Lago' is a uniquely magnificent estate situated on 20+ hillside acres of prime south shore lakefront property boasting unobstructed and panoramic elevated views of Lake Travis. Close to the main house a dramatic pavilion with fireplace, two bars, and two baths, sits exclusively on a hillside hollow with captivating, breath-taking views of the lake and big Texas sunsets – a perfect venue for special events. Meticulously designed and professionally landscaped lawns and gardens feature native plants, trees, shrubs, in addition to extensive seasonal plantings, all accented with comprehensive landscaping lighting. Elegant and striking grotto with multiple dramatic cascading waterfalls is carved into the canyon hillside, along with stone staircases, bridge, and fish pond, all naturally blended into the hillside between main house and pavilion.
 
-# list15 = Listing.create!(
-#   user_id: 4,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "call Mike"
-# )
+  With lake views from nearly every room, the main house of nearly 15,400 square feet, features 6 bedrooms, 13 baths, 5 fireplaces, media room, home theater, library, hearth/formal living room, formal dining, wine cellar, and massage room. Gourmet chef’s kitchen features Viking appliances, triple ovens, built-in fridge, and coffee machine, large center island with breakfast bar seating, separate bar island, and high-grade granite and marble counters. Extensive entertainment bar, game room, sitting, and piano area. A large private master suite features steam showers, his & her closets and bathrooms, garden Jacuzzi tub, and walk-out bedroom balcony. 
+  
+  A negative edge pool comes complete with an outdoor bath, slide, hot tub, fire pit, built-in grill, smoker, and mini-fridges.
+  
+  This is truly one of the finest luxury waterfront estates in all of Austin.",
+  contact_info: "call Mike"
+)
 
-# list16 = Listing.create!(
-#   user_id: 4,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "call Mike"
-# )
+list15 = Listing.create!(
+  user_id: 4,
+  price: 20000000,
+  lot_size: 206,
+  living_area: 6191,
+  location: "Washington, NY, United States",
+  longitude: -73.7973,
+  latitude: 41.7469,
+  bedrooms: 4,
+  full_baths: 4,
+  half_baths: 1,
+  garage: 5,
+  built: 1860,
+  description: "Once the property of Andrew Carnegie's only child Margaret Carnegie Miller, this idyllic retreat with an updated 1860's antique main home and French architect-designed stable is sited on 206 secluded and completely unrestricted acres in the heart of Millbrook Hunt Country. Hallmark Farm's rolling hills and ever-changing views of the Catskills, epitomize the area's storied country life - the legendary Millbrook Hunt gallops across this very land! This extraordinary stretch of landscape, minutes from Millbrook Village, offers the ultimate luxury for you and your family: privacy, size and security. Completely renovated and expanded in 2003, the 4 bedroom/4.5 bathroom main house features wide board pine floors, reclaimed from trees cleared on the property. The quintessential pastoral experience includes the dramatic living room with 20 ft. coffered ceilings, wood burning fireplace and transom-topped French doors facing south, west and north. A chef's kitchen and charming breakfast room that faces east for the morning sun. Additionally a FDR with f/p and French doors, a paneled library with f/p, office, and pdr room round out the first floor. Two guest suites with full baths on the 2nd floor, plus primary bedroom encompasses a bathroom, and dressing room. An elevator services 3 floors. The embellished interiors of Hallmark Farm's signature stable were designed by famed French architects Atelier Choiseul and are paneled with European beech, American oak and white pine. The stable includes ten 12' x 12' stalls, feed room, tack room, lounge and a hayloft. Two apartments accommodate farm managers and grooms, and a 3-bay garage, one with a truck and tractor lift. A shingled carriage house offers 3 apts, storage for 5 cars and a greenhouse wing. Paddocks varying in size from 6 to 12 acres, 4 with run-in sheds. Miles of pristine post-and-rail fencing and fields are ideal for healthy horse foraging. The estate's vast acreage includes an apple orchard, pond, multiple trails including a one-mile loop designed by A.E Bye and hunter trial course designed by local equestrian legend Tom Duggan, with ample room for a myriad of recreational pursuits. This is a rare opportunity to own an estate with the provenance and quality of Hallmark Farm. The current owners have enjoyed it for 40 happy years. Don't miss your chance to call this prized equestrian estate your own.",
+  contact_info: "call Mike"
+)
 
-# list17 = Listing.create!(
-#   user_id: 6,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: William"
-# )
+list16 = Listing.create!(
+  user_id: 4,
+  price: 48000000,
+  lot_size: 3387,
+  living_area: 17493,
+  location: "Springville, UT, United States",
+  longitude: -111.610753,
+  latitude: 40.165233,
+  bedrooms: 7,
+  full_baths: 6,
+  half_baths: 3,
+  garage: 8,
+  built: 2007,
+  description: "Hobble Creek Ranch is one of the most magnificent properties in the American West. It offers a truly unique proposition—a stunning estate home with a backyard playground extending over 3,387 acres (over 4.5 miles wide) of spectacular recreational lands. The property has substantial water rights with seven ponds and it controls access to over ten thousand acres of forest service lands. The ranch varies in elevation from 5,700 feet to over 9,100 feet and has extensive roads and trails that provide access throughout the property. Hobble Creek Ranch is ideally suited for cattle and horses, while the big game elk and deer hunting opportunities are incredible. The home is securely positioned behind two gates and is surrounded by nearly twenty beautifully manicured acres. Every element of the home was built to the highest standards, and the finish work and detail are unrivaled. The location is really special. You feel like you are miles and miles away from anyone, yet there is a golf course ten minutes away and a grocery store fifteen minutes away. Hobble Creek Ranch is situated at the end of a paved road in Hobble Creek Canyon, which is about an hour from Salt Lake City and Park City, and about thirty minutes from a private airport. Additional information can be provided to qualified buyers.",
+  contact_info: "call Mike"
+)
 
-# list18 = Listing.create!(
-#   user_id: 6,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: William"
-# )
+list17 = Listing.create!(
+  user_id: 6,
+  price: 70000000,
+  lot_size: 19.78,
+  living_area: 15000,
+  location: "Summerland, CA, United States",
+  longitude: -119.59651,
+  latitude: 34.4213845,
+  bedrooms: 12,
+  full_baths: 15,
+  half_baths: 8,
+  garage: 10,
+  built: 2016,
+  description: "This spectacular 19.78+/- acre estate adjacent to Montecito CA, is one of the grandest properties in North America & an homage to Neoclassism. Extensive luxury living space in its primary residence, guesthouse, & private polo clubhouse suites. The beautiful grounds feature a polo field, butterfly preserve & pond, 15-stall horse stable,128-foot infinity-edge pool, & breathtaking panoramic ocean & mountain views. The primary residence hosts complete formal living & dining rooms, gourmet kitchen, wellness center, nightclub with marble dance floor, sports bar, movie theatre, & 5,000 bottle wine cellar & tasting room. The finest workmanship, materials, & custom fixtures, & unprecedented amenities plus regal yet welcoming living spaces combine to create an unforgettable sanctuary.",
+  contact_info: "Contact: William"
+)
 
-# list19 = Listing.create!(
-#   user_id: 5,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: Emy"
-# )
+list18 = Listing.create!(
+  user_id: 6,
+  price: 22500000,
+  lot_size: 2.42,
+  living_area: 8200,
+  location: "Pebble Beach, CA, United States",
+  longitude: -121.9474556,
+  latitude: 36.5666274,
+  bedrooms: 7,
+  full_baths: 7,
+  half_baths: 1,
+  garage: 4,
+  built: 1991,
+  description: "Positioned on the 12th hole of renowned Pebble Beach Golf Links, The Estate on 12 is a sophisticated, private, and luxurious ocean view property. Its gated, beautifully manicured 2.42-acre parcel is among the largest properties on the course. The estate affords ideal proximity and access to the coveted five-star amenities of the Lodge and \"downtown\" Pebble Beach. Built in a Cape Dutch style with seven bedrooms and seven full and one-half bathrooms with spacious rooms and approximately 8,200 sq ft of vast living spaces, delivering the ultimate flexibility and flow for large scale or intimate entertaining. An ideal floor plan for multi-generational living and family entertaining. Soak in the beauty and scenery of this natural setting and viewing terraces which come to life during events providing front row seats to the AT&T Pro-Am, US Open and Concours d'Elegance. Easy access to downtown Carmel and Carmel Beach, this estate, built in 1991, features unique architectural style and a near perfect combination of positioning and privacy.",
+  contact_info: "Contact: William"
+)
 
-# list20 = Listing.create!(
-#   user_id: 5,
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: Emy"
-# )
+list19 = Listing.create!(
+  user_id: 5,
+  price: 55000000,
+  lot_size: 236.82,
+  living_area: 14997,
+  location: "Scottsdale, AZ, United States",
+  longitude: -111.89903,
+  latitude: 33.50921,
+  bedrooms: 9,
+  full_baths: 7,
+  half_baths: 0,
+  garage: 6,
+  built: 1996,
+  description: "Located on approx. 237 acres on the edge of Scottsdale, this one-of-a-kind property perfectly captures the essence of the Southwest. Stunning 360-degree views combine with the peace and solitude of the Sonoran Desert to create a private oasis while all the best of Scottsdale's amenities are just minutes away. The 8,700 SF main residence is modeled after an Argentinian estancia and is grand, yet comfortable. Additional amenities include a large greenhouse and potting shed, tennis court, pool and shooting range. Additional buildings include a 1,900 SF guest house, a 1,500 SF caretakers' cottage and a 2,800 SF office/art museum. World-class equestrian facilities include a six-stall stable, 16-stall mare motel, numerous corrals, pastures and several outbuildings. Plentiful water with two
 
-# list21 = Listing.create!(
-#   user_id: rand(1..5),
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: 123"
-# )
+  25,000-gallon storage tanks. Hydrology study is currently underway.",
+  contact_info: "Contact: Emy"
+)
 
-# list22 = Listing.create!(
-#   user_id: rand(1..5),
-#   price: rand(20000000..100000000),
-#   lot_size: rand(1..50),
-#   living_area: rand(5000..15000),
-#   location: "Luxury Street #{i + 1}",
-#   longitude: rand(-180.0..180.0),
-#   latitude: rand(-90.0..90.0),
-#   bedrooms: rand(5..10),
-#   full_baths: rand(3..8),
-#   half_baths: rand(0..3),
-#   garage: rand(1..10),
-#   built: rand(1960..2023),
-#   description: "Stunning luxury property with breathtaking views.",
-#   contact_info: "Contact: 123"
-# )
+list20 = Listing.create!(
+  user_id: 5,
+  price: 100000000,
+  lot_size: 740,
+  living_area: 24000,
+  location: "Granite Springs, NY, United States",
+  longitude: 73.4525,
+  latitude: 41.1837,
+  bedrooms: 8,
+  full_baths: 8,
+  half_baths: 4,
+  garage: 18,
+  built: 2010,
+  description: "Steeped in history and masterfully created by savvy and insightful owners, driven by passion, their singular vision was brought to life with a spectacular end result. Stonewall Farm represents nearly 50 years of planning, expert oversight and superbly curated collection. The majestic 24,000 square-foot residence features treasures from far and wide that adorn the most elegant and eclectic palettes. Nothing was left to happenstance with each unique aspect individually sourced yet seamlessly blended together to define a home of sublime and timeless sophistication. Adjacent to the main home is a magnificent 4,000 square-foot pavilion style pool house with 60-foot swimming pool, lounge seating area, fireplace, spa, gym, changing rooms, kitchen and flanked by French Doors that open to the rose garden and terraces, one of the four formal garden areas. Each glance offers views of green vistas, wisteria-clad columns, trellised walkways, all es of trees and meticulously tended grounds. The magnificent and expansive property encompasses 740 acres divided into 18 parcels of broad lawns, fenced paddocks, equestrian training facilities, barns, run-in sheds and guest and staff quarters dedicated to the breeding and training of thoroughbred race horses. These world class equestrian facilities represent the largest privately held parcel in Westchester, just 1 hour North of New York City offering easy access to/from anywhere in the world. An additional unique 36,000 sf building resides on the north westerly portion of the property. Formerly the Granite Springs Bottling Co. and leased at one time by a major bank, with offices, residential accommodations and separate access to the a business district, enormous opportunity for an automobile collector's showroom, residential development, recreation or whatever one can imagine awaits creative vision, with this massive stone and frame structure as part of it. Offering the finest in both luxury and equestrian facilities, the investment value in this offering lies in what is still yet to be conceived. This is a once-in-a-lifetime opportunity to acquire one of the area's largest and most significant estates with 18 separate but contiguous parcels. The investment and development potential is endless for making highest & best use of this property.Hold the vision, trust the process. Be the hero in your own movie.",
+  contact_info: "Contact: Emy"
+)
+
+list21 = Listing.create!(
+  user_id: 5,
+  price: 60000000,
+  lot_size: 509,
+  living_area: 20861,
+  location: "Snowmass Village, CO, United States",
+  longitude: -106.965288,
+  latitude: 39.214104,
+  bedrooms: 9,
+  full_baths: 12,
+  half_baths: 4,
+  garage: 6,
+  built: 2004,
+  description: "Over 500 secluded acres set behind the gates of Wildcat Ranch, one of the most private and exclusive properties in all of the Roaring Fork Valley, only minutes to Aspen. 18,946sf main residence and 1,915sf guesthouse designed by Bill Poss, barn, multiple garages for cars and toys, a pool and pool house, paddle ball court, five ponds, landscaped gardens and sweeping open land make up this compound of timeless grandeur and distinction. This European-style stone chalet is a statement in timeless sophistication, meticulously finished and appointed with modern-day luxuries for multiple generations to enjoy year-round: two offices, a wine room, media room, and lower wellness level which includes two massage rooms, gym, hot tub room and steam room. Views of Snowmass Mountain, Mt. Daly, andCapitol Peak are captured from the outdoor stone terrace, which spans the entire length of the home and overlooks the pool, creeks, and pond. Wildcat subdivision offers boating on a 50 acre lake, 30 miles of horseback riding trails, a rodeo arena, saddle horses, and an on-site staff. This private refuge provides access to world-class recreation, resort amenities, and stunning natural beauty. Capitol Peak are captured from the outdoor stone terrace, which spans the entire length of the home and overlooks the pool, creeks, and pond. Wildcat subdivision offers boating on a 50 acre lake, 30 miles of horseback riding trails, a rodeo arena, saddle horses, and an on-site staff. This private refuge provides access to world-class recreation, resort amenities, and stunning natural beauty.",
+  contact_info: "Contact: Emy"
+)
+
+list22 = Listing.create!(
+  user_id: 18,
+  price: 78800000,
+  lot_size: 8,
+  living_area: 47182,
+  location: "Bradbury, CA, United States",
+  longitude: 117.97444,
+  latitude: 34.14944,
+  bedrooms: 7,
+  full_baths: 7,
+  half_baths: 3,
+  garage: 10,
+  built: 2011,
+  description: "This regal masterpiece in guard-gated Bradbury Estates, sits on a promontory with unparalleled city, canyon and ocean views. The location was ranked by Forbes as one of the most expensive ZIP codes in America. This sprawling compound with multiple structures was magnificently realized after more than 8 years of construction by consummate craftsmen with meticulous attention to detail, using only the finest materials from around the world.
+
+  The Main House is approximately 30,000 square feet plus 3,000 square feet of Loggias, 2 Master Suites, a 2 story Library, Chef's Kitchen with pizza oven, a walk-in butler’s pantry, both walk-in refrigerator and freezer. Additionally featured is a large 3D Theater, 2,000-bottle Wine Cellar, Elevator, and a poker room with its own bar and built-in humidor.
+  
+  The detached Guesthouse with full kitchen sits above the 10 car Garage, both totaling 6,700 sq. ft. From the hand-rubbed cherry wood floors to the forged iron custom made chandelier, this private guest retreat offers more than the average amenities.
+  
+  The 5,716 sq. ft. Pool House comes complete with an expansive kitchen, a state of the art Cybex gym, a massage room, and a subterranean EPA certified 25 yard shooting range.
+  
+  On almost 8 acres is the elevated infinity-edge pool, placed center courtyard, with 350,000-gallons, a 15 person spa, and a temperature-controlled Trout Pond with a 2 story Waterfall.
+  
+  There is close to one acre of porches, decks, loggias, and walkways hewn of French limestone. One is brought to the Main House, elevated in a Palladian Neo-Classical style by way of a dramatic 600-foot Blue Stone private entry drive that ends in a circular flow entrance that allows for 60-foot truck access, or multiple limousines.
+  
+  This once in a lifetime trophy property with the highest level of artistic craftsmanship, state of the art engineering, and consummate attention to detail has never before been offered for sale; it belongs in the portfolio of the most astute collector.",
+  contact_info: "Message me"
+)
 
 
 
 puts "Listings seeded successfully!"
 
 # Seed ListingsAmenities
-100.times do |i|
-  ListingsAmenity.create!(
-    listing_id: rand(1..13),
-    amenity_id: rand(1..20)
-  )
+400.times do |i|
+  listing_id = rand(1..22)
+  amenity_id = rand(1..20)
+  
+  unless ListingsAmenity.exists?(listing_id: listing_id, amenity_id: amenity_id)
+    ListingsAmenity.create!(listing_id: listing_id, amenity_id: amenity_id)
+  end
 end
 
 puts "ListingsAmenities seeded successfully!"
