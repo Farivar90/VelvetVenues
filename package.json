@@ -25,6 +25,8 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@react-google-maps/api": "^2.19.2",
     "react-modal": "^3.16.1"
   }
 }

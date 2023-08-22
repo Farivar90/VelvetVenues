@@ -43,3 +43,14 @@
   color: #0074e4;
   font-weight: bold;
 }
+
+.listings-with-map-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.map-container {
+  flex: 1;
+  min-width: 400px;
+}

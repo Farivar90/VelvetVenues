@@ -1,5 +1,7 @@
 class Api::ListingsController < ApplicationController
 
+    before_action :find_listing, only: [:show, :edit, :update, :destroy]
+
     def index
         @listings = Listing.all
         render :index
@@ -10,13 +12,9 @@ class Api::ListingsController < ApplicationController
         render :show
     end
 
-    def new
-        @listing = Listing.new
-    end
-
     def create
         @listing = Listing.new(listing_params)
-        if @listing.save
+        if @listing.save!
             render :show
         else
             render json: {errors: @listing.errors.full_messages}, status: :unprocessable_entity
@@ -44,7 +42,14 @@ class Api::ListingsController < ApplicationController
 
     private
 
+    def find_listing
+        @listing = Listing.find_by(id: params[:id])
+        unless @listing
+            render json: {error: "Listing not found"}, status: :not_found
+        end
+    end
+
     def listing_params
-        params.require(:listing).permit(:user_id, :price, :lot_size, :location, :longitude, :latitude, :bedrooms, :full_baths, :half_baths, :garage, :built, :description, :contact_info)
+        params.require(:listing).permit(:user_id, :price, :lot_size,:living_area, :location, :longitude, :latitude, :bedrooms, :full_baths, :half_baths, :garage, :built, :description, :contact_info)
     end
 end

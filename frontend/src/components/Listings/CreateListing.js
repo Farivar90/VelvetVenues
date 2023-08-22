@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 import './CreateListing.css';
+import csrfFetch from '../../store/csrf';
+import { useHistory } from 'react-router-dom';
 
 function CreateListingPage() {
   const currentUser = useSelector(state => state.session.user);
@@ -30,64 +31,101 @@ function CreateListingPage() {
     "Waterfront Access"
   ];
 
+  
   const [formData, setFormData] = useState({
-    userId: currentUser.id,
+    userId: currentUser,
     price: '',
     lotSize: '',
-    living_area: '',
+    livingArea: '',
     location: '',
-    bedrooms: '',
-    full_baths: '',
-    half_baths: '',
-    garage: '',
+    bedrooms: 0,
+    fullBaths: 0,
+    halfBaths: 0,
+    garage: 0,
     built: '',
     description: '',
     contactInfo: '',
-    amenities: [],
+    // amenities: [],
+    // photos: [],
   });
 
-  const handleAmenityChange = (e) => {
-    const { value, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      amenities: checked
-        ? [...prevData.amenities, value]
-        : prevData.amenities.filter((amenity) => amenity !== value),
-    }));
-  };
-  
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const [amenities, setAmenities] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleAmenityChange = (e) => {
+  //   const { value, checked } = e.target;
+  //   setAmenities (prevData => ({
+  //     ...prevData,
+  //     amenities: checked? [...prevData.amenities, value]
+  //       : prevData.amenities.filter((amenity) => amenity !== value),
+  //     }));
+  //   };
+    
+    // const handleImageChange = (e) => {
+    //   setFormData(prevData => ({
+    //     ...prevData,
+    //     photos: [...prevData.photos, e.target.files[0]],
+    //   }));
+    // };
+    
+    
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData(prevData => ({
+        ...prevData,
+        [name]: value,
+      }));
+    };
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      if (!formData.price || parseFloat(formData.price) < 20000000 || !formData.lotSize || !formData.livingArea || !formData.location ||  !formData.built || !formData.contactInfo) {
+        alert("All required fields must be filled out correctly. Remember that the price should be at least $20,000,000.");
+        return;
+    }
+
+    const formDataObject = new FormData();
+
+    for (const key in formData) {
+      formDataObject.append(`listing[${key}]`, formData[key]);
+    }
+    
     try {
-      // Make an API request to create the listing with formData
-      const response = await axios.post('/api/listings', {
-        ...formData,
-        user_id: currentUser.id,
+      const response = await csrfFetch('/api/listings',{
+        method: 'POST',
+        body: formDataObject
       });
-      // Handle success or redirect to the newly created listing
       console.log('Listing created:', response.data);
+      if(response.ok){
+      const res = await response.json()
+      dispatch({type: 'CEATE_LISTING', payload: res})
+      history.push(`/listings/${res.id}`);
+      }
     } catch (error) {
       console.error('Error creating listing:', error);
     }
   };
-
+  
+  
   if (!currentUser) {
     return <Redirect to="/" />;
   }
-
+  
   return (
     <div className="create-listing-container">
       <h2>List your property</h2>
+      <h3>Property Details</h3>   
       <form onSubmit={handleSubmit}>
+      {/* <label htmlFor="image">Upload Image:</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          onChange={handleImageChange}
+        /> */}
         <label htmlFor="price">Price:</label>
         <input
           type="text"
@@ -106,12 +144,12 @@ function CreateListingPage() {
           onChange={handleChange}
           required
         />
-            <label htmlFor="living_area">Living Area:</label>
+            <label htmlFor="livingArea">Living Area:</label>
         <input
           type="text"
-          id="living_area"
-          name="living_area"
-          value={formData.living_area}
+          id="livingArea"
+          name="livingArea"
+          value={formData.livingArea}
           onChange={handleChange}
           required
         />
@@ -125,39 +163,55 @@ function CreateListingPage() {
           required
         />
             <label htmlFor="bedrooms">Bedrooms:</label>
-        <input
+        <select
           type="text"
           id="bedrooms"
           name="bedrooms"
           value={formData.bedrooms}
           onChange={handleChange}
           required
-        />
+        >
+          {[...Array(35)].map((_, i) => 
+            <option key={i} value={i }>{i }</option>
+          )}
+        </select>
             <label htmlFor="full_baths">Full Baths:</label>
-        <input
+        <select
           type="text"
           id="full_baths"
           name="full_baths"
           value={formData.full_baths}
           onChange={handleChange}
           required
-        />
+        >
+          {[...Array(35)].map((_, i) => 
+            <option key={i} value={i }>{i }</option>
+          )}
+        </select>
             <label htmlFor="half_baths">Half Baths:</label>
-        <input
+        <select
             type="text"
             id="half_baths"
             name="half_baths"
             value={formData.half_baths}
             onChange={handleChange}
-        />
+        >
+          {[...Array(35)].map((_, i) => 
+            <option key={i} value={i }>{i }</option>
+          )}
+        </select>
             <label htmlFor="garage">Garage:</label>
-        <input
+        <select
           type="text"
           id="garage"
           name="garage"
           value={formData.garage}
           onChange={handleChange}
-        />
+        >
+          {[...Array(40)].map((_, i) => 
+            <option key={i} value={i}>{i}</option>
+          )}
+        </select>
             <label htmlFor="built">Built:</label>
         <input
           type="text"
@@ -167,9 +221,17 @@ function CreateListingPage() {
           onChange={handleChange}
           required
         />
-        <label htmlFor="amenities">Select Amenities:</label>
+            <label htmlFor="contactInfo">Contact Info:</label>
+        <input
+          type="text"
+          id="contactInfo"
+          name="contactInfo"
+          value={formData.contactInfo}
+          onChange={handleChange}
+          required
+        />
+        {/* <label htmlFor="amenities">Select Amenities:</label>
         <div className="amenities-container">
-            <label>Select Amenities:</label>
                 <div className="amenities-list">
                     {amenities.map((amenity) => (
                     <label key={amenity} className="amenity-label">
@@ -183,7 +245,7 @@ function CreateListingPage() {
                     </label>
                     ))}
                 </div>
-        </div>
+        </div> */}
             <label htmlFor="description">Description:</label>
         <textarea
           id="description"

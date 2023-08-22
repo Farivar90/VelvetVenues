@@ -18,10 +18,6 @@ body {
   box-sizing: border-box;
 }
 
-.menu-logo {
-  /* line-height: 0; */
-  /* margin: 0 10px; */
-}
 
 .menu-logo img {
   /* max-height: 80px; */
@@ -43,32 +39,24 @@ body {
 
 /* Hide the submenu by default */
 .submenu {
+  animation: fadeInUp 0.3s forwards;
   display: none;
   position: absolute;
-  background-color: #f2efef;
+  background-color: rgba(242, 239, 239, 0.95); /* Slight transparency */
   padding: 10px;
+  border-radius: 8px; /* Rounded edges */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
   z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  transform: translateY(10px); /* Start slightly below for the animation */
+  opacity: 0; /* Start as transparent */
 }
 
-/* Display the submenu when hovering over the "Properties" link */
-.menu li:hover .submenu {
-  display: block;
-}
-
-
-/* Add styling to the submenu links */
-.submenu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.submenu li {
-  padding: 5px 0;
-}
 
 .submenu a {
   color: #331c52;
   text-decoration: none;
+  font-weight: 500; /* Make it semi-bold */
 }
 
 .submenu a:hover {
@@ -173,9 +161,6 @@ body {
     color: #f2efef;
   }
 
-  .menu-container input {
-    /* display: none; */
-  }
 
   /* Burger menu */
   .menu-container span {
@@ -213,4 +198,36 @@ body {
 .menu-container a:hover {
   background-color: #331c52;
   color: #f2c6b4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu li:hover .submenu {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.submenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.submenu li {
+  padding: 8px 10px; /* More balanced padding */
+  border-radius: 5px; /* Rounded edges for the submenu items */
+  transition: background-color 0.3s ease; /* Smooth transitions for hover */
+}
+
+.submenu li:hover {
+  background-color: rgba(51, 28, 82, 0.1); /* Hover effect for submenu items */
 }

@@ -27,6 +27,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "globals": {
+    "google": "readonly"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
