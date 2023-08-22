@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Redirect, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import axios from 'axios'; // You need to import axios or any other HTTP client library you prefer.
+import axios from 'axios';
 
 const UsersPage = () => {
   const currentUser = useSelector(state => state.session.user);
@@ -24,7 +24,7 @@ const UsersPage = () => {
 
   return (
     <div>
-      Logged in as user with ID: {currentUser}.
+      Logged in as user with ID: {currentUser.id}. {/* Assuming currentUser has an id property */}
       <h1>User Profile</h1>
       {user && (
         <div>
@@ -32,10 +32,10 @@ const UsersPage = () => {
           <p>Username: {user.username}</p>
           <p>Email: {user.email}</p>
           <p>Full Name: {user.fullName}</p>
-          <p>Created At: {user.createdAt}</p>
-          <p>Updated At: {user.updatedAt}</p>
+          <p>Created At: {new Date(user.createdAt).toLocaleString()}</p> {/* Formatted date */}
+          <p>Updated At: {new Date(user.updatedAt).toLocaleString()}</p> {/* Formatted date */}
           <div>
-            <img src={user.photo.imageUrl} alt={`${user.fullName}'s profile`} style={{width: "200px"}} />
+            <img src={user.photo?.imageUrl} alt={`${user.fullName}'s profile`} style={{width: "200px"}} /> {/* Safely access imageUrl */}
           </div>
         </div>
       )}

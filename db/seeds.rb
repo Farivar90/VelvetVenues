@@ -307,6 +307,41 @@ list1 = Listing.create!(
   contact_info: "Contact: Shamim Amiri"
 )
 
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-1.png'),
+  filename: '1-1.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-2.png'),
+  filename: '1-2.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-3.png'),
+  filename: '1-3.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-4.png'),
+  filename: '1-4.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-5.png'),
+  filename: '1-5.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-6.png'),
+  filename: '1-6.png'
+)
+
+list1.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/1/1-7.png'),
+  filename: '1-7.png'
+)
+
 list2 = Listing.create!(
   user_id: 2,
   price: 49000000,
@@ -322,6 +357,46 @@ list2 = Listing.create!(
   built: 2002,
   description: "Unmatched style, quality and amenities on over two private acres in West Buttermilk, with sweeping views of the Elk Mountain Range. The sophisticated design is balanced with substantial materials of stone and wood, resulting in the ultimate luxury mountain estate. Upon entering the home, an impressive stone colonnade wraps the main level, filled with natural light, which flows openly into the great room, flanked by floor to ceiling glass that opens to an expansive pool terrace. A cozy family room off the kitchen extends to the outdoor lounge with a fireplace and grill. The elegant dining and living room can be partitioned off for special events, with a chef's kitchen perfect for hosting intimate parties or large gatherings. Designed for single level living, the primary suite is a true retreat, with a grand bathroom, oversized closets and easy access to the library, office, spa and gym. Each of the six en-suite bedrooms offer a serene setting for family and guests, with generous layouts and spa-like baths. A lofted study and library are an inspirational place to work or relax as you look out upon the living rooms as well as the beautiful mountain scenery. Downstairs, the entertainment level has a spacious family room, fully equipped fitness area and a state of the art theater with a Dolby CPA 50 certified sound system, Barco projector and first run film screening capability. There is also a wine cave with dry stacked stone walls, barrel vaulted ceilings, two separate cellars for red or white wine and a private tasting room. The landscape is reminiscent of the European countryside, with rolling hills where elk can often be found grazing in the distance, showcasing sublime mountain scenery. Meticulously cared for by a team of specialists, this rare property, less than four miles from downtown Aspen, is a once in a generation masterpiece.",
   contact_info: "Contact: John Doe"
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-1.png'),
+  filename: '2-1.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-2.png'),
+  filename: '2-2.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-3.png'),
+  filename: '2-3.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-4.png'),
+  filename: '2-4.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-5.png'),
+  filename: '2-5.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-6.png'),
+  filename: '2-6.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-7.png'),
+  filename: '2-7.png'
+)
+
+list2.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/2/2-8.png'),
+  filename: '2-8.png'
 )
 
 list3 = Listing.create!(
@@ -341,6 +416,46 @@ list3 = Listing.create!(
   contact_info: "Contact: Emily Brown"
 )
 
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.png'),
+#   filename: '3-1.png'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.png'),
+#   filename: '3-2'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-3'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-4'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-5'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-6'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-7'
+# )
+
+# list3.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '3-8'
+# )
+
 list4 = Listing.create!(
   user_id: 6,
   price: 27950000,
@@ -357,6 +472,36 @@ list4 = Listing.create!(
   description: "Rockhaven Tahoe where privacy, exclusivity, and unparalleled luxury come together to create an exquisite lakefront estate. Situated on the south point of Meeks Bay, this stunning property spans 1.22 acres and boasts a 140 foot deep water pier, two buoys, sandy beach and an impressive 300 feet of shoreline along the crystal-clear waters of Lake Tahoe. With a gated entrance and surrounded by lush landscape, Rockhaven Tahoe ensures that every moment spent here is a tranquil private retreat. The estate comprises an impressive 15,000 square feet of living space with a total of 8 bedrooms, 10 full bathrooms and 3 half bathrooms in a grand main home and two attached guest houses, thoughtfully designed to have beautiful lake views from every room and access to the main home. Upon entering, you are greeted by a breathtaking sight - a Dale Chihuly Chandelier, custom-crafted by the renowned artist himself, adding a touch of artistic grandeur to the dining room. The 500-year-old hardwood floors hold their own history, having been sourced from a Monastery in France. Indulge in the finest details Rockhaven Tahoe has to offer. An elevator connects all three levels of the home, two home offices, gym, theater, and sauna provide the perfect combination of work and relaxation. Outdoors find 4 hot tubs, including 1 swim flume, 5 fire pits, 3 barbecues beckon you to unwind and take in the natural beauty surrounding you. Rockhaven Tahoe's location offers a harmonious blend of year-round activities. During the winter, ski enthusiasts will be delighted with Homewood and Palisades Ski Resorts minutes away. Revel in the magical winter wonderland while the state-of-the-art hydronic heating system and heated driveway keep you cozy and hassle-free. Summer, enjoy a plethora of water activities such as boating, kayaking, jet skiing, swimming, and even jumping on a water trampoline right from your own private shore. This private estate presents a unique opportunity to own a prestigious lakefront property that has been cherished by some of the world's wealthiest individuals for its unparalleled privacy and luxury. Embrace the serene beauty of Lake Tahoe and make Rockhaven Tahoe your private sanctuary today. Co-Listed with Portman Realty, James Portman.",
   contact_info: "Contact: William"
 )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-1'
+# )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-2'
+# )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-3'
+# )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-4'
+# )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-5'
+# )
+
+# list4.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '4-6'
+# )
 
 list5 = Listing.create!(
   user_id: 6,
@@ -375,6 +520,31 @@ list5 = Listing.create!(
   contact_info: "Contact: William"
 )
 
+# list5.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '5-1'
+# )
+
+# list5.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '5-2'
+# )
+
+# list5.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '5-3'
+# )
+
+# list5.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '5-4'
+# )
+
+# list5.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '5-5'
+# )
+
 list6 = Listing.create!(
   user_id: 6,
   price: 28000000,
@@ -392,6 +562,21 @@ list6 = Listing.create!(
   contact_info: "Contact: William"
 )
 
+# list6.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '6-1'
+# )
+
+# list6.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '6-2'
+# )
+
+# list6.photos.attach(
+#   io: URI.open('app/assets/images/3-jane-smith.jpg'),
+#   filename: '6-3'
+# )
+
 list7 = Listing.create!(
   user_id: 5,
   price: 46000000,
@@ -408,6 +593,21 @@ list7 = Listing.create!(
   description: "This island is a very special one: it lies in one of the most beautiful parts of the Bahamas and boasts white sandy beaches and the potential for an airstrip. It has all the basic essentials for development. It is situated very near well-known island resorts and existing airstrips. Big Darby Island is located about 95 miles from Nassau, 14 miles from Great Exuma and 250 miles from Miami. It lies almost in the centre of the chain of some 360 islands known as the Exuma Cays -the yachting, sailing and fishing paradise of the Bahamas. The nearest islands are Rudder Cut Cay (with airstrip) and Musha Cay, both owned by illusionist David Copperfield. This island is surrounded by crystal clear turquoise waters and features several white sandy beaches -in all approx. 21,650 ft. of water frontage. The highest elevation is approx. 80 ft. which is exceptionally high for the Bahamas. The island can support a 3,000 ft. to 5,000 ft. runway and is adjacent to a deep protected natural harbour. An imposing 7,000-square-foot castle built by an Englishman, Sir Baxter, in 1938 is located on the island. The castle could be rebuilt into a spectacular home or clubhouse. A network of paths and walkways extends in southerly and westerly directions for a distance of 1.8 miles. This is a great opportunity to own a large island island in The Exuma Cays.",
   contact_info: "Contact: Emy"
 )
+
+# list7.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/1/1-3.png'),
+#   filename: '7-1'
+# )
+
+# list7.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/1/1-3.png'),
+#   filename: '7-2'
+# )
+
+# list7.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/1/1-3.png'),
+#   filename: '7-3'
+# )
 
 list8 = Listing.create!(
   user_id: 3,
@@ -435,6 +635,36 @@ list8 = Listing.create!(
   contact_info: "Contact: Ms Smith"
 )
 
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-1'
+# )
+
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-2'
+# )
+
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-3'
+# )
+
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-4'
+# )
+
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-5'
+# )
+
+# list8.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '8-6'
+# )
+
 list9 = Listing.create!(
   user_id: 3,
   price: 28000000,
@@ -451,6 +681,26 @@ list9 = Listing.create!(
   description: "In a high standing building in the heart of the golden square, the exceptional 6 room apartment offering a large terrace with garden and privative swimming pool.",
   contact_info: "Contact: Ms Smith"
 )
+
+# list9.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '9-1'
+# )
+
+# list9.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '9-2'
+# )
+
+# list9.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '9-3'
+# )
+
+# list9.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '9-4'
+# )
 
 list10 = Listing.create!(
   user_id: 3,
@@ -477,6 +727,41 @@ list10 = Listing.create!(
   contact_info: "Contact:  Ms Smith"
 )
 
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-1'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-2'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-3'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-4'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-5'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-6'
+# )
+
+# list10.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '10-7'
+# )
+
 list11 = Listing.create!(
   user_id: 3,
   price: 22000000,
@@ -502,6 +787,21 @@ list11 = Listing.create!(
   contact_info: "Contact:  Ms Smith"
 )
 
+# list11.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '11-1'
+# )
+
+# list11.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '11-2'
+# )
+
+# list11.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '11-3'
+# )
+
 list12 = Listing.create!(
   user_id: 3,
   price: 35000000,
@@ -525,6 +825,26 @@ list12 = Listing.create!(
   contact_info: "Contact: Ms Smith"
 )
 
+# list12.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '12-1'
+# )
+
+# list12.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '12-2'
+# )
+
+# list12.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '12-3'
+# )
+
+# list12.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '12-4'
+# )
+
 list13 = Listing.create!(
   user_id: 4,
   price: 39000000,
@@ -541,6 +861,11 @@ list13 = Listing.create!(
   description: "Gated Palatial Palm Beach-Inspired Point Estate sited in the prestigious Coral Ridge Country Club enclave on over 1.09 acre +/- framed by 3 amazing sides of wrap-around water frontage totaling 665 ft +/- of full-service mega-yacht dockage. This Trophy mansion offered furnished and was artfully designed by architect, William Storrs, and crafted by WA Bentz Construction with the finest materials & finishes, boasting nearly 24,000 sq ft +/- capturing stunning water views from every major room, including a separate carriage/guest house. Modern smart-house with fingertip control for all systems; whole-house generator, commercial elevator & 102 ft +/- long waterside resort-style pool. Verdant formal gardens with meandering paths of ultimate privacy lead to a 7 bay garage for the car connoisseur.",
   contact_info: "call Mike"
 )
+
+# list13.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '13-1'
+# )
 
 list14 = Listing.create!(
   user_id: 4,
@@ -565,6 +890,11 @@ list14 = Listing.create!(
   contact_info: "call Mike"
 )
 
+# list14.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '14-1'
+# )
+
 list15 = Listing.create!(
   user_id: 4,
   price: 20000000,
@@ -581,6 +911,41 @@ list15 = Listing.create!(
   description: "Once the property of Andrew Carnegie's only child Margaret Carnegie Miller, this idyllic retreat with an updated 1860's antique main home and French architect-designed stable is sited on 206 secluded and completely unrestricted acres in the heart of Millbrook Hunt Country. Hallmark Farm's rolling hills and ever-changing views of the Catskills, epitomize the area's storied country life - the legendary Millbrook Hunt gallops across this very land! This extraordinary stretch of landscape, minutes from Millbrook Village, offers the ultimate luxury for you and your family: privacy, size and security. Completely renovated and expanded in 2003, the 4 bedroom/4.5 bathroom main house features wide board pine floors, reclaimed from trees cleared on the property. The quintessential pastoral experience includes the dramatic living room with 20 ft. coffered ceilings, wood burning fireplace and transom-topped French doors facing south, west and north. A chef's kitchen and charming breakfast room that faces east for the morning sun. Additionally a FDR with f/p and French doors, a paneled library with f/p, office, and pdr room round out the first floor. Two guest suites with full baths on the 2nd floor, plus primary bedroom encompasses a bathroom, and dressing room. An elevator services 3 floors. The embellished interiors of Hallmark Farm's signature stable were designed by famed French architects Atelier Choiseul and are paneled with European beech, American oak and white pine. The stable includes ten 12' x 12' stalls, feed room, tack room, lounge and a hayloft. Two apartments accommodate farm managers and grooms, and a 3-bay garage, one with a truck and tractor lift. A shingled carriage house offers 3 apts, storage for 5 cars and a greenhouse wing. Paddocks varying in size from 6 to 12 acres, 4 with run-in sheds. Miles of pristine post-and-rail fencing and fields are ideal for healthy horse foraging. The estate's vast acreage includes an apple orchard, pond, multiple trails including a one-mile loop designed by A.E Bye and hunter trial course designed by local equestrian legend Tom Duggan, with ample room for a myriad of recreational pursuits. This is a rare opportunity to own an estate with the provenance and quality of Hallmark Farm. The current owners have enjoyed it for 40 happy years. Don't miss your chance to call this prized equestrian estate your own.",
   contact_info: "call Mike"
 )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-1'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-2'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-3'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-4'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-5'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-6'
+# )
+
+# list15.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '15-7'
+# )
 
 list16 = Listing.create!(
   user_id: 4,
@@ -599,6 +964,41 @@ list16 = Listing.create!(
   contact_info: "call Mike"
 )
 
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-1'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-2'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-3'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-4'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-5'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-6'
+# )
+
+# list16.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '16-7'
+# )
+
 list17 = Listing.create!(
   user_id: 6,
   price: 70000000,
@@ -616,6 +1016,41 @@ list17 = Listing.create!(
   contact_info: "Contact: William"
 )
 
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-1'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-2'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-3'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-4'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-5'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-6'
+# )
+
+# list17.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '17-7'
+# )
+
 list18 = Listing.create!(
   user_id: 6,
   price: 22500000,
@@ -632,6 +1067,41 @@ list18 = Listing.create!(
   description: "Positioned on the 12th hole of renowned Pebble Beach Golf Links, The Estate on 12 is a sophisticated, private, and luxurious ocean view property. Its gated, beautifully manicured 2.42-acre parcel is among the largest properties on the course. The estate affords ideal proximity and access to the coveted five-star amenities of the Lodge and \"downtown\" Pebble Beach. Built in a Cape Dutch style with seven bedrooms and seven full and one-half bathrooms with spacious rooms and approximately 8,200 sq ft of vast living spaces, delivering the ultimate flexibility and flow for large scale or intimate entertaining. An ideal floor plan for multi-generational living and family entertaining. Soak in the beauty and scenery of this natural setting and viewing terraces which come to life during events providing front row seats to the AT&T Pro-Am, US Open and Concours d'Elegance. Easy access to downtown Carmel and Carmel Beach, this estate, built in 1991, features unique architectural style and a near perfect combination of positioning and privacy.",
   contact_info: "Contact: William"
 )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-1'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-2'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-3'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-4'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-5'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-6'
+# )
+
+# list18.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '18-7'
+# )
 
 list19 = Listing.create!(
   user_id: 5,
@@ -652,6 +1122,36 @@ list19 = Listing.create!(
   contact_info: "Contact: Emy"
 )
 
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-1'
+# )
+
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-2'
+# )
+
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-3'
+# )
+
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-4'
+# )
+
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-5'
+# )
+
+# list19.photos.attach(
+#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   filename: '19-6'
+# )
+
 list20 = Listing.create!(
   user_id: 5,
   price: 100000000,
@@ -669,6 +1169,36 @@ list20 = Listing.create!(
   contact_info: "Contact: Emy"
 )
 
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-1'
+# )
+
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-2'
+# )
+
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-3'
+# )
+
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-4'
+# )
+
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-5'
+# )
+
+# list20.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '20-6'
+# )
+
 list21 = Listing.create!(
   user_id: 5,
   price: 60000000,
@@ -685,6 +1215,46 @@ list21 = Listing.create!(
   description: "Over 500 secluded acres set behind the gates of Wildcat Ranch, one of the most private and exclusive properties in all of the Roaring Fork Valley, only minutes to Aspen. 18,946sf main residence and 1,915sf guesthouse designed by Bill Poss, barn, multiple garages for cars and toys, a pool and pool house, paddle ball court, five ponds, landscaped gardens and sweeping open land make up this compound of timeless grandeur and distinction. This European-style stone chalet is a statement in timeless sophistication, meticulously finished and appointed with modern-day luxuries for multiple generations to enjoy year-round: two offices, a wine room, media room, and lower wellness level which includes two massage rooms, gym, hot tub room and steam room. Views of Snowmass Mountain, Mt. Daly, andCapitol Peak are captured from the outdoor stone terrace, which spans the entire length of the home and overlooks the pool, creeks, and pond. Wildcat subdivision offers boating on a 50 acre lake, 30 miles of horseback riding trails, a rodeo arena, saddle horses, and an on-site staff. This private refuge provides access to world-class recreation, resort amenities, and stunning natural beauty. Capitol Peak are captured from the outdoor stone terrace, which spans the entire length of the home and overlooks the pool, creeks, and pond. Wildcat subdivision offers boating on a 50 acre lake, 30 miles of horseback riding trails, a rodeo arena, saddle horses, and an on-site staff. This private refuge provides access to world-class recreation, resort amenities, and stunning natural beauty.",
   contact_info: "Contact: Emy"
 )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-1'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-2'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-3'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-4'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-5'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-6'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-7'
+# )
+
+# list21.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '21-8'
+# )
 
 list22 = Listing.create!(
   user_id: 18,
@@ -714,6 +1284,51 @@ list22 = Listing.create!(
   This once in a lifetime trophy property with the highest level of artistic craftsmanship, state of the art engineering, and consummate attention to detail has never before been offered for sale; it belongs in the portfolio of the most astute collector.",
   contact_info: "Message me"
 )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-1'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-2'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-3'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-4'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-5'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-6'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-7'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-8'
+# )
+
+# list22.photos.attach(
+#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
+#   filename: '22-9'
+# )
 
 
 

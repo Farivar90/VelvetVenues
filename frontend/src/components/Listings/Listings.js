@@ -1,15 +1,12 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import listingsReducer, { setListings } from '../../store/listingsReducer';
 import './Listings.css';
 
 function ListingsPage() {
   const [state, dispatch] = useReducer(listingsReducer, []);
-  
-  const currentUser = useSelector(state => state.session.user);
-  
+
   useEffect(() => {
     async function fetchListings() {
       try {
@@ -17,25 +14,25 @@ function ListingsPage() {
         const listingsArray = Object.values(response.data);
         dispatch(setListings(listingsArray));
       } catch (error) {
-        console.error('Error fetching data:', error);
+
       }
     }
 
     fetchListings();
   }, []);
   
-  // Redirect if user is not logged in
-  if (!currentUser) {
-    return <Redirect to={`/`} />;
+  if (state.length === 0) { 
+    return <div className="loading">Loading...</div>;
   }
-  
   return (
-    <div className="listings-container" id="listings-page">
+    <div className="listings-container">
       {state.map((listing) => (
-        <Link to={`/listings/${listing.id}`} key={listing.id} className="listing-card" id={`listing-${listing.id}`}>
-          {listing.photo_url && <img src={listing.photo_url} alt="Listing" className="listing-image"/>}
-          <h2 className="location-title">{listing.location}</h2>
-          <p className="price">${listing.price}</p>
+        <Link to={`/listings/${listing.id}`} key={listing.id} className="listing-card">
+          {listing.photos.length > 0 && (
+            <img src={listing.photos[0].imageUrl} alt={`${listing.id}'s img`} className="listing-image" />
+          )}
+          <h2>{listing.location}</h2>
+          <p className="price">${listing.price.toLocaleString("en-US")}</p>
         </Link>
       ))}
     </div>
