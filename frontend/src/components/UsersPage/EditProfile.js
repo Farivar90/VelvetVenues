@@ -1,9 +1,9 @@
-// EditProfile.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import './EditProfile.css';
+import csrfFetch from '../../store/csrf';
 
 const EditProfile = () => {
   const currentUser = useSelector(state => state.session.user);
@@ -33,17 +33,28 @@ const EditProfile = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.put(`/api/users/${userId}`, user)
-      .then(response => {
-        history.push(`/users/${userId}`);
-      })
-      .catch(error => {
-        console.error('Error updating user:', error);
+  
+    try {
+      const response = await csrfFetch(`/api/users/${userId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
       });
+  
+      if (response.ok) {
+        history.push(`/users/${userId}`);
+      } else {
+        console.error('Error updating user:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
   };
-
+  
   return (
     <div className="profile-container">
       <h1>Edit Profile</h1>

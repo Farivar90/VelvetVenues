@@ -24,7 +24,6 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
                         map,
                     });
 
-                    // Attach event handlers to the marker
                     Object.entries(markerEventHandlers).forEach(([event, handler]) => {
                         marker.addListener(event, () => handler(item));
                     });
@@ -33,7 +32,6 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
                 }
             });
 
-            // Remove old markers
             Object.keys(markersRef.current).forEach(id => {
                 if (!items.some(item => item.id === id)) {
                     markersRef.current[id].setMap(null);
@@ -41,7 +39,6 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
                 }
             });
 
-            // Attach event handlers to the map
             Object.entries(mapEventHandlers).forEach(([event, handler]) => {
                 map.addListener(event, handler);
             });

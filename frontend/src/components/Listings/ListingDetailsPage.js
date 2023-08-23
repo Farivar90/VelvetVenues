@@ -57,16 +57,24 @@ function ListingDetailPage() {
         <img src='/resfiles/default-profile-image.png' alt="Default listing image" className="listing-image" />
       )}
 
-      <p className="price">${listingDetails.price.toLocaleString()}</p>
+      <p className="price">${listingDetails.price.toLocaleString()}</p> 
+      <p className="location">Location: {listingDetails.location}</p>
+      <p className="lot_size">Lot Size: {listingDetails.lotSize} acres</p>
+      <p className="living_area">Living Area: {listingDetails.livingArea} sqft</p>
+      <p className="bedrooms">Bedrooms: {listingDetails.bedrooms}</p>
+      <p className="bathrooms">Full Bathrooms: {listingDetails.fullBaths}</p>
+      <p className="bathrooms">Half Bathrooms: {listingDetails.halfBaths}</p>
+      <p className="garage">Garage: {listingDetails.garage}</p>
+      <p className="year_built">Year Built: {listingDetails.built}</p>
       <p className="description">{listingDetails.description}</p>
       <p className="contact-info">{listingDetails.contactInfo}</p>
       <p className="posted-by">Posted by: <Link to={`/users/${listingDetails.userId}`} className="user-link">User {listingDetails.userId}</Link></p>
       
       <h3 className="amenities-title">Amenities</h3>
       <ul className="amenities-list">
-        {/* {listingDetails.amenities.map((amenity) => (
+        {listingDetails.amenities?.map((amenity) => (
           <li className="amenity-item" key={amenity.id}>{amenity.amenity}</li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :show, :destroy]
     resources :users
     resources :listings
+    resources :amenities, only: [:index]
   end
 
   get '*path',

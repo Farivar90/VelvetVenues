@@ -14,6 +14,10 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
+        @listing.photos.attach(params[:listing][:photos])
+        amenities = params[:listing][:amenities]
+        @listing.amenities << Amenity.where(amenity: amenities) if amenities
+        debugger
         if @listing.save!
             render :show
         else
@@ -50,6 +54,6 @@ class Api::ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:user_id, :price, :lot_size,:living_area, :location, :longitude, :latitude, :bedrooms, :full_baths, :half_baths, :garage, :built, :description, :contact_info)
+        params.require(:listing).permit(:user_id, :price, :lot_size,:living_area, :location, :longitude, :latitude, :bedrooms, :full_baths, :half_baths, :garage, :built, :description, :contact_info, photos: [])
     end
 end

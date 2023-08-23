@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import listingsReducer from './listingsReducer';
+import amenitiesReducer from './amenitiesReducer';
 
 const entitiesReducer = combineReducers({
-  listings: listingsReducer
+  listings: listingsReducer,
+  amenities: amenitiesReducer
   // users : userReducer
 });
 

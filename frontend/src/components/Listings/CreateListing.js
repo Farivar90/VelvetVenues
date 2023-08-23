@@ -7,30 +7,31 @@ import { useHistory } from 'react-router-dom';
 
 function CreateListingPage() {
   const currentUser = useSelector(state => state.session.user);
-
-  const amenities = [
-    "Swimming Pool",
-    "Home Theater",
-    "Spa and Wellness Area",
-    "Wine Cellar",
-    "Home Automation System",
-    "Outdoor Entertainment Area",
-    "Private Gym",
-    "Private Spa",
-    "Elevator",
-    "Landscaped Gardens",
-    "Guest House",
-    "Home Office",
-    "Chef's Kitchen",
-    "Outdoor Pool House",
-    "Tennis Court",
-    "Art Gallery or Display Space",
-    "Greenhouse",
-    "Library",
-    "Smart Security System",
-    "Waterfront Access"
-  ];
-
+  const amenities = useSelector(state => {
+    return state.entities.amenities;
+  });
+  const history = useHistory();
+  const dispatch = useDispatch();
+  
+  const [setAmenitiesChecked, setAmenities] = useState([]); // Add this line
+  
+  useEffect(() => {
+    async function fetchAmenities() {
+      try {
+        const response = await csrfFetch('/api/amenities');
+        if (response.ok) {
+          const amenities = await response.json();
+          console.log(amenities, 'am');
+          dispatch({ type: 'amenities/setAmenities', payload: amenities });
+        }
+      } catch (error) {
+        console.error('Failed to fetch amenities:', error);
+      }
+    }
+  
+    fetchAmenities();
+  
+  }, [dispatch]);
   
   const [formData, setFormData] = useState({
     userId: currentUser,
@@ -45,30 +46,26 @@ function CreateListingPage() {
     built: '',
     description: '',
     contactInfo: '',
-    // amenities: [],
-    // photos: [],
+    photos: [],
   });
 
-  const history = useHistory();
-  const dispatch = useDispatch();
 
-  // const [amenities, setAmenities] = useState([]);
 
-  // const handleAmenityChange = (e) => {
-  //   const { value, checked } = e.target;
-  //   setAmenities (prevData => ({
-  //     ...prevData,
-  //     amenities: checked? [...prevData.amenities, value]
-  //       : prevData.amenities.filter((amenity) => amenity !== value),
-  //     }));
-  //   };
+  const handleAmenityChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setAmenitiesChecked((prevData) => [...prevData, value]);
+    } else {
+      setAmenitiesChecked((prevData) => prevData.filter((amenity) => amenity !== value));
+    }
+  };
     
-    // const handleImageChange = (e) => {
-    //   setFormData(prevData => ({
-    //     ...prevData,
-    //     photos: [...prevData.photos, e.target.files[0]],
-    //   }));
-    // };
+    const handleImageChange = (e) => {
+      setFormData(prevData => ({
+        ...prevData,
+        photos: [...prevData.photos, e.target.files[0]],
+      }));
+    };
     
     
     const handleChange = (e) => {
@@ -90,8 +87,14 @@ function CreateListingPage() {
     const formDataObject = new FormData();
 
     for (const key in formData) {
-      formDataObject.append(`listing[${key}]`, formData[key]);
-    }
+      if (key === "photos") {
+        formData[key].forEach((file) => {
+          formDataObject.append(`listing[photos][]`, file);
+        });
+      } else {
+        formDataObject.append(`listing[${key}]`, formData[key]);
+      }
+  }
     
     try {
       const response = await csrfFetch('/api/listings',{
@@ -118,14 +121,15 @@ function CreateListingPage() {
     <div className="create-listing-container">
       <h2>List your property</h2>
       <h3>Property Details</h3>   
-      <form onSubmit={handleSubmit}>
-      {/* <label htmlFor="image">Upload Image:</label>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <label htmlFor="image">Upload Image:</label>
         <input
           type="file"
           id="image"
           name="image"
           onChange={handleImageChange}
-        /> */}
+          multiple
+        />
         <label htmlFor="price">Price:</label>
         <input
           type="text"
@@ -230,9 +234,10 @@ function CreateListingPage() {
           onChange={handleChange}
           required
         />
-        {/* <label htmlFor="amenities">Select Amenities:</label>
+        <label htmlFor="amenities">Select Amenities:</label>
         <div className="amenities-container">
                 <div className="amenities-list">
+                  {console.log(amenities, 'am2')}
                     {amenities.map((amenity) => (
                     <label key={amenity} className="amenity-label">
                         <input
@@ -245,7 +250,7 @@ function CreateListingPage() {
                     </label>
                     ))}
                 </div>
-        </div> */}
+        </div>
             <label htmlFor="description">Description:</label>
         <textarea
           id="description"
