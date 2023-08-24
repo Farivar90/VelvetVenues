@@ -423,37 +423,37 @@ list3.photos.attach(
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-2.png'),
-  filename: '3-2'
+  filename: '3-2.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-3.png'),
-  filename: '3-3'
+  filename: '3-3.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-4.png'),
-  filename: '3-4'
+  filename: '3-4.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-5.png'),
-  filename: '3-5'
+  filename: '3-5.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-6.png'),
-  filename: '3-6'
+  filename: '3-6.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-7.png'),
-  filename: '3-7'
+  filename: '3-7.png'
 )
 
 list3.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/3/3-8.png'),
-  filename: '3-8'
+  filename: '3-8.png'
 )
 
 list4 = Listing.create!(
@@ -475,32 +475,32 @@ list4 = Listing.create!(
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-1.png'),
-  filename: '4-1'
+  filename: '4-1.png'
 )
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-2.png'),
-  filename: '4-2'
+  filename: '4-2.png'
 )
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-3.png'),
-  filename: '4-3'
+  filename: '4-3.png'
 )
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-4.png'),
-  filename: '4-4'
+  filename: '4-4.png'
 )
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-5.png'),
-  filename: '4-5'
+  filename: '4-5.png'
 )
 
 list4.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/4/4-6.png'),
-  filename: '4-6'
+  filename: '4-6.png'
 )
 
 list5 = Listing.create!(
@@ -522,27 +522,27 @@ list5 = Listing.create!(
 
 list5.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/5/5-1.png'),
-  filename: '5-1'
+  filename: '5-1.png'
 )
 
 list5.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/5/5-2.png'),
-  filename: '5-2'
+  filename: '5-2.png'
 )
 
 list5.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/5/5-3.png'),
-  filename: '5-3'
+  filename: '5-3.png'
 )
 
 list5.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/5/5-4.png'),
-  filename: '5-4'
+  filename: '5-4.png'
 )
 
 list5.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/5/5-5.png'),
-  filename: '5-5'
+  filename: '5-5.png'
 )
 
 list6 = Listing.create!(
@@ -564,17 +564,17 @@ list6 = Listing.create!(
 
 list6.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/6/6-1.png'),
-  filename: '6-1'
+  filename: '6-1.png'
 )
 
 list6.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/6/6-2.png'),
-  filename: '6-2'
+  filename: '6-2.png'
 )
 
 list6.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/6/6-3.png'),
-  filename: '6-3'
+  filename: '6-3.png'
 )
 
 list7 = Listing.create!(
@@ -596,17 +596,17 @@ list7 = Listing.create!(
 
 list7.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/7/7-1.png'),
-  filename: '7-1'
+  filename: '7-1.png'
 )
 
 list7.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/7/7-2.png'),
-  filename: '7-2'
+  filename: '7-2.png'
 )
 
 list7.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/7/7-3.png'),
-  filename: '7-3'
+  filename: '7-3.png'
 )
 
 list8 = Listing.create!(
@@ -637,32 +637,32 @@ list8 = Listing.create!(
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-1.png'),
-  filename: '8-1'
+  filename: '8-1.png'
 )
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-2.png'),
-  filename: '8-2'
+  filename: '8-2.png'
 )
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-3.png'),
-  filename: '8-3'
+  filename: '8-3.png'
 )
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-4.png'),
-  filename: '8-4'
+  filename: '8-4.png'
 )
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-5.png'),
-  filename: '8-5'
+  filename: '8-5.png'
 )
 
 list8.photos.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/8/8-6.png'),
-  filename: '8-6'
+  filename: '8-6.png'
 )
 
 list9 = Listing.create!(

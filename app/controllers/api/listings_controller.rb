@@ -33,6 +33,7 @@ class Api::ListingsController < ApplicationController
     def update
         @listing = Listing.find(params[:id])
         @listing.photos.attach(params[:listing][:photos])
+        @listing.listings_amenities.destroy_all
         amenities = params[:amenities]
         amenities.split(',').each do |amenity|
             @listing.amenities << Amenity.where(id: amenity)
