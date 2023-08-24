@@ -59,7 +59,7 @@
   margin-top: 25px;
   font-size: 22px;
   font-weight: 600;
-  color: #2c3e50;
+  color: #52128d;
 }
 
 .amenities-list {
@@ -72,13 +72,13 @@
 }
 
 .user-link {
-  color: #3498db;
+  color:blue;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
 
 .user-link:hover {
-  color: #2a80b9;
+  color: rgb(252, 216, 170);
   text-decoration: underline;
 }
 
@@ -91,12 +91,11 @@
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-/* Additional Button Styles */
 button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #3498db;
+  background-color:rgb(54, 30, 84);
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -105,5 +104,6 @@ button {
 }
 
 button:hover {
-  background-color: #2a80b9;
+  background-color: rgb(54, 30, 84);
+  color: rgb(252, 216, 170);
 }
