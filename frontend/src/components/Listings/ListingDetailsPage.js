@@ -56,6 +56,9 @@ function ListingDetailPage() {
       ) : (
         <img src='/resfiles/default-profile-image.png' alt="Default listing image" className="listing-image" />
       )}
+      {currentUser === listingDetails.userId && (
+      <button onClick={() => history.push(`/listings/${id}/edit`)}>Edit</button>
+      )}
 
       <p className="price">${listingDetails.price.toLocaleString()}</p> 
       <p className="location">Location: {listingDetails.location}</p>

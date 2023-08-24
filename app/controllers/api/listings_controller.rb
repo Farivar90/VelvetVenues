@@ -15,9 +15,10 @@ class Api::ListingsController < ApplicationController
     def create
         @listing = Listing.new(listing_params)
         @listing.photos.attach(params[:listing][:photos])
-        amenities = params[:listing][:amenities]
-        @listing.amenities << Amenity.where(amenity: amenities) if amenities
-        debugger
+        amenities = params[:amenities]
+        amenities.split(',').each do |amenity|
+            @listing.amenities << Amenity.where(id: amenity)
+        end
         if @listing.save!
             render :show
         else
@@ -31,6 +32,11 @@ class Api::ListingsController < ApplicationController
 
     def update
         @listing = Listing.find(params[:id])
+        @listing.photos.attach(params[:listing][:photos])
+        amenities = params[:amenities]
+        amenities.split(',').each do |amenity|
+            @listing.amenities << Amenity.where(id: amenity)
+        end
         if @listing.update(listing_params)
             render :show
         else
@@ -40,8 +46,11 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = Listing.find(params[:id])
-        @listing.destroy
-        render json: {message: "Listing deleted"}
+        if @listing.destroy!
+            render json: { message: "Listing deleted" }
+        else
+            render json: { error: "Error deleting listing" }, status: :unprocessable_entity
+        end
     end
 
     private

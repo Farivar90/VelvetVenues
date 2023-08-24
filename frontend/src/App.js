@@ -11,6 +11,7 @@ import Search from './components/Search/Search';
 import ListingDetailsPage from './components/Listings/ListingDetailsPage';
 import CreateListingPage from './components/Listings/CreateListing';
 import EditProfile from './components/UsersPage/EditProfile';
+import EditListingPage from './components/Listings/EditListingForm';
 
 const App = () => {
   
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/listings" component={Listings} />
         <Route exact path="/listings/:id" component={ListingDetailsPage} />
         <Route exact path="/create-listing" component={CreateListingPage} />
+        <Route exact path="/listings/:id/edit" component={EditListingPage} />
         <Route exact path="/users/:userId" component={UsersPage} />
         <Route exact path="/users/:userId/edit" component={EditProfile} />
         <Route exact path="/favorites" component={Favorites} />

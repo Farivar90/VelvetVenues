@@ -12,8 +12,8 @@ function CreateListingPage() {
   });
   const history = useHistory();
   const dispatch = useDispatch();
-  
-  const [setAmenitiesChecked, setAmenities] = useState([]); // Add this line
+  const [amenitiesChecked, setAmenities] = useState([]); // Add this line
+  console.log(amenitiesChecked, "ac");
   
   useEffect(() => {
     async function fetchAmenities() {
@@ -21,8 +21,7 @@ function CreateListingPage() {
         const response = await csrfFetch('/api/amenities');
         if (response.ok) {
           const amenities = await response.json();
-          console.log(amenities, 'am');
-          dispatch({ type: 'amenities/setAmenities', payload: amenities });
+          dispatch({ type: 'SET_AMENITIES', payload: amenities });
         }
       } catch (error) {
         console.error('Failed to fetch amenities:', error);
@@ -54,9 +53,9 @@ function CreateListingPage() {
   const handleAmenityChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
-      setAmenitiesChecked((prevData) => [...prevData, value]);
+      setAmenities((prevData) => [...prevData, value]);
     } else {
-      setAmenitiesChecked((prevData) => prevData.filter((amenity) => amenity !== value));
+      setAmenities((prevData) => prevData.filter((amenity) => amenity !== value));
     }
   };
     
@@ -95,6 +94,7 @@ function CreateListingPage() {
         formDataObject.append(`listing[${key}]`, formData[key]);
       }
   }
+    formDataObject.append('amenities', amenitiesChecked);
     
     try {
       const response = await csrfFetch('/api/listings',{
@@ -237,16 +237,15 @@ function CreateListingPage() {
         <label htmlFor="amenities">Select Amenities:</label>
         <div className="amenities-container">
                 <div className="amenities-list">
-                  {console.log(amenities, 'am2')}
-                    {amenities.map((amenity) => (
-                    <label key={amenity} className="amenity-label">
+                    {Object.values(amenities).map((amenity) => (
+                    <label key={amenity.id} className="amenity-label">
                         <input
                         type="checkbox"
                         name="amenities"
-                        value={amenity}
+                        value={amenity.id}
                         onChange={handleAmenityChange}
                         />
-                        {amenity}
+                        {amenity.amenity}
                     </label>
                     ))}
                 </div>
