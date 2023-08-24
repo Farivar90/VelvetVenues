@@ -3,6 +3,7 @@ import { useParams, Link, Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
+import MapWrapper from '../MapComp/MapWrapper';
 
 function ListingDetailPage() {
   const { id } = useParams();
@@ -79,6 +80,16 @@ function ListingDetailPage() {
           <li className="amenity-item" key={amenity.id}>{amenity.amenity}</li>
         ))}
       </ul>
+      <div className="location-map">
+        {/* {listingDetails.latitude && listingDetails.longitude && (
+          <MapWrapper
+            items={[{ id: listingDetails.id, latitude: listingDetails.latitude, longitude: listingDetails.longitude }]}
+          />
+        )} */}
+      </div>
+      <div>
+      <button onClick={() => history.push(`/`)}>Go back home</button>
+      </div>
     </div>
   );
 }
