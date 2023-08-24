@@ -4,23 +4,30 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
     const markersRef = useRef({});
+    const averageLat = items.reduce((sum, item) => sum + item.latitude, 0) / items.length;
+    const averageLng = items.reduce((sum, item) => sum + item.longitude, 0) / items.length;
+    const defaultCenter = { lat: averageLat, lng: averageLng };
 
     useEffect(() => {
         if (!map) {
             const newMap = new window.google.maps.Map(mapRef.current, {
-                zoom: 8,
-                center: { lat: 40.730610, lng: -73.935242 }, // Default to New York City
+                zoom: 4,
+                center: defaultCenter
             });
             setMap(newMap);
         }
     }, [map]);
 
     useEffect(() => {
+        console.log(items);
+        if (!items) {
+            return;
+        }
         if (map) {
             items.forEach(item => {
                 if (!markersRef.current[item.id]) {
                     const marker = new window.google.maps.Marker({
-                        position: { lat: item.lat, lng: item.lng },
+                        position: { lat: item.latitude, lng: item.longitude },
                         map,
                     });
 
@@ -38,7 +45,8 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
                     delete markersRef.current[id];
                 }
             });
-
+            console.log("markerEventHandlers:", markerEventHandlers);
+            console.log("mapEventHandlers:", mapEventHandlers);
             Object.entries(mapEventHandlers).forEach(([event, handler]) => {
                 map.addListener(event, handler);
             });

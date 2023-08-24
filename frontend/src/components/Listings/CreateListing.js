@@ -13,7 +13,7 @@ function CreateListingPage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [amenitiesChecked, setAmenities] = useState([]); // Add this line
-  console.log(amenitiesChecked, "ac");
+
   
   useEffect(() => {
     async function fetchAmenities() {

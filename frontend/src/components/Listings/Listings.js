@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import listingsReducer, { setListings } from '../../store/listingsReducer';
 import './Listings.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 function ListingsPage() {
   const dispatch = useDispatch();
   const [highlightedListing, setHighlightedListing] = useState(null);
-  
+  const currentUser = useSelector(state => state.session.user);
+
   const state = useSelector(state => {
     return state.entities.listings ;
   });
@@ -25,6 +27,10 @@ function ListingsPage() {
 
     fetchListings();
   }, []);
+
+  if (!currentUser) {
+    return <Redirect to="/" />;
+  }
   
   if (!state) { 
     return <div className="loading"><img src="/resfiles/R.gif" alt="loading" /></div>;

@@ -156,18 +156,18 @@ const RegistrationForm = () => {
   return (
     <form className='rl-form' onSubmit={handleSubmit}>
       <div className='rl-div' >
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Username, Email and Full Name</label>
         <input className='rl-input' type="text" name="username" placeholder="Enter your username" value={formData.username} onChange={handleInputChange} />
         {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
       </div>
       <div className='rl-div' >
-        <label htmlFor="email">Email</label>
+        {/* <label htmlFor="email">Email</label> */}
         <input className='rl-input' type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleInputChange} />
         {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
       </div>
       <div className='rl-div' >
-        <label htmlFor="fullName">Full Name (Optional)</label>
-        <input className='rl-input' type="text" name="fullName" placeholder="Enter your name (optional)" value={formData.fullName} onChange={handleInputChange} />
+        {/* <label htmlFor="fullName">Full Name (Optional)</label> */}
+        <input className='rl-input' type="text" name="fullName" placeholder="Enter your full name (optional)" value={formData.fullName} onChange={handleInputChange} />
       </div>
       <div className='rl-div' >
         <label htmlFor="password">Password</label>
@@ -175,7 +175,7 @@ const RegistrationForm = () => {
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
       </div>
       <div className='rl-div' >
-        <label htmlFor="reEnterPassword">Re-enter Password</label>
+        {/* <label htmlFor="reEnterPassword">Re-enter Password</label> */}
           <input className='rl-input'
             type="password" 
             name="reEnterPassword" 

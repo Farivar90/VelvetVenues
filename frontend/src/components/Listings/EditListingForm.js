@@ -274,8 +274,6 @@ function EditListingPage() {
                   <label htmlFor="amenities">Select Amenities:</label>
         <div className="amenities-container">
           <div className="amenities-list">
-            {console.log(Object.values(amenities), 'am')}
-            {console.log(Object.values(amenitiesChecked), 'ac')}
             {Object.values(amenities).map((amenity) => (
               <label key={amenity.id} className="amenity-label">
                 <input
