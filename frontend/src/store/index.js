@@ -3,16 +3,17 @@ import thunk from 'redux-thunk';
 import session from './session';
 import listingsReducer from './listingsReducer';
 import amenitiesReducer from './amenitiesReducer';
+import userReducer from './usersReducer';
 
 const entitiesReducer = combineReducers({
   listings: listingsReducer,
   amenities: amenitiesReducer
-  // users : userReducer
 });
 
 const rootReducer = combineReducers({
   session,
-  entities: entitiesReducer
+  entities: entitiesReducer,
+  users: userReducer
 });
 
 

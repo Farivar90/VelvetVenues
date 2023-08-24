@@ -11,6 +11,7 @@ function ListingDetailPage() {
   const history = useHistory();
   const listingDetails = useSelector(state => state.entities.listings[id]);
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     async function fetchListingDetails() {
@@ -81,14 +82,14 @@ function ListingDetailPage() {
         ))}
       </ul>
       <div className="location-map">
-        {/* {listingDetails.latitude && listingDetails.longitude && (
+        {listingDetails.latitude && listingDetails.longitude && (
           <MapWrapper
             items={[{ id: listingDetails.id, latitude: listingDetails.latitude, longitude: listingDetails.longitude }]}
           />
-        )} */}
+        )}
       </div>
       <div>
-      <button onClick={() => history.push(`/`)}>Go back home</button>
+      <button onClick={() => history.push(`/listings`)}>Go back home</button>
       </div>
     </div>
   );

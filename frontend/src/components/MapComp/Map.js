@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
+const Map = ({ items}) => {
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
     const markersRef = useRef({});
@@ -11,15 +11,21 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
     useEffect(() => {
         if (!map) {
             const newMap = new window.google.maps.Map(mapRef.current, {
-                zoom: 4,
+                zoom: 2,
                 center: defaultCenter
             });
             setMap(newMap);
         }
     }, [map]);
 
+    const icon = {
+        url: '/resfiles/pin.png',
+        scaledSize: new window.google.maps.Size(35, 35),
+        origin: new window.google.maps.Point(0, 0),
+        anchor: new window.google.maps.Point(20, 40)
+    }
+
     useEffect(() => {
-        console.log(items);
         if (!items) {
             return;
         }
@@ -29,29 +35,17 @@ const Map = ({ items, markerEventHandlers, mapEventHandlers }) => {
                     const marker = new window.google.maps.Marker({
                         position: { lat: item.latitude, lng: item.longitude },
                         map,
+                        icon
                     });
-
-                    Object.entries(markerEventHandlers).forEach(([event, handler]) => {
-                        marker.addListener(event, () => handler(item));
+                        marker.addListener('click', () => {
+                        window.location.href = `/listings/${item.id}`;
                     });
-
                     markersRef.current[item.id] = marker;
                 }
             });
 
-            Object.keys(markersRef.current).forEach(id => {
-                if (!items.some(item => item.id === id)) {
-                    markersRef.current[id].setMap(null);
-                    delete markersRef.current[id];
-                }
-            });
-            console.log("markerEventHandlers:", markerEventHandlers);
-            console.log("mapEventHandlers:", mapEventHandlers);
-            Object.entries(mapEventHandlers).forEach(([event, handler]) => {
-                map.addListener(event, handler);
-            });
         }
-    }, [map, items, markerEventHandlers, mapEventHandlers]);
+    }, [map, items]);
 
     return <div ref={mapRef} style={{ width: '100%', height: '400px' }}>Map</div>;
 }

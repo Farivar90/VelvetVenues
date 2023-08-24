@@ -5,8 +5,10 @@ import listingsReducer, { setListings } from '../../store/listingsReducer';
 import './Listings.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import MapWrapper from '../MapComp/MapWrapper';
 
 function ListingsPage() {
+  const [showMap, setShowMap] = useState(false);
   const dispatch = useDispatch();
   const [highlightedListing, setHighlightedListing] = useState(null);
   const currentUser = useSelector(state => state.session.user);
@@ -38,6 +40,9 @@ function ListingsPage() {
   
   return (
     <div className="listings-container">
+      <button onClick={() => setShowMap(!showMap)}>
+        {showMap ? "Show List" : "Show Map"}
+      </button>
      {Object.values(state).map((listing) => {
        const imageUrl = (listing.photos && listing.photos.length > 0) ? 
                         listing.photos[0].imageUrl : 
@@ -63,6 +68,12 @@ function ListingsPage() {
          </Link>
        );
      })}
+      {showMap && <MapWrapper items={Object.values(state).map(listing => ({
+        id: listing.id,
+        latitude: listing.latitude,
+        longitude: listing.longitude
+      }))}
+       />}
     </div>
   );
 }
