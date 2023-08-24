@@ -11,7 +11,7 @@ const Map = ({ items}) => {
     useEffect(() => {
         if (!map) {
             const newMap = new window.google.maps.Map(mapRef.current, {
-                zoom: 2,
+                zoom: 3,
                 center: defaultCenter
             });
             setMap(newMap);

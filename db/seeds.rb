@@ -964,40 +964,40 @@ list16 = Listing.create!(
   contact_info: "call Mike"
 )
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-1.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-1.png'),
+  filename: '16-1.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-2.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-2.png'),
+  filename: '16-2.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-3.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-3.png'),
+  filename: '16-3.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-4.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-4.png'),
+  filename: '16-4.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-5.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-5.png'),
+  filename: '16-5.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-6.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-6.png'),
+  filename: '16-6.png'
+)
 
-# list16.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '16-7.png'
-# )
+list16.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/16/16-7.png'),
+  filename: '16-7.png'
+)
 
 list17 = Listing.create!(
   user_id: 6,
@@ -1016,40 +1016,40 @@ list17 = Listing.create!(
   contact_info: "Contact: William"
 )
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-1.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-1.png'),
+  filename: '17-1.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-2.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-2.png'),
+  filename: '17-2.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-3.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-3.png'),
+  filename: '17-3.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-4.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-4.png'),
+  filename: '17-4.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-5.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-5.png'),
+  filename: '17-5.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-6.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-6.png'),
+  filename: '17-6.png'
+)
 
-# list17.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '17-7.png'
-# )
+list17.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/17/17-7.png'),
+  filename: '17-7.png'
+)
 
 list18 = Listing.create!(
   user_id: 6,
@@ -1068,40 +1068,40 @@ list18 = Listing.create!(
   contact_info: "Contact: William"
 )
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-1.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-1.png'),
+  filename: '18-1.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-2.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-2.png'),
+  filename: '18-2.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-3.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-3.png'),
+  filename: '18-3.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-4.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-4.png'),
+  filename: '18-4.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-5.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-5.png'),
+  filename: '18-5.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-6.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-6.png'),
+  filename: '18-6.png'
+)
 
-# list18.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '18-7.png'
-# )
+list18.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/18/18-7.png'),
+  filename: '18-7.png'
+)
 
 list19 = Listing.create!(
   user_id: 5,
