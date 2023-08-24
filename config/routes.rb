@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :show, :destroy]
     resources :users
-    # get '/users/current', to: 'users#current'
+    resources :listings
+    resources :amenities, only: [:index]
   end
 
   get '*path',

@@ -1,6 +1,233 @@
-
 body {
-    background-color: rgb(54, 30, 84);
-    color: aliceblue;
-    justify-content: center;
+  overflow-x: hidden;
+  font-family: Sans-Serif;
+  margin: 0;
+}
+
+.menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #331c52;
+  color: #f2efef;
+  padding:1%;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+
+.menu-logo img {
+  /* max-height: 80px; */
+  max-width:50%
+  /* flex-shrink: 0; */
+}
+
+.menu-container input {
+  display: block;
+  width: 35px;
+  height: 25px;
+  margin: 0;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/* Hide the submenu by default */
+.submenu {
+  animation: fadeInUp 0.3s forwards;
+  display: none;
+  position: absolute;
+  background-color: rgba(242, 239, 239, 0.95); /* Slight transparency */
+  padding: 10px;
+  border-radius: 8px; /* Rounded edges */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  transform: translateY(10px); /* Start slightly below for the animation */
+  opacity: 0; /* Start as transparent */
+}
+
+
+.submenu a {
+  color: #331c52;
+  text-decoration: none;
+  font-weight: 500; /* Make it semi-bold */
+}
+
+.submenu a:hover {
+  color: #f2c6b4;
+}
+
+
+/* Burger menu */
+.menu-container span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #f2c6b4;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.menu-container span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.menu-container span:nth-child(3) {
+  transform-origin: 0% 100%;
+}
+
+.menu-container input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(3px,-1px);
+  background: #331c52;
+}
+
+.menu-container input:checked ~ span:nth-child(4) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menu-container input:checked ~ span:nth-child(3) {
+  transform: rotate(-45deg) translate(-5px,11px);
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/* mobile styles */
+@media only screen and (max-width: 830px) { 
+  .menu-container {
+    flex-direction: column;
+    align-items: flex-end;
   }
+  
+  .menu-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-logo img {
+    max-height: 30px;
+  }
+
+  .menu {
+    position: absolute;
+    box-sizing: border-box;
+    width: 300px;
+    right: -300px;
+    top: 0;
+    margin: -20px;
+    padding: 75px 50px 50px;
+    background: #f2efef;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translateX(0%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+  .menu-container input:checked ~ .menu {
+    transform: translateX(-100%);
+  }
+}
+
+/* desktop styles */
+@media only screen and (min-width: 831px) { 
+  .menu-container {
+    width: 100%;
+  }
+
+  .menu-container a {
+    color: #f2efef;
+  }
+
+
+  /* Burger menu */
+  .menu-container span {
+    display: none;
+  }
+
+  .menu {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu ul {
+    display: flex;
+    padding: 0;
+  }
+
+  .menu li {
+    padding: 0 20px;
+  }
+}
+
+.menu-container a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: #331c52; /* Set background color */
+  color: #ffffff; /* Set text color */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transitions */
+}
+
+.menu-container a:hover {
+  background-color: #331c52;
+  color: #f2c6b4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu li:hover .submenu {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.submenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.submenu li {
+  padding: 8px 10px; /* More balanced padding */
+  border-radius: 5px; /* Rounded edges for the submenu items */
+  transition: background-color 0.3s ease; /* Smooth transitions for hover */
+}
+
+.submenu li:hover {
+  background-color: rgba(51, 28, 82, 0.1); /* Hover effect for submenu items */
+}

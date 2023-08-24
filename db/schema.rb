@@ -10,9 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_13_022350) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_18_060939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "amenity", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "price", null: false
+    t.float "lot_size", null: false
+    t.float "living_area", null: false
+    t.string "location", null: false
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "bedrooms", null: false
+    t.integer "full_baths", null: false
+    t.integer "half_baths"
+    t.integer "garage"
+    t.integer "built", null: false
+    t.text "description"
+    t.string "contact_info", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bedrooms"], name: "index_listings_on_bedrooms"
+    t.index ["full_baths"], name: "index_listings_on_full_baths"
+    t.index ["living_area"], name: "index_listings_on_living_area"
+    t.index ["location"], name: "index_listings_on_location"
+    t.index ["lot_size"], name: "index_listings_on_lot_size"
+    t.index ["price"], name: "index_listings_on_price"
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "listings_amenities", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "amenity_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["amenity_id"], name: "index_listings_amenities_on_amenity_id"
+    t.index ["listing_id"], name: "index_listings_amenities_on_listing_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -27,4 +96,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_022350) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "listings", "users"
+  add_foreign_key "listings_amenities", "amenities"
+  add_foreign_key "listings_amenities", "listings"
 end

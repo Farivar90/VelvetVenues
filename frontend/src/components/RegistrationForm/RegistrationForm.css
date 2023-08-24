@@ -1,0 +1,7 @@
+.requirement-met {
+    color: green !important;
+  }
+  
+  .requirement {
+    color: red !important;
+  }
