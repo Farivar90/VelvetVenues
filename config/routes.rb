@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users
     resources :listings
     resources :amenities, only: [:index]
+    resources :favorites, only: [:create, :destroy, :index]
   end
 
   get '*path',

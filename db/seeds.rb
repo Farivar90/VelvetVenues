@@ -15,6 +15,8 @@ Listing.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('listings')
 User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
+Favorite.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 
 demo_user = User.create!(
   email: 'demo@example.com',
@@ -1122,33 +1124,33 @@ list19 = Listing.create!(
   contact_info: "Contact: Emy"
 )
 
-# list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '19-1.png'
-# )
+list19.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-1.png'),
+  filename: '19-1.png'
+)
+
+list19.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-2.png'),
+  filename: '19-2.png'
+)
 
 # list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
-#   filename: '19-2.png'
-# )
-
-# list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-3.png'),
 #   filename: '19-3.png'
 # )
 
 # list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-4.png'),
 #   filename: '19-4.png'
 # )
 
 # list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-5.png'),
 #   filename: '19-5.png'
 # )
 
 # list19.photos.attach(
-#   io: URI.open('app/assets/images/16-Ramdokht Hakhamaneshi.jpg'),
+#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/19/19-6.png'),
 #   filename: '19-6.png'
 # )
 
@@ -1169,35 +1171,35 @@ list20 = Listing.create!(
   contact_info: "Contact: Emy"
 )
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-1.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-1.png'),
+  filename: '20-1.png'
+)
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-2.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-2.png'),
+  filename: '20-2.png'
+)
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-3.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-3.png'),
+  filename: '20-3.png'
+)
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-4.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-4.png'),
+  filename: '20-4.png'
+)
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-5.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-5.png'),
+  filename: '20-5.png'
+)
 
-# list20.photos.attach(
-#   io: URI.open('https://velvetvenues-dev.s3.us-west-1.amazonaws.com/2/2-1.png'),
-#   filename: '20-6.png'
-# )
+list20.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/20/20-6.png'),
+  filename: '20-6.png'
+)
 
 list21 = Listing.create!(
   user_id: 5,
@@ -1300,15 +1302,15 @@ list22.photos.attach(
   filename: '22-3.png'
 )
 
-# list22.photos.attach(
-#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/22/22-4.png'),
-#   filename: '22-4.png'
-# )
+list22.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/22/22-4.png'),
+  filename: '22-4.png'
+)
 
-# list22.photos.attach(
-#   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/22/22-5.png'),
-#   filename: '22-5.png'
-# )
+list22.photos.attach(
+  io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/22/22-5.png'),
+  filename: '22-5.png'
+)
 
 # list22.photos.attach(
 #   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/22/22-6.png'),
@@ -1342,6 +1344,18 @@ puts "Listings seeded successfully!"
   unless ListingsAmenity.exists?(listing_id: listing_id, amenity_id: amenity_id)
     ListingsAmenity.create!(listing_id: listing_id, amenity_id: amenity_id)
   end
+  
 end
 
 puts "ListingsAmenities seeded successfully!"
+
+favorite1 = Favorite.create!(user: demo_user, listing: list12)
+favorite2 = Favorite.create!(user: demo_user, listing: list22)
+favorite3 = Favorite.create!(user: demo_user, listing: list10)
+favorite4 = Favorite.create!(user: user1, listing: list5)
+favorite5 = Favorite.create!(user: user1, listing: list1)
+favorite6 = Favorite.create!(user: realtor2, listing: list2)
+favorite7 = Favorite.create!(user: realtor2, listing: list1)
+favorite8 = Favorite.create!(user: realtor2, listing: list3)
+
+puts "Favorites seeded successfully!"

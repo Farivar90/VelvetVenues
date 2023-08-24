@@ -8,6 +8,9 @@ class Listing < ApplicationRecord
         through: :listings_amenities,
         source: :amenity
 
+    has_many :favorites,
+        dependent: :destroy
+
     has_many_attached :photos
     
     validates :user_id, :price, :lot_size, :living_area, :location, :bedrooms, :full_baths, :built, :contact_info, presence: true
