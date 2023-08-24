@@ -38,6 +38,14 @@ const RegistrationForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    if (name === "password") {
+      setLowercaseRequirementMet(/[a-z]/.test(value));
+      setUppercaseRequirementMet(/[A-Z]/.test(value));
+      setNumericRequirementMet(/[0-9]/.test(value));
+      setSpecialCharRequirementMet(/[!@#]/.test(value));
+      setLengthRequirementMet(value.length >= 6);
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -73,6 +81,7 @@ const RegistrationForm = () => {
     const usernameRegex = /^[a-zA-Z0-9]+$/;
     return usernameRegex.test(username);
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
