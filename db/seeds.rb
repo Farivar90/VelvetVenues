@@ -1349,13 +1349,13 @@ end
 
 puts "ListingsAmenities seeded successfully!"
 
-favorite1 = Favorite.create!(user: demo_user, listing: list12)
-favorite2 = Favorite.create!(user: demo_user, listing: list22)
-favorite3 = Favorite.create!(user: demo_user, listing: list10)
-favorite4 = Favorite.create!(user: user1, listing: list5)
-favorite5 = Favorite.create!(user: user1, listing: list1)
-favorite6 = Favorite.create!(user: realtor2, listing: list2)
-favorite7 = Favorite.create!(user: realtor2, listing: list1)
-favorite8 = Favorite.create!(user: realtor2, listing: list3)
+favorite1 = Favorite.create!(user_id: demo_user.id, listing_id: list12.id)
+favorite2 = Favorite.create!(user_id: demo_user.id, listing_id: list22.id)
+favorite3 = Favorite.create!(user_id: demo_user.id, listing_id: list10.id)
+favorite4 = Favorite.create!(user_id: user1.id, listing_id: list5.id)
+favorite5 = Favorite.create!(user_id: user1.id, listing_id: list1.id)
+favorite6 = Favorite.create!(user_id: realtor2.id, listing_id: list2.id)
+favorite7 = Favorite.create!(user_id: realtor2.id, listing_id: list1.id)
+favorite8 = Favorite.create!(user_id: realtor2.id, listing_id: list3.id)
 
 puts "Favorites seeded successfully!"

@@ -3,7 +3,9 @@ import { useParams, Link, Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
+import csrfFetch from '../../store/csrf';
 import MapWrapper from '../MapComp/MapWrapper';
+import favoriteActions from '../Favorites/HandleFavorites';
 
 function ListingDetailPage() {
   const { id } = useParams();
@@ -11,6 +13,7 @@ function ListingDetailPage() {
   const history = useHistory();
   const listingDetails = useSelector(state => state.entities.listings[id]);
   const dispatch = useDispatch();
+  const userFavorites = currentUser.favoriteListings || [];
   
 
   useEffect(() => {
@@ -19,7 +22,7 @@ function ListingDetailPage() {
         const response = await axios.get(`/api/listings/${id}`);
         if(response.status === 200) {
           dispatch({ type: 'SET_LISTING', payload: response.data });
-          history.push(`/listings/${response.data.id}`);
+          // history.push(`/listings/${response.data.id}`);
         }
       } catch (error) {
         console.error('Error fetching listing details:', error);
@@ -27,7 +30,7 @@ function ListingDetailPage() {
     }
 
     fetchListingDetails();
-  }, [id]);
+  }, [id, dispatch]);
 
   if (!currentUser) {
     return <Redirect to={`/`} />;
@@ -61,7 +64,11 @@ function ListingDetailPage() {
       {currentUser === listingDetails.userId && (
       <button onClick={() => history.push(`/listings/${id}/edit`)}>Edit</button>
       )}
-
+      {/* <FavoriteButton 
+          className="favorite-button" 
+          listingId={listing.id} 
+          defaultFavorite={userFavorites ? userFavorites.includes(listing.id) : false} 
+      /> */}
       <p className="price">${listingDetails.price.toLocaleString()}</p> 
       <p className="location">Location: {listingDetails.location}</p>
       <p className="lot_size">Lot Size: {listingDetails.lotSize} acres</p>

@@ -4,10 +4,12 @@ import session from './session';
 import listingsReducer from './listingsReducer';
 import amenitiesReducer from './amenitiesReducer';
 import userReducer from './usersReducer';
+import favoritesReducer from './favoritesReducer';
 
 const entitiesReducer = combineReducers({
   listings: listingsReducer,
-  amenities: amenitiesReducer
+  amenities: amenitiesReducer,
+  favorites: favoritesReducer,
 });
 
 const rootReducer = combineReducers({

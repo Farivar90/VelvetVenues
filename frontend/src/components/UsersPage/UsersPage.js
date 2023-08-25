@@ -41,7 +41,7 @@ const UsersPage = () => {
           <p>Updated At: {new Date(user.updatedAt).toLocaleString()}</p>
           <div className="user-image">
             <img 
-              src={user.photo?.imageUrl || '/resfiles/navlogo.png'} 
+              src={user.photo?.imageUrl || '/resfiles/default-profile-image.png'} 
               alt={`${user.fullName}'s profile`} 
             />
           </div>

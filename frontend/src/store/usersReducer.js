@@ -13,6 +13,11 @@ const initialState = {
             [action.payload.id]: action.payload,
           },
         };
+        case 'UPDATE_FAVORITES':
+          return {
+            ...state,
+            user: { ...state.user, favoriteListings: action.payload },
+          };
       default:
         return state;
     }

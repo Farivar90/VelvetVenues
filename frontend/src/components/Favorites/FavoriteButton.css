@@ -1,0 +1,16 @@
+.favorite-icon-container {
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+  }
+  
+  .favorite-icon {
+    font-size: 24px;
+    color: #ccc; /* gray color for non-favorite */
+  }
+  
+  .favorite-icon.favorited {
+    color: red; /* red color when favorited */
+  }
+  
