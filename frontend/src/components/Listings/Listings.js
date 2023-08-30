@@ -73,11 +73,11 @@ function ListingsPage() {
                     />
                     <h2>{listing.location}</h2>
                     <p className="price">${listing.price.toLocaleString("en-US")}</p>
-                    {/* <FavoriteButton 
+                    <FavoriteButton 
                         className="favorite-button" 
                         listingId={listing.id} 
                         defaultFavorite={userFavorites ? userFavorites.includes(listing.id) : false} 
-                    /> */}
+                    />
                 </Link>
                 </div>
               );

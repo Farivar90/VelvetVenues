@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { removeFromFavorites } from '../../store/favoritesReducer';
+import handleFavorites from '../../components/Favorites/HandleFavorites';
 
 function Favorites() {
+  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const userFavorites = useSelector(state => state.favorites) || [];
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Populate favorites when component mounts
+    handleFavorites.getUserFavorites(dispatch)
+      .catch(error => {
+        console.error("Failed to fetch user's favorites:", error);
+      });
+  }, [dispatch]);
 
   if (!currentUser) {
     return <Redirect to="/" />;
   }
-// console.log(userFavorites);
+
   return (
     <div>
-      <h1>Favoritos</h1>
+      <h1>Favorites</h1>
       <div>
-      {userFavorites.length === 0 ? (
-        <p>You have no favorites yet. Start exploring listings!</p>
-      ) : (
-        userFavorites.map(listingId => (
-          <div key={listingId}>
-            <Link to={`/listings/${listingId}`}>Listing {listingId}</Link>
-            <button onClick={() => dispatch(removeFromFavorites(listingId))}>
-              Remove from Favorites
-            </button>
-          </div>
-        ))
-      )}
+        {userFavorites.length === 0 ? (
+          <p>You have no favorites yet. Start exploring listings!</p>
+        ) : (
+          userFavorites.map(favorite => (
+            <div key={favorite.id}>
+              <Link to={`/listings/${favorite.listingId}`}>Listing {favorite.listingId}</Link>
+              <button onClick={() => handleFavorites.removeFromFavorites(favorite.listingId, dispatch)}>
+                Remove from Favorites
+              </button>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
     before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
     def index
-        @listings = Listing.all
+        @listings = Listing.with_attached_photos.all
         render :index
     end
 

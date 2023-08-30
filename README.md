@@ -26,6 +26,7 @@ VelvetVenues is a real estate application that caters exclusively to high-end pr
 * PostgreSQL
 * React
 * Redux
+* AWS
 * Google map
 
 

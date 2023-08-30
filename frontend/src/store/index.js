@@ -9,12 +9,12 @@ import favoritesReducer from './favoritesReducer';
 const entitiesReducer = combineReducers({
   listings: listingsReducer,
   amenities: amenitiesReducer,
-  favorites: favoritesReducer,
 });
 
 const rootReducer = combineReducers({
   session,
   entities: entitiesReducer,
+  favorites: favoritesReducer,
   users: userReducer
 });
 
