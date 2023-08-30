@@ -9,11 +9,12 @@ const EditProfile = () => {
   const currentUser = useSelector(state => state.session.user);
   const { userId } = useParams();
   const [user, setUser] = useState({});
+  const [showMessage, setShowMessage] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
-    if (currentUser !== parseInt(userId)) {
-      history.push('/');
+    if (currentUser === 1) {
+      setShowMessage(true);
       return;
     }
 
@@ -54,10 +55,37 @@ const EditProfile = () => {
       console.error('Error updating user:', error);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      const response = await csrfFetch(`/api/users/${userId}`, {
+        method: 'DELETE'
+      });
+
+      if (response.ok) {
+        history.push('/');
+      } else {
+        console.error('Error deleting user:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  if (!currentUser) {
+    return <Redirect to="/" />;
+  }
   
   return (
     <div className="profile-container">
       <h1>Edit Profile</h1>
+
+      {showMessage && (
+        <div className="message">
+          Edit and Delete actions are not available for demo user.
+          If you'd like to test the full functionality, please register.
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="profile-form">
         <div className="profile-field">
           <label>Username: </label>
@@ -82,11 +110,25 @@ const EditProfile = () => {
           <input 
             type="text" 
             name="full_name" 
-            value={user.fullName || ''} 
+            value={user?.full_name} 
             onChange={handleChange} 
           />
         </div>
-        <button type="submit" className="profile-button">Save Changes</button>
+        <button
+          type="submit"
+          className="profile-button"
+          disabled={showMessage}
+        >
+          Save Changes
+        </button>
+        <button
+          type="button"
+          className="profile-button delete-button"
+          onClick={handleDelete}
+          disabled={showMessage}
+        >
+          Delete User
+        </button>
       </form>
     </div>
   );
