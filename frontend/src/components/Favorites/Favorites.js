@@ -6,6 +6,7 @@ import { setListings } from '../../store/listingsReducer';
 import axios from 'axios';
 import FavoriteButton from '../Favorites/FavoriteButton';
 import { Link } from 'react-router-dom';
+import  './Favorites.css';
 
 function Favorites() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function Favorites() {
     <div className="listings-page">
       <div className="toggle-container">
       <button onClick={() => setShowFavorites(!showFavorites)}>
-          {showFavorites ? "Your Listings" : "Your Favorites"}
+          {showFavorites ? "Your Properties" : "Your Favorites"}
         </button>
       </div>
       <div className="listings-container">
@@ -120,7 +121,12 @@ function Favorites() {
               );
             })
           ) : (
-            <p>You don't have any properties for sale.</p>
+            <div>
+            <h1 id='no-properties'>You don't have any properties for sale.</h1>
+            <h2>
+              <Link to="/create-listing">Do you want to sell your property? Click here</Link>
+            </h2>
+            </div>
           )
         )}
       </div>

@@ -18,12 +18,12 @@
   .user-image {
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #ffffff;
     padding: 10px;
     border-radius: 50%;
     overflow: hidden;
-    width: 200px;
-    height: 200px;
+    width: 30%;
+    height: 30%;
   }
   
   .user-image img {

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import './EditProfile.css';
 import csrfFetch from '../../store/csrf';
+import DemoUserModal from './DemoUserModal';
 
 const EditProfile = () => {
   const currentUser = useSelector(state => state.session.user);
@@ -11,6 +12,11 @@ const EditProfile = () => {
   const [user, setUser] = useState({});
   const [showMessage, setShowMessage] = useState(false);
   const history = useHistory();
+
+  const closeModal = () => {
+    setShowMessage(false);
+    history.push(`/users/${userId}`);
+  };
 
   useEffect(() => {
     if (currentUser === 1) {
@@ -78,14 +84,9 @@ const EditProfile = () => {
   
   return (
     <div className="profile-container">
+        <DemoUserModal show={showMessage} onClose={closeModal} />
       <h1>Edit Profile</h1>
 
-      {showMessage && (
-        <div className="message">
-          Edit and Delete actions are not available for demo user.
-          If you'd like to test the full functionality, please register.
-        </div>
-      )}
       <form onSubmit={handleSubmit} className="profile-form">
         <div className="profile-field">
           <label>Username: </label>
@@ -110,7 +111,7 @@ const EditProfile = () => {
           <input 
             type="text" 
             name="full_name" 
-            value={user?.full_name} 
+            value={user.full_name || ''} 
             onChange={handleChange} 
           />
         </div>
