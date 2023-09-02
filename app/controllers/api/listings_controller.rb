@@ -49,12 +49,10 @@ class Api::ListingsController < ApplicationController
         if params[:max_built]
             @listings = @listings.where("built <= ?", params[:max_built])
         end
-        # if params[:amenities]
-        #     amenities = params[:amenities]
-        #     amenities.split(',').each do |amenity|
-        #         @listings = @listings.where(amenity: amenity)
-        #     end
-        # end
+        if params[:amenities]
+            amenity_ids = params[:amenities].split(',')
+            @listings = @listings.joins(:amenities).where('amenities.id IN (?)', amenity_ids)
+        end        
         render :index
     end
 
