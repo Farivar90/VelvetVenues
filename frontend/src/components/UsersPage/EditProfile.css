@@ -83,3 +83,7 @@
 .display-none {
   display: none;
 }
+
+.profile-button-delete-button:hover{
+  background-color: rgb(166, 0, 0);
+}

@@ -48,6 +48,9 @@ const HeadNav = () => {
             <li>
               <Link to="/search">Search</Link>
             </li>
+            <li>
+              <Link to="/forum">Forum</Link>
+            </li>
           </ul>
           <ul>
             <li>

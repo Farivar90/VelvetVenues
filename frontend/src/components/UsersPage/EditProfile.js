@@ -124,11 +124,11 @@ const EditProfile = () => {
         </button>
         <button
           type="button"
-          className="profile-button delete-button"
+          className="profile-button-delete-button"
           onClick={handleDelete}
           disabled={showMessage}
         >
-          Delete User
+          Delete Profile
         </button>
       </form>
     </div>

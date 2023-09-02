@@ -34,7 +34,7 @@
   
   .edit-profile-btn {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: rgb(54, 30, 84);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -44,5 +44,6 @@
   
   .edit-profile-btn:hover {
     background-color: #0056b3;
+    color: rgb(232, 187, 170);
   }
   
