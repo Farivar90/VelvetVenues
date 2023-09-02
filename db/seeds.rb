@@ -1337,7 +1337,7 @@ list22.photos.attach(
 puts "Listings seeded successfully!"
 
 # Seed ListingsAmenities
-400.times do |i|
+200.times do |i|
   listing_id = rand(1..22)
   amenity_id = rand(1..20)
   
