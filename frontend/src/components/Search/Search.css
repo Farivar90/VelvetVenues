@@ -88,12 +88,12 @@ a{
   }
   
   .advanced-search-form input {
-    width: 5%;
+    width: 50%;
     margin-bottom: 10px;
   }
 
   .advanced-search-form button {
-    width: 100%; /* Make the button take full width */
+    width: 100%;
     margin-bottom: 10px;
     margin-top: 10px;
     background-color: rgb(54, 30, 84);
@@ -106,10 +106,6 @@ a{
   }
 
   .form-group {
-    /* display: flex; */
-    /* align-items: center; */
-    /* margin-bottom: 10px; */
-    /* flex-basis: 48%;  */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

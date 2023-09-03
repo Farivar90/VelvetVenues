@@ -39,8 +39,10 @@ function SearchListings() {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`/api/listings?search=${searchTerm}`);
-      dispatch(setListings(response.data));
+
+      const params = { ...advancedSearchFields, search: searchTerm };
+      const response = await axios.get(`/api/listings?${ params }`);
+        dispatch(setListings(response.data));
       setSearchResults(Object.values(response.data));
     } catch (error) {
       console.error('Error fetching search results:', error);
