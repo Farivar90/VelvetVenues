@@ -50,8 +50,14 @@
   }
   
   #demo-login-button {
-    margin-left: 10px;
     background-color: #6c757d;
+    padding: 6px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
   }
   
   #demo-login-button:hover {
