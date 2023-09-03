@@ -7,6 +7,8 @@ import { setListings } from '../../store/listingsReducer';
 import MapWrapper from '../MapComp/MapWrapper';
 import './Listings.css';
 import FavoriteButton from '../Favorites/FavoriteButton';
+import handleFavorites from '../../components/Favorites/HandleFavorites';
+
 
 function ListingsPage() {
   const [showMap, setShowMap] = useState(false);
@@ -29,6 +31,13 @@ function ListingsPage() {
     }
 
     fetchListings();
+  }, [dispatch]);
+
+  useEffect(() => {
+    handleFavorites.getUserFavorites(dispatch)
+      .catch(error => {
+        console.error("Failed to fetch user's favorites:", error);
+      });
   }, [dispatch]);
 
   if (!currentUser) {
