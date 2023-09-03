@@ -4,6 +4,8 @@ import axios from 'axios';
 import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
 import MapWrapper from '../MapComp/MapWrapper';
+import { addToFavorites, removeFromFavorites } from '../../store/favoritesReducer';
+
 
 function ListingDetailPage() {
   const { id } = useParams();
@@ -11,6 +13,10 @@ function ListingDetailPage() {
   const history = useHistory();
   const listingDetails = useSelector(state => state.entities.listings[id]);
   const dispatch = useDispatch();  
+
+  const favorites = useSelector(state => state.favorites);
+  const isFavorite = favorites.includes(id);
+
 
   useEffect(() => {
     async function fetchListingDetails() {
@@ -26,6 +32,15 @@ function ListingDetailPage() {
 
     fetchListingDetails();
   }, [id, dispatch]);
+
+  const handleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites(id));
+    } else {
+      dispatch(addToFavorites(id));
+    }
+  };
+  
 
   if (!currentUser) {
     return <Redirect to={`/`} />;
@@ -59,6 +74,10 @@ function ListingDetailPage() {
       {currentUser === listingDetails.userId && (
       <button onClick={() => history.push(`/listings/${id}/edit`)}>Edit</button>
       )}
+      <button className={isFavorite ? 'favorited' : 'not-favorited'} onClick={handleFavorite}>
+        {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      </button>
+
       <p className="price">${listingDetails.price.toLocaleString()}</p> 
       <p className="location">Location: {listingDetails.location}</p>
       <p className="lot_size">Lot Size: {listingDetails.lotSize} acres</p>
