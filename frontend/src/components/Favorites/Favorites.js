@@ -17,9 +17,11 @@ function Favorites() {
   const [showFavorites, setShowFavorites] = useState(true);
   const userOwnedListings = Object.values(useSelector(state => state.entities.listings)).filter(listing => listing.userId === currentUser);
   const favoriteListings = Object.values(state).filter(listing => {
-    const favoriteIds = userFavorites.map(favorite => favorite.listingId);
+    const favoriteIds = userFavorites.map(favorite => favorite.listingId);   
     return favoriteIds.includes(listing.id);
   });
+  const favoriteIds = userFavorites.map(favorite => favorite.listingId);
+
 
   useEffect(() => {
     handleFavorites.getUserFavorites(dispatch)
@@ -114,7 +116,7 @@ function Favorites() {
                 <FavoriteButton
                   className="favorite-button"
                   listingId={listing.id}
-                  defaultFavorite={true}
+                  defaultFavorite={favoriteIds.includes(listing.id)}
                 />
               </Link>
                 </div>

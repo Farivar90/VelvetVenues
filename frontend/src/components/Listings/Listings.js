@@ -15,6 +15,8 @@ function ListingsPage() {
   const currentUser = useSelector(state => state.session.user);
   const state = useSelector(state => state.entities.listings);
   const userFavorites = useSelector(state => state.favorites);
+  const favoriteIds = userFavorites.map(favorite => favorite.listingId);
+
 
   useEffect(() => {
     async function fetchListings() {
@@ -73,11 +75,11 @@ function ListingsPage() {
                     />
                     <h2>{listing.location}</h2>
                     <p className="price">${listing.price.toLocaleString("en-US")}</p>
-                    <FavoriteButton 
+                      <FavoriteButton 
                         className="favorite-button" 
                         listingId={listing.id} 
-                        defaultFavorite={userFavorites ? userFavorites.includes(listing.id) : false} 
-                    />
+                        defaultFavorite={favoriteIds.includes(listing.id)} 
+                      />
                 </Link>
                 </div>
               );
