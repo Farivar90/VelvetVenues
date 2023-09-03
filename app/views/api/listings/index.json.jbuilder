@@ -8,5 +8,8 @@
     else
       json.photos []
     end
+    json.amenities listing.amenities do |amenity|
+      json.extract! amenity, :id, :amenity
+    end
   end
 end

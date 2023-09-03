@@ -1,0 +1,117 @@
+.search {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(54, 30, 84);
+    font-size: 150%;
+}
+
+.search-input{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 20px;
+    border: 2px inset rgb(54, 30, 84);
+    border-radius: 5px;
+    font-size: 100%;
+    align-self: center;
+}
+
+.user-profile-boxes{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 100%;
+    border-radius: 5px;
+    /* background: #f9f9f9; */
+    padding: 2rem;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.5); */
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.profile-box{
+
+}
+
+.user-profile-box{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    height:20%;
+    border-radius: 5px;
+    background: #f9f9f9;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    flex: 0 1 calc(33.333% - 20px);
+    /* margin: 10px */
+}
+
+.user-profile-box:hover{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    background-color: rgb(173, 173, 173);
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .advanced-search-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 500px;
+  }
+  
+  .advanced-search-form input {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  .advanced-search-form button {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgb(54, 30, 84);
+  }
+
+  .advanced-search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  
+.form-group label {
+    margin-right: 10px;
+  }

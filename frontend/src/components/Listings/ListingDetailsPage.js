@@ -3,18 +3,14 @@ import { useParams, Link, Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
-// import csrfFetch from '../../store/csrf';
 import MapWrapper from '../MapComp/MapWrapper';
-// import favoriteActions from '../Favorites/HandleFavorites';
 
 function ListingDetailPage() {
   const { id } = useParams();
   const currentUser = useSelector(state => state.session.user);
   const history = useHistory();
   const listingDetails = useSelector(state => state.entities.listings[id]);
-  const dispatch = useDispatch();
-  // const userFavorites = currentUser.favoriteListings || [];
-  
+  const dispatch = useDispatch();  
 
   useEffect(() => {
     async function fetchListingDetails() {
@@ -63,11 +59,6 @@ function ListingDetailPage() {
       {currentUser === listingDetails.userId && (
       <button onClick={() => history.push(`/listings/${id}/edit`)}>Edit</button>
       )}
-      {/* <FavoriteButton 
-          className="favorite-button" 
-          listingId={listing.id} 
-          defaultFavorite={userFavorites ? userFavorites.includes(listing.id) : false} 
-      /> */}
       <p className="price">${listingDetails.price.toLocaleString()}</p> 
       <p className="location">Location: {listingDetails.location}</p>
       <p className="lot_size">Lot Size: {listingDetails.lotSize} acres</p>

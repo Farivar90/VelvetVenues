@@ -2,12 +2,18 @@ class Api::UsersController < ApplicationController
 
   wrap_parameters include: User.attribute_names + ['password']
   before_action :require_logged_out, only: [:create, :new]
-  before_action :require_logged_in, except: [:create]
+  before_action :require_logged_in, except: [:create, :index]
   before_action :set_user, only: [:show, :update, :destroy]
 
 
   def index
     @users = User.all
+    if params[:search]
+      @users = User.where("username ILIKE ?", "%#{params[:search]}%")
+    end
+    if params[:full_name]
+      @users = User.where("full_name ILIKE ?", "%#{params[:full_name]}%")
+    end
     render :index
   end
 
