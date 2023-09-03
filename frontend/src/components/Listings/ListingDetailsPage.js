@@ -3,9 +3,9 @@ import { useParams, Link, Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
-import csrfFetch from '../../store/csrf';
+// import csrfFetch from '../../store/csrf';
 import MapWrapper from '../MapComp/MapWrapper';
-import favoriteActions from '../Favorites/HandleFavorites';
+// import favoriteActions from '../Favorites/HandleFavorites';
 
 function ListingDetailPage() {
   const { id } = useParams();
@@ -13,7 +13,7 @@ function ListingDetailPage() {
   const history = useHistory();
   const listingDetails = useSelector(state => state.entities.listings[id]);
   const dispatch = useDispatch();
-  const userFavorites = currentUser.favoriteListings || [];
+  // const userFavorites = currentUser.favoriteListings || [];
   
 
   useEffect(() => {
@@ -22,7 +22,6 @@ function ListingDetailPage() {
         const response = await axios.get(`/api/listings/${id}`);
         if(response.status === 200) {
           dispatch({ type: 'SET_LISTING', payload: response.data });
-          // history.push(`/listings/${response.data.id}`);
         }
       } catch (error) {
         console.error('Error fetching listing details:', error);
@@ -53,13 +52,13 @@ function ListingDetailPage() {
             <img
               key={index}
               src={photo.imageUrl || '/resfiles/default-profile-image.png'}
-              alt={`Listing ${listingDetails.id} - Image ${index + 1}`}
+              alt={`Listing ${listingDetails.id} -${index + 1}`}
               className="listing-image"
             />
           ))}
         </div>
       ) : (
-        <img src='/resfiles/default-profile-image.png' alt="Default listing image" className="listing-image" />
+        <img src='/resfiles/default-profile-image.png' alt="Default listing" className="listing-image" />
       )}
       {currentUser === listingDetails.userId && (
       <button onClick={() => history.push(`/listings/${id}/edit`)}>Edit</button>

@@ -12,6 +12,7 @@ import ListingDetailsPage from './components/Listings/ListingDetailsPage';
 import CreateListingPage from './components/Listings/CreateListing';
 import EditProfile from './components/UsersPage/EditProfile';
 import EditListingPage from './components/Listings/EditListingForm';
+import Forum from './components/Forum/Forum';
 
 const App = () => {
   
@@ -30,6 +31,7 @@ const App = () => {
         <Route exact path="/users/:userId/edit" component={EditProfile} />
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/search" component={Search} />
+        <Route exact path="/forum" component={Forum} />
         <Redirect to="/"/>
       </Switch>
       <footer id="footer">

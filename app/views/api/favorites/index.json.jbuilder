@@ -1,10 +1,5 @@
-
-json.array! @favorites.includes(:listing) do |favorite|
-  json.id favorite.id
-  json.listing do
-    json.id favorite.listing.id
-    json.title favorite.listing.title
-    json.description favorite.listing.description
+@favorites.each do |favorite|
+  json.set! favorite.id do
+    json.extract! favorite, :id, :listing_id
   end
-  json.user_id favorite.user_id
 end

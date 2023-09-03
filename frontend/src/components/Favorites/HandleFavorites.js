@@ -3,10 +3,11 @@ import {setFavorites} from '../../store/favoritesReducer';
 
 async function getUserFavorites(dispatch) {
   try {
-    const response = await csrfFetch('/api/user/favorites');
+    const response = await csrfFetch('/api/favorites');
     const data = await response.json();
-    if (data.favorites) {
-      dispatch(setFavorites(data.favorites));
+
+    if (data) {
+      dispatch(setFavorites(data));
     } else {
       console.error("Unexpected data format from server:", data);
     }
@@ -17,17 +18,17 @@ async function getUserFavorites(dispatch) {
 
 async function addToFavorites(listingId, dispatch) {
   try {
-    const response = await csrfFetch('/favorites', {
+    const response = await csrfFetch('/api/favorites', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ listing_id: listingId }),
+      body: JSON.stringify({ listingId }),
     });
-
     const data = await response.json();
     if (data.status === 'success') {
       getUserFavorites(dispatch);
+      console.log(data, 'd.post');
     } else {
       console.error("Failed to add to favorites:", data.message);
     }
@@ -38,7 +39,7 @@ async function addToFavorites(listingId, dispatch) {
 
 async function removeFromFavorites(listingId, dispatch) {
   try {
-    const response = await csrfFetch(`/favorites/${listingId}`, {
+    const response = await csrfFetch(`/api/favorites/${listingId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

@@ -18,12 +18,12 @@
   .user-image {
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #ffffff;
     padding: 10px;
     border-radius: 50%;
     overflow: hidden;
-    width: 200px;
-    height: 200px;
+    width: 30%;
+    height: 30%;
   }
   
   .user-image img {
@@ -34,7 +34,7 @@
   
   .edit-profile-btn {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: rgb(54, 30, 84);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -44,5 +44,6 @@
   
   .edit-profile-btn:hover {
     background-color: #0056b3;
+    color: rgb(232, 187, 170);
   }
   

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams, Redirect } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
+import DemoListingModal from './DemoListingModal';
 
 
 function EditListingPage() {
@@ -11,6 +12,12 @@ function EditListingPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const amenities = useSelector(state => state.entities.amenities);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const closeModal = () => {
+    setShowMessage(false);
+    history.push(`/listings/${id}`);
+  };
 
   const [formData, setFormData] = useState({
     userId: currentUser,
@@ -64,6 +71,15 @@ function EditListingPage() {
     fetchAmenities();
   
   }, [dispatch]);
+
+  useEffect(() => {
+    if (currentUser === 1) {
+      setShowMessage(true);
+      return;
+    }
+    // ... (existing code)
+  }, [currentUser, history]);
+  
 
   const [amenitiesChecked, setAmenities] =
    useState(listingDetails.amenities? Object.values(listingDetails.amenities).map(amenity => amenity.id) : []);
@@ -156,6 +172,7 @@ function EditListingPage() {
 
   return (
         <div className="create-listing-container">
+          <DemoListingModal show={showMessage} onClose={closeModal} />
           <h2>Edit your property</h2>
           <h3>Property Details</h3>   
           <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -295,8 +312,21 @@ function EditListingPage() {
               value={formData.description}
               onChange={handleChange}
             />
-            <button type="submit">Update Listing</button>
-            <button type="button" onClick={handleDelete}>Delete Listing</button>
+      <button
+        type="submit"
+        className="profile-button"
+        disabled={showMessage}
+      >
+        Update Listing
+      </button>
+      <button
+        type="button"
+        className="profile-button delete-button"
+        onClick={handleDelete}
+        disabled={showMessage}
+      >
+        Delete Listing
+      </button>
           </form>
         </div>
       );
