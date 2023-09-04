@@ -17,7 +17,7 @@ function ListingDetailPage() {
 
   const favorites = useSelector(state => state.favorites);
   const isFavorite = favorites.some(fav => fav.listingId === parseInt(id));
-  console.log(isFavorite, favorites, 'i')
+  // console.log(isFavorite, favorites, 'i')
 
   useEffect(() => {
     async function fetchListingDetails() {
