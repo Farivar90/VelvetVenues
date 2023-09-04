@@ -5,6 +5,7 @@ import './ListingDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
 import MapWrapper from '../MapComp/MapWrapper';
 import { addToFavorites, removeFromFavorites } from '../../store/favoritesReducer';
+import handleFavorites from '../../components/Favorites/HandleFavorites';
 
 
 function ListingDetailPage() {
@@ -15,8 +16,8 @@ function ListingDetailPage() {
   const dispatch = useDispatch();  
 
   const favorites = useSelector(state => state.favorites);
-  const isFavorite = favorites.includes(id);
-
+  const isFavorite = favorites.some(fav => fav.listingId === parseInt(id));
+  console.log(isFavorite, favorites, 'i')
 
   useEffect(() => {
     async function fetchListingDetails() {
@@ -32,6 +33,13 @@ function ListingDetailPage() {
 
     fetchListingDetails();
   }, [id, dispatch]);
+
+  useEffect(() => {
+    handleFavorites.getUserFavorites(dispatch)
+      .catch(error => {
+        console.error("Failed to fetch user's favorites:", error);
+      });
+  }, [dispatch]);
 
   const handleFavorite = () => {
     if (isFavorite) {
