@@ -138,7 +138,7 @@ const RegistrationForm = () => {
 
       if (response.ok) {
         const user = await response.json();
-        console.log(user.id, 'ui')
+        // console.log(user.id, 'ui')
         dispatch({ type: 'session/setCurrentUser', payload: user.id});
         history.push(`/listings`);
       } else {
