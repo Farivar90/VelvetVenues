@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post 'chatbot/chat', to: 'chatbot#chat'
+    end
     resource :session, only: [:create, :show, :destroy]
     resources :users
     resources :listings

@@ -15,6 +15,7 @@ import EditListingPage from './components/Listings/EditListingForm';
 import Forum from './components/Forum/Forum';
 import ContactUs from './components/ContactUs/ContactUs';
 import { Link } from 'react-router-dom';
+import Chatbox from './components/ChatBox/Chatbox';
 
 
 const App = () => {
@@ -38,6 +39,9 @@ const App = () => {
         <Route exact path="/contact-us" component={ContactUs} />
         <Redirect to="/"/>
       </Switch>
+        <div>
+          <Chatbox />
+        </div>
   <footer id="footer">
       {/* <Link to="/contact-us"> */}
         {/* <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" /> */}
