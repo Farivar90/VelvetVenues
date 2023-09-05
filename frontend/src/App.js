@@ -39,14 +39,16 @@ const App = () => {
         <Redirect to="/"/>
       </Switch>
   <footer id="footer">
-      <Link to="/contact-us">
-        <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" />
-      </Link>
+      {/* <Link to="/contact-us"> */}
+        {/* <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" /> */}
+        <a className="github-links" href="/contact-us" ><i class="fa fa-diamond" aria-hidden="true"></i></a>
+
+      {/* </Link> */}
     <div className='footer-c'>
         <p><strong>© 2023 by F.A.  Imperial Estates. All rights reserved.</strong></p>
     </div>
     <div className='Contact-us-buts'>
-      <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i class="fa-brands fa-github"></i></a>
+      <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i class="fa fa-user-circle" aria-hidden="true"></i></a>
     </div>
   </footer>
     </Router>
