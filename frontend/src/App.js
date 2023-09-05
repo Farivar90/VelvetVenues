@@ -13,6 +13,9 @@ import CreateListingPage from './components/Listings/CreateListing';
 import EditProfile from './components/UsersPage/EditProfile';
 import EditListingPage from './components/Listings/EditListingForm';
 import Forum from './components/Forum/Forum';
+import ContactUs from './components/ContactUs/ContactUs';
+import { Link } from 'react-router-dom';
+
 
 const App = () => {
   
@@ -32,10 +35,19 @@ const App = () => {
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/forum" component={Forum} />
+        <Route exact path="/contact-us" component={ContactUs} />
         <Redirect to="/"/>
       </Switch>
-      <footer id="footer">
-    <p>© 2023 by F.A.  Imperial Estates. All rights reserved.</p>
+  <footer id="footer">
+      <Link to="/contact-us">
+        <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" />
+      </Link>
+    <div className='footer-c'>
+        <p><strong>© 2023 by F.A.  Imperial Estates. All rights reserved.</strong></p>
+    </div>
+    <div className='Contact-us-buts'>
+      <a className="github-links" href="https://github.com/Farivar90" ><i class="fa-brands fa-github"></i></a>
+    </div>
   </footer>
     </Router>
   );
