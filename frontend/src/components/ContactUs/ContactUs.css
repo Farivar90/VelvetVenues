@@ -1,5 +1,5 @@
 #about-project{
-    color: rgb(57, 57, 57);
+    color: rgb(54, 30, 84);
     font-size: 200%;
     font-weight: 600;
 }
@@ -7,21 +7,24 @@
 #first-info{
     font-style: italic;
     font-size: 150%;
+    color: rgb(54, 30, 84);
 }
 
 #second-info{
     font-style: italic;
+    font-weight: 300;
     font-size: 100%;
-    color: rgb(92, 92, 92);
+    color: rgb(54, 30, 84);
 }
 
-#contact-information{
+#contact-inform{
     font-style: italic;
     font-size: 150%;
+    color: rrgb(54, 30, 84);
 }
 
-.contact-info-cp{
-    /* color: rgb(54, 30, 84); */
+.contact-info-cpi{
+    color:aliceblue;
     font-size: 300%;
     margin: 5%;
     padding: auto;
@@ -31,7 +34,282 @@
     align-items: center;
 }
 
+.contact-info-cpi i {
+    color: rgb(54, 30, 84);
+    margin: 5px;
+    align-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-info-cpi a:hover i {
+    color: rgb(252, 216, 170);
+}
+
 .contact-info-cp:hover{
     color: rgb(252, 216, 170);
     cursor: pointer;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #bbbbbb;
+    overflow: hidden;
+    z-index: -1;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 12s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 61%;
+    width: 83px;
+    height: 83px;
+    bottom: -83px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 18%;
+    width: 89px;
+    height: 89px;
+    bottom: -89px;
+    animation-delay: 5s;
+}
+.background li:nth-child(2) {
+    left: 71%;
+    width: 97px;
+    height: 97px;
+    bottom: -97px;
+    animation-delay: 1s;
+}
+.background li:nth-child(3) {
+    left: 43%;
+    width: 105px;
+    height: 105px;
+    bottom: -105px;
+    animation-delay: 12s;
+}
+.background li:nth-child(4) {
+    left: 2%;
+    width: 123px;
+    height: 123px;
+    bottom: -123px;
+    animation-delay: 18s;
+}
+.background li:nth-child(5) {
+    left: 73%;
+    width: 276px;
+    height: 276px;
+    bottom: -276px;
+    animation-delay: 7s;
+}
+.background li:nth-child(6) {
+    left: 29%;
+    width: 242px;
+    height: 242px;
+    bottom: -242px;
+    animation-delay: 22s;
+}
+.background li:nth-child(7) {
+    left: 10%;
+    width: 132px;
+    height: 132px;
+    bottom: -132px;
+    animation-delay: 8s;
+}
+.background li:nth-child(8) {
+    left: 69%;
+    width: 235px;
+    height: 235px;
+    bottom: -235px;
+    animation-delay: 1s;
+}
+.background li:nth-child(9) {
+    left: 17%;
+    width: 153px;
+    height: 153px;
+    bottom: -153px;
+    animation-delay: 25s;
+}
+.background li:nth-child(10) {
+    left: 27%;
+    width: 276px;
+    height: 276px;
+    bottom: -276px;
+    animation-delay: 16s;
+}
+.background li:nth-child(11) {
+    left: 13%;
+    width: 115px;
+    height: 115px;
+    bottom: -115px;
+    animation-delay: 28s;
+}
+.background li:nth-child(12) {
+    left: 44%;
+    width: 130px;
+    height: 130px;
+    bottom: -130px;
+    animation-delay: 22s;
+}
+.background li:nth-child(13) {
+    left: 59%;
+    width: 225px;
+    height: 225px;
+    bottom: -225px;
+    animation-delay: 14s;
+}
+.background li:nth-child(14) {
+    left: 39%;
+    width: 190px;
+    height: 190px;
+    bottom: -190px;
+    animation-delay: 37s;
+}
+.background li:nth-child(15) {
+    left: 89%;
+    width: 326px;
+    height: 326px;
+    bottom: -326px;
+    animation-delay: 47s;
+}
+.background li:nth-child(16) {
+    left: 45%;
+    width: 269px;
+    height: 269px;
+    bottom: -269px;
+    animation-delay: 53s;
+}
+.background li:nth-child(17) {
+    left: 26%;
+    width: 149px;
+    height: 149px;
+    bottom: -149px;
+    animation-delay: 11s;
+}
+.background li:nth-child(18) {
+    left: 0%;
+    width: 327px;
+    height: 327px;
+    bottom: -327px;
+    animation-delay: 68s;
+}
+.background li:nth-child(19) {
+    left: 31%;
+    width: 137px;
+    height: 137px;
+    bottom: -137px;
+    animation-delay: 34s;
+}
+.background li:nth-child(20) {
+    left: 78%;
+    width: 224px;
+    height: 224px;
+    bottom: -224px;
+    animation-delay: 22s;
+}
+.background li:nth-child(21) {
+    left: 13%;
+    width: 327px;
+    height: 327px;
+    bottom: -327px;
+    animation-delay: 58s;
+}
+.background li:nth-child(22) {
+    left: 79%;
+    width: 189px;
+    height: 189px;
+    bottom: -189px;
+    animation-delay: 13s;
+}
+.background li:nth-child(23) {
+    left: 64%;
+    width: 171px;
+    height: 171px;
+    bottom: -171px;
+    animation-delay: 10s;
+}
+.background li:nth-child(24) {
+    left: 52%;
+    width: 302px;
+    height: 302px;
+    bottom: -302px;
+    animation-delay: 29s;
+}
+.background li:nth-child(25) {
+    left: 3%;
+    width: 296px;
+    height: 296px;
+    bottom: -296px;
+    animation-delay: 74s;
+}
+.background li:nth-child(26) {
+    left: 48%;
+    width: 112px;
+    height: 112px;
+    bottom: -112px;
+    animation-delay: 105s;
+}
+.background li:nth-child(27) {
+    left: 86%;
+    width: 310px;
+    height: 310px;
+    bottom: -310px;
+    animation-delay: 109s;
+}
+.background li:nth-child(28) {
+    left: 78%;
+    width: 198px;
+    height: 198px;
+    bottom: -198px;
+    animation-delay: 29s;
+}
+.background li:nth-child(29) {
+    left: 87%;
+    width: 162px;
+    height: 162px;
+    bottom: -162px;
+    animation-delay: 15s;
+}
+.background li:nth-child(30) {
+    left: 53%;
+    width: 135px;
+    height: 135px;
+    bottom: -135px;
+    animation-delay: 95s;
+}
+.background li:nth-child(31) {
+    left: 58%;
+    width: 208px;
+    height: 208px;
+    bottom: -208px;
+    animation-delay: 140s;
 }
