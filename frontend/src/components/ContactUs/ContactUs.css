@@ -13,14 +13,14 @@
 #second-info{
     font-style: italic;
     font-weight: 300;
-    font-size: 100%;
-    color: rgb(54, 30, 84);
+    font-size: 110%;
+    color: rgb(0, 0, 0);
 }
 
 #contact-inform{
     font-style: italic;
     font-size: 150%;
-    color: rrgb(54, 30, 84);
+    color: rgb(54, 30, 84);
 }
 
 .contact-info-cpi{
