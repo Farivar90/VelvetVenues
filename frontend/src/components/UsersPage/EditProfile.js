@@ -110,8 +110,8 @@ const EditProfile = () => {
           <label>Full Name: </label>
           <input 
             type="text" 
-            name="full_name" 
-            value={user.full_name || ''} 
+            name="fullName" 
+            value={user.fullName || ''} 
             onChange={handleChange} 
           />
         </div>

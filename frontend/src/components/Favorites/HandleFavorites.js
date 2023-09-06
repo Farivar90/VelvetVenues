@@ -26,7 +26,7 @@ async function addToFavorites(listingId, dispatch) {
       body: JSON.stringify({ listingId }),
     });
     const data = await response.json();
-    if (data.status === 'success') {
+    if (response.ok) {
       getUserFavorites(dispatch);
       console.log(data, 'd.post');
     } else {
@@ -47,7 +47,7 @@ async function removeFromFavorites(listingId, dispatch) {
     });
 
     const data = await response.json();
-    if (data.status === 'success') {
+    if (response.ok) {
       getUserFavorites(dispatch);
     } else {
       console.error("Failed to remove from favorites:", data.message);

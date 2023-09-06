@@ -43,11 +43,12 @@ function ListingDetailPage() {
 
   const handleFavorite = () => {
     if (isFavorite) {
-      dispatch(removeFromFavorites(id));
+      handleFavorites.removeFromFavorites(id, dispatch);
     } else {
-      dispatch(addToFavorites(id));
+      handleFavorites.addToFavorites(id, dispatch);
     }
   };
+  
   
 
   if (!currentUser) {
