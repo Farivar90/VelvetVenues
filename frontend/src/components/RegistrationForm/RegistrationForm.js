@@ -194,6 +194,17 @@ const RegistrationForm = () => {
             />
           {reEnteredPasswordError && <p style={{ color: 'red' }}>{reEnteredPasswordError}</p>}
       </div>
+            {showPasswordRequirements && (
+            <div className="password-requirements">
+            <p>
+            * <span className={lowercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one lowercase alphabetical character.</span><br />
+            * <span className={uppercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one uppercase alphabetical character.</span><br />
+            * <span className={numericRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one numeric character.</span><br />
+            * <span className={specialCharRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one special character from the set !@#.</span><br />
+            * <span className={lengthRequirementMet ? 'requirement-met' : 'requirement'}>The password must be at least 6 characters long.</span>
+             </p>
+            </div>
+            )}
       <div className='rl-div' >
         <label htmlFor="invitationCode">Invitation Code</label>
         <input className='rl-input' type="text" name="invitationCode" placeholder="You must have an invitation code" value={formData.invitationCode} onChange={handleInputChange} />
@@ -220,17 +231,6 @@ const RegistrationForm = () => {
       <button  className='rl-button' type="submit">Register</button>
       {apiError && <div style={{ color: 'red' }} className="error">{apiError}</div>} 
       {error && <div style={{ color: 'red' }} className="error">{error}</div>}
-      {showPasswordRequirements && (
-      <div className="password-requirements">
-      <p>
-      * <span className={lowercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one lowercase alphabetical character.</span><br />
-      * <span className={uppercaseRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one uppercase alphabetical character.</span><br />
-      * <span className={numericRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one numeric character.</span><br />
-      * <span className={specialCharRequirementMet ? 'requirement-met' : 'requirement'}>The password must contain at least one special character from the set !@#.</span><br />
-      * <span className={lengthRequirementMet ? 'requirement-met' : 'requirement'}>The password must be at least 6 characters long.</span>
-       </p>
-      </div>
-      )}
 
       {showTermsModal && (
         <div className='terms-modal'>

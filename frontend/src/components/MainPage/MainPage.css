@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover;
+  background-size:auto;
   background-position: center;
   position: relative;
 }
 
 .background-overlay {
   background-color: rgb(54, 30, 84);
-  position: absolute;
+  position:relative;
   top: 0;
   left: 0;
   right: 0;
@@ -23,13 +23,13 @@
   text-align: center;
   color:  rgb(252, 216, 170);
   font-size: 100%;
-  font-weight: 600;
   z-index: 1;
-
 }
 
 .form-container {
-  width: 80%;
+  height:100% ;
+  width: 100%;
+  margin-bottom: 10%;
 }
 
 .toggle-button-container {
@@ -69,14 +69,15 @@
   }
 
   #main-modal {
-    color: rgb(73, 4, 82);
+    background-color: rgb(54, 30, 84) !important;
     max-height: 600px;
     width:27%;
     text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(100%, 00%);
+    position:sticky;
+    top: 100%;
+    left: 100%;
+    transform: translate(100%, 20%);
+    padding: 0px !important;
   }
 
 
@@ -87,11 +88,23 @@
   }
 
   #rl-head {
+    text-align: center;
     font-size: 200%;
-    color: rgb(228, 228, 228)
+    color: rgb(228, 228, 228);
+    border-bottom: 1px;
+    /* border-bottom-style: solid; */
+    height: 70px;
   }
 
-  @media (max-width: 768px) {
+  #rl-head h2{
+    color: rgb(228, 228, 228);
+    font-size: 100%;
+    font-weight: 600;
+    margin-bottom: 50%;
+    margin-top: 10%;
+  }
+
+  @media (max-width: 1000px) {
     .headmain-image {
       width: 100%;
     }
