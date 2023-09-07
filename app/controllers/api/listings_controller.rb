@@ -7,13 +7,13 @@ class Api::ListingsController < ApplicationController
         if params[:search]
             @listings = Listing.where("location ILIKE ?", "%#{params[:search]}%")
         end
-        if params[:min_price]
+        if params[:min_price] && params[:min_price] != ''
             @listings = @listings.where("price >= ?", params[:min_price])
         end
         if params[:max_price]
             @listings = @listings.where("price <= ?", params[:max_price])
         end
-        if params[:min_bedrooms]
+        if params[:min_bedrooms] && params[:min_bedrooms] != ''
             @listings = @listings.where("bedrooms >= ?", params[:min_bedrooms])
         end
         if params[:max_bedrooms]
