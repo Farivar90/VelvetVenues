@@ -16,20 +16,20 @@ function SearchListings() {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
 
     const [advancedSearchFields, setAdvancedSearchFields] = useState({
-    min_price: '',
-    max_price: '',
-    min_bedrooms: '',
-    max_bedrooms: '',
-    min_baths: '',
-    max_baths: '',
-    min_garage: '',
-    max_garage: '',
-    min_lot_size: '',
-    max_lot_size: '',
-    min_living_area: '',
-    max_living_area: '',
-    min_built: '',
-    max_built: '',
+    min_price: null,
+    max_price: null,
+    min_bedrooms: null,
+    max_bedrooms: null,
+    min_baths: null,
+    max_baths: null,
+    min_garage: null,
+    max_garage: null,
+    min_lot_size: null,
+    max_lot_size: null,
+    min_living_area: null,
+    max_living_area: null,
+    min_built: null,
+    max_built: null,
     // amenities: []
   });
 
@@ -40,8 +40,8 @@ function SearchListings() {
     try {
 
       const params = { ...advancedSearchFields, search: searchTerm };
-      const response = await axios.get(`/api/listings?search=${searchTerm}&${ params }`);
-        dispatch(setListings(response.data));
+      const response = await axios.get(`/api/listings`, { params: { ...advancedSearchFields, search: searchTerm } });
+      dispatch(setListings(response.data));
       setSearchResults(Object.values(response.data));
     } catch (error) {
       console.error('Error fetching search results:', error);

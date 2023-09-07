@@ -96,7 +96,7 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = Listing.find(params[:id])
-        if @listing.destroy!
+        if @listing.destroy
             render json: { message: "Listing deleted" }
         else
             render json: { error: "Error deleting listing" }, status: :unprocessable_entity
