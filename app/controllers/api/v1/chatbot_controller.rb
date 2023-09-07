@@ -9,8 +9,9 @@ class Api::V1::ChatbotController < ApplicationController
         model: "text-davinci-002",
         prompt: params[:message],
         max_tokens: 150
-      )
-      render json: { reply: response.choices.first.text.strip }
+        )
+        debugger
+        render json: { reply: response.choices.first.text.strip }
     end
   end
   
