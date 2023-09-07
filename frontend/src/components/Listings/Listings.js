@@ -44,7 +44,7 @@ function ListingsPage() {
     return <Redirect to="/" />;
   }
 
-  if (!state) {
+  if (!state || !favoriteIds) {
     return <div className="loading"><img src="/resfiles/R.gif" alt="loading" /></div>;
   }
 
