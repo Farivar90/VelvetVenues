@@ -21,17 +21,24 @@ function SearchUser() {
 
   useEffect(() => {
     setSearchResults([]);
-    
+  
     if (searchTerm) {
       Promise.all([
         fetchResults('search', searchTerm),
         fetchResults('full_name', searchTerm)
       ])
       .then(([usernameResults, fullNameResults]) => {
-        setSearchResults([...usernameResults, ...fullNameResults]);
+        const combinedResults = [...usernameResults, ...fullNameResults];
+  
+        // Removing duplicates based on 'id'
+        const uniqueResults = Array.from(new Set(combinedResults.map(user => user.id)))
+          .map(id => combinedResults.find(user => user.id === id));
+  
+        setSearchResults(uniqueResults);
       });
     }
   }, [searchTerm]);
+  
 
   if (!currentUser) {
     return <Redirect to={`/`} />;
