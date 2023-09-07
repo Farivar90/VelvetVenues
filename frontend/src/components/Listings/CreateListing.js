@@ -101,7 +101,7 @@ function CreateListingPage() {
         method: 'POST',
         body: formDataObject
       });
-      console.log('Listing created:', response.data);
+      // console.log('Listing created:', response.data);
       if(response.ok){
       const res = await response.json()
       dispatch({type: 'CEATE_LISTING', payload: res})

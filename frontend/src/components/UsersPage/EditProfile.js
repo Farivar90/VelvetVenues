@@ -44,12 +44,17 @@ const EditProfile = () => {
     e.preventDefault();
   
     try {
+      const updateUser = {
+        ...user,
+        full_name: user.fullName
+      };
+
       const response = await csrfFetch(`/api/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(updateUser)
       });
   
       if (response.ok) {

@@ -28,7 +28,6 @@ async function addToFavorites(listingId, dispatch) {
     const data = await response.json();
     if (response.ok) {
       getUserFavorites(dispatch);
-      console.log(data, 'd.post');
     } else {
       console.error("Failed to add to favorites:", data.message);
     }
