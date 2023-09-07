@@ -16,7 +16,6 @@ function SearchListings() {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
 
     const [advancedSearchFields, setAdvancedSearchFields] = useState({
-    search: '',
     min_price: '',
     max_price: '',
     min_bedrooms: '',
@@ -41,7 +40,7 @@ function SearchListings() {
     try {
 
       const params = { ...advancedSearchFields, search: searchTerm };
-      const response = await axios.get(`/api/listings?${ params }`);
+      const response = await axios.get(`/api/listings?search=${searchTerm}&${ params }`);
         dispatch(setListings(response.data));
       setSearchResults(Object.values(response.data));
     } catch (error) {
