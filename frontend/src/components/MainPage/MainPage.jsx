@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LoginForm from '../LoginForm/LoginForm';
-import Modal from 'react-modal';
+import Modal from '../Modal/Modal';
 import './MainPage.css';
 
 import background1 from './BackgroundPic/b1.jpg';
@@ -101,7 +101,7 @@ const MainPage = () => {
   ))}
   </div>
 
-  <Modal id= "main-modal" isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Login Modal">
+  <Modal id= "main-modal" showModal={isModalOpen} closeModal={closeModal} contentLabel="Login Modal">
     <div className="background-overlay">
       <div className="form-container">
         <div  id='rl-head'>
