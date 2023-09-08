@@ -7,6 +7,10 @@
   position: relative;
 }
 
+#lr{
+  width: 70% !important;
+}
+
 .background-overlay {
   background-color: rgb(54, 30, 84);
   position:relative;
@@ -30,6 +34,10 @@
   height:100% ;
   width: 100%;
   margin-bottom: 10%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .toggle-button-container {
@@ -42,6 +50,7 @@
 
 .headmain-image { 
   width: 100%;
+  margin-bottom: 1%;
   }
   
   .main-content {
@@ -49,29 +58,45 @@
   }
   
   .background-image {
+    margin-top: 1%;
     top: 0;
     left: 0;
     width: 20%;
     height: 20%;
-    object-fit: cover;
+    object-fit:cover
   }
 
   #mainWelcome {
-    font-size: 300%;
+    font-size: 400%;
     color: rgb(73, 4, 82);
     text-align: center;
   }
 
   #main-modal-opener {
     font-size: 250%;
-    color: rgb(73, 4, 82);
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    border: none;
+    color: rgb(252, 216, 170);
     text-align: center;
+    padding: 0.5%;
+    cursor: pointer;
+    align-self:center;
+    border-radius: 10px;
   }
+
+#main-modal-opener:hover {
+  background-color: rgb(252, 216, 170);
+  color: #333;
+}
+
+
 
   #main-modal {
     background-color: rgb(54, 30, 84) !important;
-    max-height: 600px;
-    width:27%;
+    max-height: 800px;
+    /* width:27%; */
+    max-width: 600px !important;
     text-align: center;
     position:sticky;
     top: 100%;
@@ -92,21 +117,34 @@
     font-size: 200%;
     color: rgb(228, 228, 228);
     border-bottom: 1px;
-    /* border-bottom-style: solid; */
     height: 70px;
   }
-
+  
   #rl-head h2{
     color: rgb(228, 228, 228);
     font-size: 100%;
     font-weight: 600;
     margin-bottom: 50%;
     margin-top: 10%;
+    position: relative;
   }
 
-  @media (max-width: 1000px) {
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+  @media (max-width: 1400px) {
     .headmain-image {
       width: 100%;
+    }
+
+    .form-container{
+      align-items: center;
+      justify-content: center;
     }
     
     .main-content {
@@ -131,7 +169,18 @@
     }
     
     #main-modal {
-      width: 80%;
-      transform: translate(0%, 10%);
+      width: 60%;
+      transform: translate(20%, 30%);
+    }
+
+    .rl-button{
+      padding: 6px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #760299;
+      color: #ffffff;
     }
   }

@@ -86,7 +86,9 @@ const MainPage = () => {
     <div>
     <img src="/resfiles/head.png" alt="headmain" className="headmain-image" />
       <h1 id= 'mainWelcome'>Welcome to VelvetVenues</h1>
-      <h2 id= 'main-modal-opener' onClick={openModal} style={{ cursor: 'pointer' }}>Click here to "Discover Luxury, Your Way"</h2>
+      <div className="centered-container">
+        <button id= 'main-modal-opener' onClick={openModal} style={{ cursor: 'pointer' }}>Click here to "Discover Luxury, Your Way"</button>
+      </div>
     
     <div className="main-content">
       {currentImageIndexes.map((imageIndex, index) => (
@@ -107,7 +109,7 @@ const MainPage = () => {
         </div>
         {activeForm === 'login' ? <LoginForm /> : <RegistrationForm />}
         <div className="toggle-button-container">
-          <button className='rl-button' onClick={toggleForm}>
+          <button className='rl-button' id='lr' onClick={toggleForm}>
             {activeForm === 'login' ? 'Don`t have an account? Please Register' : 'Already have an account? Login'}
           </button>
         </div>
