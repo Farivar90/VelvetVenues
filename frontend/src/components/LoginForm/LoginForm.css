@@ -55,7 +55,7 @@
   
   #demo-login-button {
     background-color: #6c757d;
-    padding: 6px 20px;
+    /* padding: 6px 20px; */
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
