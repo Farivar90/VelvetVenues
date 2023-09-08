@@ -14,7 +14,7 @@
     background: rgb(54, 30, 84);
     padding: 20px;
     border-radius: 8px;
-    width: 20%;
+    width: 30%;
     position: relative;
     animation: slide-down 300ms ease-out forwards;
     justify-items: center;
