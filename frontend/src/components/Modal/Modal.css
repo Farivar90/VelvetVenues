@@ -22,12 +22,12 @@
   }
   
   .toggle-button {
-    background: rgba(45, 45, 45);
+    /* background: rgba(45, 45, 45);
     color: white;
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer; */
   }
   
   .open-modal-button {
