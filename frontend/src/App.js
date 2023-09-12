@@ -14,6 +14,7 @@ import EditProfile from './components/UsersPage/EditProfile';
 import EditListingPage from './components/Listings/EditListingForm';
 import Forum from './components/Forum/Forum';
 import ContactUs from './components/ContactUs/ContactUs';
+import Inbox from './components/Message/Inbox';
 import { Link } from 'react-router-dom';
 
 
@@ -34,6 +35,7 @@ const App = () => {
         <Route exact path="/users/:userId/edit" component={EditProfile} />
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/search" component={Search} />
+        <Route exact path="/inbox" component={Inbox} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/contact-us" component={ContactUs} />
         <Redirect to="/"/>
@@ -41,14 +43,14 @@ const App = () => {
   <footer id="footer">
       {/* <Link to="/contact-us"> */}
         {/* <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" /> */}
-        <a className="github-links" href="/contact-us" ><i class="fa fa-diamond" aria-hidden="true"></i></a>
+        <a className="github-links" href="/contact-us" ><i className="fa fa-diamond" aria-hidden="true"></i></a>
 
       {/* </Link> */}
     <div className='footer-c'>
         <p><strong>© 2023 by F.A.  Imperial Estates. All rights reserved.</strong></p>
     </div>
     <div className='Contact-us-buts'>
-      <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+      <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i className="fa fa-user-circle" aria-hidden="true"></i></a>
     </div>
   </footer>
     </Router>

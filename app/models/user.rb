@@ -18,6 +18,14 @@ class User < ApplicationRecord
   has_many :favorites,
     dependent: :destroy
 
+  has_many :questions,
+    dependent: :destroy
+
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
+  
+  has_many :received_messages, class_name: "Message", foreign_key: "receiver_id"
+
+
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
     user = User.find_by(field => credential)
