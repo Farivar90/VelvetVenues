@@ -36,7 +36,7 @@ function Inbox() {
       }
   });
 
-  console.log(groupedMessages)
+//   console.log(groupedMessages)
 
   return (
     <div>

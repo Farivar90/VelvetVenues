@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
+import { fetchMessages } from '../../store/messages';
+import { useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import './Conversation.css';
 
 function Conversation() {
@@ -9,6 +12,8 @@ function Conversation() {
     const currentUser = useSelector((state) => state.session.user);
     const messagesObject = useSelector((state) => state.messages.messages);
     const [messageContent, setMessageContent] = useState('');
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const allMessages = Object.values(messagesObject);
     const filteredMessages = allMessages.filter(
@@ -18,7 +23,7 @@ function Conversation() {
         )
     );
 
-    console.log(userId)
+    // console.log(userId)
 
     const handleSendMessage = () => {
         csrfFetch('/api/messages', {
@@ -33,13 +38,23 @@ function Conversation() {
             })
         })
         .then(response => {
-            setMessageContent(''); // Clear message after sending
-            // You might want to refresh the messages or append to the existing list here
-        })
+            setMessageContent('');
+            dispatch(fetchMessages());}
+            )
         .catch(error => {
             console.error('Error sending message:', error);
         });
     };
+
+    useEffect(() => {
+        if (currentUser) {
+            dispatch(fetchMessages());
+        }
+    }, [currentUser, dispatch]);
+  
+    if (!currentUser) {
+      return <Redirect to={`/`} />;
+    }
 
     return (
         <div className="conversation-container">
@@ -60,6 +75,7 @@ function Conversation() {
                     onChange={(e) => setMessageContent(e.target.value)}
                 ></textarea>            
                 <button onClick={handleSendMessage}>Send</button>
+                <button onClick={() => history.push(`/inbox`)}>Go back to inbox</button>
             </div>
         </div>
     );
