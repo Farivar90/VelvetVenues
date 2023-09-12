@@ -1,0 +1,51 @@
+.inbox-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(54, 30, 84);
+  font-size: 250%;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.inbox-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.message-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.message-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.message-link:hover {
+  text-decoration: underline;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.last-message {
+  margin-top: 5px;
+  font-size: 90%;
+  color: #555;
+}
+
+.message-content {
+  white-space: pre-line;
+}

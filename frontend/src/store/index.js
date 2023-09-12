@@ -5,6 +5,7 @@ import listingsReducer from './listingsReducer';
 import amenitiesReducer from './amenitiesReducer';
 import userReducer from './usersReducer';
 import favoritesReducer from './favoritesReducer';
+import messagesReducer from './messagesReducer';
 
 const entitiesReducer = combineReducers({
   listings: listingsReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   session,
   entities: entitiesReducer,
   favorites: favoritesReducer,
-  users: userReducer
+  users: userReducer,
+  messages: messagesReducer
 });
 
 
