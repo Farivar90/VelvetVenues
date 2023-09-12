@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+import { useParams, Redirect, useHistory, Link } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
 import { fetchMessages } from '../../store/messages';
 import './Conversation.css';
@@ -53,7 +53,7 @@ function Conversation() {
 
     return (
         <div className="conversation-container">
-            <h2 className="conversation-title">Conversation with {userName}</h2>
+            <h2 className="conversation-title">Conversation with <Link to={`/users/${userId}`} className="cun">{userName}</Link></h2>
             <ul className="messages-list">
                 {filteredMessages.map((message) => (
                     <li key={message.id} className={message.senderId === currentUser ? "sent-message" : "received-message"}>
