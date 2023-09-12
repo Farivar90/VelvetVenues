@@ -8,7 +8,6 @@ function Inbox() {
   const currentUser = useSelector((state) => state.session.user);
   const messages = useSelector((state) => state.messages.messages);
   const dispatch = useDispatch();
-//   const { userId } = useParams();
 
   useEffect(() => {
       if (currentUser) {
@@ -20,12 +19,12 @@ function Inbox() {
     return <Redirect to={`/`} />;
   }
 
-  // Group messages by user
   const groupedMessages = {};
+
   Object.values(messages).forEach(message => {
       const otherUserName = currentUser === message.senderId ? message.receiverName : message.senderName;
       const otherUserId = currentUser === message.senderId ? message.receiverId : message.senderId;
-      
+
       if (groupedMessages[otherUserId]) {
           groupedMessages[otherUserId].messages.push(message);
       } else {
@@ -36,26 +35,23 @@ function Inbox() {
       }
   });
 
-//   console.log(groupedMessages)
-
   return (
-    <div>
-      <h1>Inbox</h1>
-      <ul>
-  {Object.entries(groupedMessages).map(([userId, data]) => {
-    const lastMessage = data.messages && data.messages.length > 0 ? data.messages[data.messages.length - 1].content : 'No messages';
+    <div className="inbox-container">
+        <h1 className="inbox-title">Your Messages</h1>
+        <ul className="message-list">
+            {Object.entries(groupedMessages).map(([userId, data]) => {
+                const lastMessage = data.messages[data.messages.length - 1].content;
 
-    return (
-      <li key={userId}>
-        <Link to={`/conversation/${data.userName}/${userId}`}>
-          <h2>{data.userName}</h2>
-          <p>Last Message: {lastMessage}</p>
-        </Link>
-      </li>
-    );
-  })}
-</ul>
-
+                return (
+                    <li key={userId} className="message-item">
+                        <Link to={`/conversation/${data.userName}/${userId}`} className="message-link">
+                            <h2 className="user-name">{data.userName}</h2>
+                            <p className="last-message">Last Message: {lastMessage}</p>
+                        </Link>
+                    </li>
+                );
+            })}
+        </ul>
     </div>
   );
 }
