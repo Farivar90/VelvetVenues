@@ -1,0 +1,23 @@
+.conversation-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.sent {
+    text-align: right;
+    background-color: #dcf8c6;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 5px 10px;
+}
+
+.received {
+    text-align: left;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 5px 10px;
+}

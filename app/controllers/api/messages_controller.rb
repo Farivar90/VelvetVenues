@@ -1,9 +1,11 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    @messages = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+    @messages = Message.includes(:sender, :receiver)
+                       .where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
     render :index
   end
+  
   
 
     def create
