@@ -44,6 +44,8 @@ function Inbox() {
 
                 return (
                     <li key={userId} className="message-item">
+                        {/* <Link to={`/users/${userId}`} className="mun"> */}
+                        {/* </Link> */}
                         <Link to={`/conversation/${data.userName}/${userId}`} className="message-link">
                             <h2 className="user-name">{data.userName}</h2>
                             <p className="last-message">Last Message: {lastMessage}</p>
