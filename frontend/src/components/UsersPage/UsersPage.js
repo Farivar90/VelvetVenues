@@ -62,46 +62,52 @@ const UsersPage = () => {
   return (
     <div className="user-profile-container">
       <h1>User Profile</h1>
-      {user && (
-        <div className="user-details">
-          <p>Username: {user.username}</p>
-          <p>Email: {user.email}</p>
-          <p>Full Name: {user.fullName}</p>
-          <p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
-          <p>Updated At: {new Date(user.updatedAt).toLocaleString()}</p>
-          <div className="user-image">
-            <img 
-              src={user.photo?.imageUrl || '/resfiles/default-profile-image.png'} 
-              alt={`${user.fullName}'s profile`} 
-            />
-          </div>
-          {currentUser === user.id && (
-            <Link to={`/users/${user.id}/edit`} className="edit-profile-btn">
-              Edit Profile
-            </Link>
-          )}
-          <div>
+      
+      <div className="top-section">
+        <div className="user-image">
+          <img 
+            src={user.photo?.imageUrl || '/resfiles/default-profile-image.png'} 
+            alt={`${user.fullName}'s profile`} 
+          />
+        </div>
+  
+      <div className="user-details">
+        <p class="detail-label">Username:</p> 
+        <p class="detail-value">{user.username}</p>
+        <p class="detail-label">Email:</p>
+        <p class="detail-value"> {user.email}</p>
+        <p class="detail-label">Full Name:</p>
+        <p class="detail-value"> {user.fullName}</p>
+        <p class="detail-label">Created At: </p>
+        <p class="detail-value">{new Date(user.createdAt).toLocaleString()}</p>
+        <p class="detail-label">Updated At:</p>
+        <p class="detail-value"> {new Date(user.updatedAt).toLocaleString()}</p>
+      
+        {currentUser === user.id && (
+          <Link to={`/users/${user.id}/edit`} className="edit-profile-btn">
+            Edit Profile
+          </Link>
+        )}
+      </div>
+        <div className="actions">
           {currentUser === user.id ? (
-            <button onClick={goToInbox} className="inbox-btn">  {/* <-- Use button here with onClick */}
-              Go to Inbox
-            </button>
+            <button onClick={goToInbox} className="inbox-btn">Inbox</button>
           ) : (
             <button onClick={() => setShowMessageModal(true)}>Send Message</button>
           )}
-          </div>
-          <div>
-          <Modal showModal={showMessageModal} closeModal={() => setShowMessageModal(false)}>
-            <h2>Send Message to {user.username}</h2>
-            <textarea
-              placeholder="Write your message here..."
-              value={messageContent}
-              onChange={(e) => setMessageContent(e.target.value)}
-            ></textarea>            
-            <button onClick={() => handleSendMessage(messageContent)}>Send</button>
-          </Modal>
-          </div>
         </div>
-      )}
+      </div>
+      
+  
+      <Modal showModal={showMessageModal} closeModal={() => setShowMessageModal(false)}>
+        <h2>Send Message to {user.username}</h2>
+        <textarea
+          placeholder="Write your message here..."
+          value={messageContent}
+          onChange={(e) => setMessageContent(e.target.value)}
+        ></textarea>            
+        <button onClick={() => handleSendMessage(messageContent)}>Send</button>
+      </Modal>
     </div>
   );
 };

@@ -3,6 +3,10 @@ import './ContactUs.css';
 
 function ContactUs(){
 
+    // if (!currentUser) {
+    //     return <Redirect to={`/`} />;
+    //   }
+
     return(
         <div className="contactUsWrapper">
             <ul class="background">
