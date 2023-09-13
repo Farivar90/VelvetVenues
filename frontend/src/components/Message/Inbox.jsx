@@ -36,7 +36,6 @@ function Inbox() {
             };
         }
     });
-    <NewConversation groupedMessages={groupedMessages} />
     
     return (
         <div className="inbox-container">
@@ -45,7 +44,7 @@ function Inbox() {
         <ul className="message-list">
             {Object.entries(groupedMessages).map(([userId, data]) => {
                 const lastMessage = data.messages[data.messages.length - 1].content;
-
+                
                 return (
                     <li key={userId} className="message-item">
                         {/* <Link to={`/users/${userId}`} className="mun"> */}

@@ -68,7 +68,7 @@ a{
 
 
 .modal-overlay {
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -115,3 +115,55 @@ a{
 .form-group label {
     margin-right: 10px;
   }
+
+
+  /* .advanced-search-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.advanced-search-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 60%; 
+    max-width: 600px;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+} */
+
+.form-section {
+    flex: 1;
+    padding: 1rem;
+}
+
+.form-section h4{
+    margin-bottom: 1rem;
+    color: rgb(54, 30, 84);
+    font-size: 1.5rem;
+    
+}
+
+.as-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.as-form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+

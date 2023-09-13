@@ -60,6 +60,9 @@ function ContactUs(){
                 <div id='con-link'>
                     <a  href="https://linkedin.com/in/farivar-amiri-458273198" ><i class="fa-brands fa-linkedin"></i></a>
                 </div>
+                <div>
+                    <a  href="https://farivar-amiri.com" ><i class="fa fa-user-circle"></i></a>
+                </div>
                 <div id='con-ins'>
                     <a  href="https://instagram.com/farivar.amiri" ><i class="fa-brands fa-instagram"></i></a>
                 </div>

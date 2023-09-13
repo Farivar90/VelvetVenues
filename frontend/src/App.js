@@ -54,7 +54,7 @@ const App = () => {
         <p><strong>© 2023 by F.A.  Imperial Estates. All rights reserved.</strong></p>
     </div>
     <div className='Contact-us-buts'>
-      <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i className="fa fa-user-circle" aria-hidden="true"></i></a>
+      {/* <a className="github-links" href="https://github.com/Farivar90/VelvetVenues" ><i className="fa fa-user-circle" aria-hidden="true"></i></a> */}
     </div>
   </footer>
     </Router>
