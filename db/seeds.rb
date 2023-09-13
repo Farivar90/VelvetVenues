@@ -1365,7 +1365,7 @@ favorite8 = Favorite.create!(user_id: 3, listing_id: 2)
 puts "Favorites seeded successfully!"
 
 message1 = Message.create!(sender_id: 1, receiver_id: 12, content: "Hi my friend")
-message2 = Message.create!(sender_id: 3, receiver_id: 1, content: "Hi, can I provide more information for your island?")
+message2 = Message.create!(sender_id: 3, receiver_id: 1, content: "Hi, can You provide me more information about your island?")
 message3 = Message.create!(sender_id: 12, receiver_id: 1, content: "Long time no see, how are you doing?")
 message4 = Message.create!(sender_id: 1, receiver_id: 16, content: "سلام رامدخت جان چطوری؟")
 message5 = Message.create!(sender_id: 16, receiver_id: 1, content: "عه نمیدونستم اینجایی! چه خبرا؟")

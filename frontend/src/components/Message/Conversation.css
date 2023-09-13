@@ -6,8 +6,7 @@
     margin-bottom: 5%;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
-}
+    box-shadow: 0px 0px 50px rgba(54, 30, 84, 0.6);}
 
 .conversation-title {
     font-weight: bold;
@@ -72,11 +71,12 @@
     background-color: #45a049;
 }
 
-/* .back-button {
-    background-color: #ddd;
-    color: #333;
-} */
-/* 
-.back-button:hover {
-    background-color: #ccc;
-} */
+.search-input-nc{
+    width: 95%;
+    padding: 2%;
+    margin-bottom: 20px;
+    border: 2px inset rgb(54, 30, 84);
+    border-radius: 5px;
+    font-size: 100%;
+    align-self: center;
+}

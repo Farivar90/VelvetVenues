@@ -61,7 +61,12 @@ const UsersPage = () => {
 
   return (
     <div className="user-profile-container">
-      <h1>User Profile</h1>
+          {currentUser === user.id ? (
+           <h1>Welcome {user.fullName? user.fullName : user.username}</h1>
+          ) : (
+            <h1> User Profile</h1>
+          )}
+      
       
       <div className="top-section">
         <div className="user-image">

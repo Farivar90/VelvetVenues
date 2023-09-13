@@ -16,6 +16,7 @@ import Forum from './components/Forum/Forum';
 import ContactUs from './components/ContactUs/ContactUs';
 import Inbox from './components/Message/Inbox';
 import Conversation from './components/Message/Conversation';
+import NewConversation from './components/Message/NewConversation';
 import { Link } from 'react-router-dom';
 
 
@@ -38,6 +39,7 @@ const App = () => {
         <Route exact path="/search" component={Search} />
         <Route exact path="/inbox" component={Inbox} />
         <Route exact path="/conversation/:userName/:userId" component={Conversation} />
+        <Route exact path="/start-new-conversation" component={NewConversation} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/contact-us" component={ContactUs} />
         <Redirect to="/"/>
