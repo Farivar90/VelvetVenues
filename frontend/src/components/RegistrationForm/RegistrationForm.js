@@ -109,7 +109,7 @@ const RegistrationForm = () => {
       return;
     }
 
-    if (formData.invitationCode !== 'Test') {
+    if (formData.invitationCode !== '0.25 percent in world') {
       setInvitationError('Invalid invitation code');
       return;
     }
