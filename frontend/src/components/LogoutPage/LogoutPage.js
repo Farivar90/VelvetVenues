@@ -12,7 +12,7 @@ const LogoutPage = () => {
     dispatch(sessionActions.logout());
     setTimeout(() => {
       history.push('/');
-    }, 2000);
+    }, 3000);
   }, [dispatch, history]);
 
   return (

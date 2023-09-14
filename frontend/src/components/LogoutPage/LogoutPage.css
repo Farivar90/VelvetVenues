@@ -1,8 +1,26 @@
-.logout-message{
+
+.logout-message {
     color: rgb(54, 30, 84);
-    font-size: 300%;
-    margin: 5%;
-    padding: auto;
+    font-size: 2em;
+    margin: 0;
+    padding: 20px; 
+    height: 100%; 
+    background: linear-gradient(120deg, #f6d365, rgb(252, 216, 170));
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.logout-message h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.logout-message p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 600px;
 }
