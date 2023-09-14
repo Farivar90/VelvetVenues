@@ -13,6 +13,9 @@ const EditProfile = () => {
   const [showMessage, setShowMessage] = useState(false);
   const history = useHistory();
 
+  const [profileImage, setProfileImage] = useState(null);
+
+
   const closeModal = () => {
     setShowMessage(false);
     history.push(`/users/${userId}`);
@@ -43,18 +46,18 @@ const EditProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
+    const formData = new FormData();
+    formData.append('user[username]', user.username);
+    formData.append('user[email]', user.email);
+    formData.append('user[full_name]', user.fullName);
+    if (profileImage) {
+      formData.append('user[photo]', profileImage);
+    }
+  
     try {
-      const updateUser = {
-        ...user,
-        full_name: user.fullName
-      };
-
       const response = await csrfFetch(`/api/users/${userId}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updateUser)
+        body: formData
       });
   
       if (response.ok) {
@@ -66,6 +69,7 @@ const EditProfile = () => {
       console.error('Error updating user:', error);
     }
   };
+  
 
   const handleDelete = async () => {
     try {
@@ -93,6 +97,11 @@ const EditProfile = () => {
       <h1>Edit Profile</h1>
 
       <form onSubmit={handleSubmit} className="profile-form">
+        <div className="profile-field">
+          <label>Profile Picture: </label>
+          <input type="file" onChange={e => setProfileImage(e.target.files[0])} />
+        </div>
+
         <div className="profile-field">
           <label>Username: </label>
           <input 
