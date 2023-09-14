@@ -1,15 +1,25 @@
 import React from 'react';
+import { useHistory} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './ContactUs.css';
 
 function ContactUs(){
 
-    // if (!currentUser) {
-    //     return <Redirect to={`/`} />;
-    //   }
+    const history = useHistory();
+
+    const handleImageClick = () => {
+        history.push('/');
+    }
 
     return(
         <div className="contactUsWrapper">
-            <ul class="background">
+                <img 
+                    src="/resfiles/head.png" 
+                    alt="headmain" 
+                    className="headmain-image" 
+                    onClick={handleImageClick}
+                />            
+                <ul class="background">
                 <li></li>
                 <li></li>
                 <li></li>

@@ -1369,6 +1369,14 @@ message2 = Message.create!(sender_id: 3, receiver_id: 1, content: "Hi, can You p
 message3 = Message.create!(sender_id: 12, receiver_id: 1, content: "Long time no see, how are you doing?")
 message4 = Message.create!(sender_id: 1, receiver_id: 16, content: "سلام رامدخت جان چطوری؟")
 message5 = Message.create!(sender_id: 16, receiver_id: 1, content: "عه نمیدونستم اینجایی! چه خبرا؟")
+message6 = Message.create!(sender_id: 1, receiver_id: 12, content: "Everything is good. I heared you want to do some change in ebay!")
+message7 = Message.create!(sender_id: 5, receiver_id: 1, content: "Hi, do you like to trade your island?")
+message8 = Message.create!(sender_id: 1, receiver_id: 5, content: "sorry I don't")
+message9 = Message.create!(sender_id: 1, receiver_id: 17, content: " سلام آرتمیس جان چطوری؟ خواهرت هم که اینجاست")
+message10 = Message.create!(sender_id: 17, receiver_id: 1, content: "چطوری شمیم جان؟ داداشت فریور چطوره؟")
+message11 = Message.create!(sender_id: 10, receiver_id: 1, content: "Hi Shamim! Happy to see you here. Did you know your brother, Farivar, ask to have a date with me?")
+message12 = Message.create!(sender_id: 1, receiver_id: 10, content: "Hi Mia, I can tell you are his type! :-)")
+
 
 puts "Messages seeded successfully!"
 

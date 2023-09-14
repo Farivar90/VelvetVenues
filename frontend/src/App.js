@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <Route path="/" component={({ location }) => (
-        location.pathname !== "/" ? <HeadNav /> : null
+        (location.pathname !== "/" && location.pathname !=="/contact-us") ? <HeadNav /> : null
       )}/>
       <Switch>
         <Route exact path="/" component={MainPage} />
@@ -45,11 +45,7 @@ const App = () => {
         <Redirect to="/"/>
       </Switch>
   <footer id="footer">
-      {/* <Link to="/contact-us"> */}
-        {/* <img className="info-icon" src="/resfiles/inf_ico.png" alt="info-ico" /> */}
         <a className="github-links" href="/contact-us" ><i className="fa fa-diamond" aria-hidden="true"></i></a>
-
-      {/* </Link> */}
     <div className='footer-c'>
         <p><strong>© 2023 by F.A.  Imperial Estates. All rights reserved.</strong></p>
     </div>
