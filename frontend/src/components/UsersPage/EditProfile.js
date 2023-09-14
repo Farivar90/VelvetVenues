@@ -5,6 +5,7 @@ import axios from 'axios';
 import './EditProfile.css';
 import csrfFetch from '../../store/csrf';
 import DemoUserModal from './DemoUserModal';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 
 const EditProfile = () => {
   const currentUser = useSelector(state => state.session.user);
@@ -14,6 +15,7 @@ const EditProfile = () => {
   const history = useHistory();
 
   const [profileImage, setProfileImage] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
 
 
   const closeModal = () => {
@@ -71,20 +73,29 @@ const EditProfile = () => {
   };
   
 
-  const handleDelete = async () => {
+  const handleConfirmDelete = async () => {
     try {
       const response = await csrfFetch(`/api/users/${userId}`, {
         method: 'DELETE'
       });
 
       if (response.ok) {
-        history.push('/');
+        history.push('/logout');
       } else {
         console.error('Error deleting user:', response.statusText);
       }
     } catch (error) {
       console.error('Error deleting user:', error);
     }
+    setShowDeleteModal(false);
+  };
+
+  const handleDeleteClick = () => {
+    setShowDeleteModal(true);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false);
   };
 
   if (!currentUser) {
@@ -94,6 +105,11 @@ const EditProfile = () => {
   return (
     <div className="profile-container">
         <DemoUserModal show={showMessage} onClose={closeModal} />
+        <DeleteConfirmationModal 
+          show={showDeleteModal}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
       <h1>Edit Profile</h1>
 
       <form onSubmit={handleSubmit} className="profile-form">
@@ -139,7 +155,7 @@ const EditProfile = () => {
         <button
           type="button"
           className="profile-button-delete-button"
-          onClick={handleDelete}
+          onClick={handleDeleteClick}
           disabled={showMessage}
         >
           Delete Profile
