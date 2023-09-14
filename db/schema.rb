@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_202707) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_053616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_202707) do
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_favorites_on_listing_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "forum_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forum_posts", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "forum_thread_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_thread_id"], name: "index_forum_posts_on_forum_thread_id"
+    t.index ["user_id"], name: "index_forum_posts_on_user_id"
+  end
+
+  create_table "forum_threads", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.bigint "forum_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_category_id"], name: "index_forum_threads_on_forum_category_id"
+    t.index ["user_id"], name: "index_forum_threads_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -125,10 +152,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_202707) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "forum_post_id", null: false
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_post_id"], name: "index_votes_on_forum_post_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "listings"
   add_foreign_key "favorites", "users"
+  add_foreign_key "forum_posts", "forum_threads"
+  add_foreign_key "forum_posts", "users"
+  add_foreign_key "forum_threads", "forum_categories"
+  add_foreign_key "forum_threads", "users"
   add_foreign_key "listings", "users"
   add_foreign_key "listings_amenities", "amenities"
   add_foreign_key "listings_amenities", "listings"
@@ -136,4 +177,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_202707) do
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "questions", "listings"
   add_foreign_key "questions", "users"
+  add_foreign_key "votes", "forum_posts"
+  add_foreign_key "votes", "users"
 end
