@@ -14,6 +14,7 @@ const RegistrationForm = () => {
   });
 
 
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const [invitationError, setInvitationError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -109,7 +110,7 @@ const RegistrationForm = () => {
       return;
     }
 
-    if (formData.invitationCode !== '0.25 percent in world') {
+    if (formData.invitationCode !== '0.25 percent in the world') {
       setInvitationError('Invalid invitation code');
       return;
     }
@@ -137,10 +138,7 @@ const RegistrationForm = () => {
       });
 
       if (response.ok) {
-        const user = await response.json();
-        // console.log(user.id, 'ui')
-        dispatch({ type: 'session/setCurrentUser', payload: user.id});
-        history.push(`/listings`);
+        setShowSuccessModal(true);
       } else {
         let errorData;
         setError(errorData.errors || "An error occurred. Please try again.");
@@ -295,6 +293,18 @@ By proceeding, you acknowledge and accept these terms, ensuring a seamless and l
             </p>
             </div>
             <button className='terms-close-btn' onClick={() => setShowTermsModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
+       {showSuccessModal && (
+        <div className='success-modal'>
+          <div className='success-content'>
+            <h2>Congrats!</h2>
+            <p>Now you can login to your account.</p>
+            <button className='success-close-btn' onClick={() => {
+              setShowSuccessModal(false);
+              history.push('/login');
+            }}>Close</button>
           </div>
         </div>
       )}
