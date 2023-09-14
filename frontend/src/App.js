@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import UsersPage from './components/UsersPage/UsersPage';
@@ -17,10 +19,43 @@ import ContactUs from './components/ContactUs/ContactUs';
 import Inbox from './components/Message/Inbox';
 import Conversation from './components/Message/Conversation';
 import NewConversation from './components/Message/NewConversation';
+import LogoutPage from './components/LogoutPage/LogoutPage'; 
+import { logout } from './store/session';
 import { Link } from 'react-router-dom';
 
 
 const App = () => {
+
+  const dispatch = useDispatch();
+  const logoutTimer = useRef(null);
+
+  const resetTimer = () => {
+    if (logoutTimer.current) {
+      clearTimeout(logoutTimer.current);
+    }
+    logoutTimer.current = setTimeout(() => {
+      console.log('Auto-logging out due to inactivity...');
+      dispatch(logout()); // Dispatch your logout action
+    }, 300000); // 300000ms = 5 minutes
+  };
+
+  useEffect(() => {
+    window.addEventListener('mousemove', resetTimer);
+    window.addEventListener('keydown', resetTimer);
+    window.addEventListener('click', resetTimer);
+
+    resetTimer(); // Initialize the timer for the first time
+
+    return () => {
+      if (logoutTimer.current) {
+        clearTimeout(logoutTimer.current);
+      }
+      window.removeEventListener('mousemove', resetTimer);
+      window.removeEventListener('keydown', resetTimer);
+      window.removeEventListener('click', resetTimer);
+    };
+  }, []);
+
   
   return (
     <Router>
@@ -42,6 +77,7 @@ const App = () => {
         <Route exact path="/start-new-conversation" component={NewConversation} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/contact-us" component={ContactUs} />
+        <Route exact path="/logout" component={LogoutPage} />
         <Redirect to="/"/>
       </Switch>
   <footer id="footer">

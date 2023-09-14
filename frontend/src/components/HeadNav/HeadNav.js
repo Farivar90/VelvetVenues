@@ -56,10 +56,8 @@ const HeadNav = () => {
             <li>
               <Link to={`/users/${currentUser}`}>Profile</Link>
             </li>
-            <li className="menu li">
-              <a className="menu-container a" onClick={handleLogout}>
-                Logout
-              </a>
+            <li>
+            <Link to="/logout">Logout</Link>
             </li>
           </ul>
         </div>
