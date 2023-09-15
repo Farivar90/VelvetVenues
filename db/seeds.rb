@@ -19,8 +19,16 @@ Favorite.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 Message.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('messages')
-# Question.destroy_all
-# ActiveRecord::Base.connection.reset_pk_sequence!('questions')
+Question.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('questions')
+ForumCategory.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_categories')
+ForumThread.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_threads')
+ForumPost.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_posts')
+Vote.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('votes')
 
 demo_user = User.create!(
   email: 'demo@example.com',
@@ -1379,5 +1387,22 @@ message12 = Message.create!(sender_id: 1, receiver_id: 10, content: "Hi Mia, I c
 
 
 puts "Messages seeded successfully!"
+
+general_category = ForumCategory.create!(name: 'General Discussion', description: 'Talk about anything related to our community here.')
+listing_category = ForumCategory.create!(name: 'Listing Tips', description: 'Share and discuss tips for creating effective listings.')
+
+puts "Forum Category seeded successfully!"
+
+thread1 = ForumThread.create!(title: 'Welcome to the Community!', user: user1, forum_category: general_category)
+thread2 = ForumThread.create!(title: 'How to take good photos for your listing?', user: user7, forum_category: listing_category)
+
+puts "Forum Thread seeded successfully!"
+
+post_to_vote = ForumPost.create!(content: 'I completely agree with you.', user: user7, forum_thread: thread1)
+Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
+
+puts "Forum Post Vote seeded successfully!"
+
+puts "Forum seeded successfully!"
 
 puts "All done!"
