@@ -7,6 +7,11 @@ class Api::VotesController < ApplicationController
         render json: @vote.errors, status: :unprocessable_entity
       end
     end
+
+    def show
+      @vote = Vote.find(params[:id])
+      render json: @vote
+    end
   
     def destroy
       @vote = Vote.find(params[:id])

@@ -13,18 +13,10 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy, :index, :show]
 
     resources :forum_categories do
-      resources :forum_threads, only: [:create, :index]
-    end
-
-    resources :forum_threads, only: [:show, :update, :destroy] do
-      resources :forum_posts, only: [:create, :index]
-    end
-
-    resources :forum_posts, only: [:show, :update, :destroy] do
-      member do
-        post :upvote
-        post :downvote
-        delete :vote
+      resources :forum_threads, only: [:index, :create, :show, :update, :destroy] do
+        resources :forum_posts, only: [:index, :create, :show, :update, :destroy]do
+        resources :votes, only: [:show, :create, :destroy]
+        end
       end
     end
   

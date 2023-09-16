@@ -4,7 +4,7 @@ class Api::ForumPostsController < ApplicationController
   
     def index
       @posts = @forum_thread.forum_posts
-      render json: @posts
+      render :index
     end
   
     def create
@@ -18,8 +18,9 @@ class Api::ForumPostsController < ApplicationController
     end
   
     def show
-      render json: @post
+      render json: @post.as_json(include: :votes)
     end
+    
   
     def update
       if @post.update(post_params)
