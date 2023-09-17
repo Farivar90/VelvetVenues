@@ -32,8 +32,6 @@ function ForumThreads() {
         return <Redirect to={`/`} />;
     }
 
-    console.log(threads)
-
     return (
         <div>
             <h2 className="forum-title">Threads</h2>
