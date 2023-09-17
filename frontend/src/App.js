@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -22,21 +22,28 @@ import NewConversation from './components/Message/NewConversation';
 import LogoutPage from './components/LogoutPage/LogoutPage'; 
 import { logout } from './store/session';
 import { Link } from 'react-router-dom';
+import WaitingPage from './components/WaitingPage/WaitingPage';
 
 
 const App = () => {
 
   const dispatch = useDispatch();
   const logoutTimer = useRef(null);
+  const [showWaitingPage, setShowWaitingPage] = useState(false);
+
 
   const resetTimer = () => {
     if (logoutTimer.current) {
       clearTimeout(logoutTimer.current);
     }
+    setShowWaitingPage(false);
     logoutTimer.current = setTimeout(() => {
       console.log('Auto-logging out due to inactivity...');
-      dispatch(logout()); // Dispatch your logout action
-    }, 300000); // 300000ms = 5 minutes
+      dispatch(logout());
+    }, 180000);
+    setTimeout(() => {
+      setShowWaitingPage(true);
+    }, 60000);
   };
 
   useEffect(() => {
@@ -44,7 +51,7 @@ const App = () => {
     window.addEventListener('keydown', resetTimer);
     window.addEventListener('click', resetTimer);
 
-    resetTimer(); // Initialize the timer for the first time
+    resetTimer();
 
     return () => {
       if (logoutTimer.current) {
@@ -56,6 +63,9 @@ const App = () => {
     };
   }, []);
 
+  // if (showWaitingPage) {
+  //   return <WaitingPage />;
+  // }
   
   return (
     <Router>

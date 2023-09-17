@@ -19,8 +19,16 @@ Favorite.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 Message.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('messages')
-# Question.destroy_all
-# ActiveRecord::Base.connection.reset_pk_sequence!('questions')
+Question.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('questions')
+ForumCategory.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_categories')
+ForumThread.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_threads')
+ForumPost.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('forum_posts')
+Vote.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('votes')
 
 demo_user = User.create!(
   email: 'demo@example.com',
@@ -49,50 +57,50 @@ user1.photo.attach(
   filename: '2-john-doe.jpg'
 )
   
-realtor2 = User.create!(
-  email: "realtor2@example.com",
-  username: "realtor2",
+user2 = User.create!(
+  email: "user2@example.com",
+  username: "user2",
   full_name: "Jane Smith",
   password: "Password!323",
 )
 
-realtor2.photo.attach(
+user2.photo.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/seeds/3-jane-smith.jpg'),
   filename: '3-jane-smith.jpg'
 )
   
-realtor3 = User.create!(
+user3 = User.create!(
   email: "realtor3@example.com",
   username: "realtor3",
   full_name: "Michael Johanson",
   password: "Password!123",
 )
 
-realtor3.photo.attach(
+user3.photo.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/seeds/4-Michael+Johanson.jpg'),
   filename: '4-michael-johanson.jpg'
 )
   
-realtor4 = User.create!(
+user4 = User.create!(
   email: "realtor4@example.com",
   username: "realtor4",
   full_name: "Emily Brown",
   password: "Password!123",
 )
 
-realtor4.photo.attach(
+user4.photo.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/seeds/5-Emily+Brown.jpg'),
   filename: '5-emily-brown.jpg'
 )
 
-realtor5 = User.create!(
+user5 = User.create!(
   email: "realtor5@example.com",
   username: "realtor5",
   full_name: "William Wilson",
   password: "Password!123",
 )
 
-realtor5.photo.attach(
+user5.photo.attach(
   io: URI.open('https://velvetvenues-seeds.s3.us-west-1.amazonaws.com/seeds/6-William+Wilson.jpg'),
   filename: '6-william-wilson.jpg'
 )
@@ -1379,5 +1387,35 @@ message12 = Message.create!(sender_id: 1, receiver_id: 10, content: "Hi Mia, I c
 
 
 puts "Messages seeded successfully!"
+
+general_category = ForumCategory.create!(name: 'General Discussion', description: 'Talk about anything related to our community here.')
+listing_category = ForumCategory.create!(name: 'Listing Tips', description: 'Share and discuss tips for creating effective listings.')
+fraud_alert = ForumCategory.create!(name: 'Fraud Alert', description: 'Frauds and Scams detection.')
+
+puts "Forum Category seeded successfully!"
+
+thread1 = ForumThread.create!(title: 'Welcome to the Community!', user: user1, forum_category: general_category)
+thread2 = ForumThread.create!(title: 'How to take good photos for your listing?', user: user2, forum_category: listing_category)
+thread3 = ForumThread.create!(title: 'How to detect frauds?', user: user4, forum_category: fraud_alert)
+thread4 = ForumThread.create!(title: 'FAQ', user: user1, forum_category: general_category)
+
+puts "Forum Thread seeded successfully!"
+
+post_to_vote = ForumPost.create!(content: 'Hi Everyone.', user: user7, forum_thread: thread1)
+post_to_vote2 = ForumPost.create!(content: 'Hey.', user: user10, forum_thread: thread1)
+post_to_vote3 = ForumPost.create!(content: 'Hi.', user: user11, forum_thread: thread1)
+post_to_vote4 = ForumPost.create!(content: 'Mahmoud Reza Khavari who lives in Canada now is a criminal. He  is a former Iranian banker, businessman, and fugitive embezzler who was involved in the 2011 Iranian embezzlement scandal. In 2005, he became a Canadian citizen. He is a fugitive wanted by the judicial authorities of Islamic Republic of Iran, and as of October 2016, Khavari was wanted by Interpol.
+He was the chairman of Bank Melli Iran until September 2011 and chairman of Bank Sepah’s board of directors from December 2003 until March 2005. In 2011, Khavari resigned from his position at Bank Melli amid allegations of being involved in the $2.6 billion Iranian embezzlement scandal', user: user1, forum_thread: thread3)
+v1 = Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
+v2 = Vote.create!(user: user2, forum_post: post_to_vote2, value: 1)
+v3 = Vote.create!(user: user2, forum_post: post_to_vote, value: -1)
+v4 = Vote.create!(user: user10, forum_post: post_to_vote4, value: 1)
+v5 = Vote.create!(user: user16, forum_post: post_to_vote4, value: 1)
+v6 = Vote.create!(user: user17, forum_post: post_to_vote4, value: 1)
+v7 = Vote.create!(user: user18, forum_post: post_to_vote4, value: 1)
+
+puts "Forum Post Vote seeded successfully!"
+
+puts "Forum seeded successfully!"
 
 puts "All done!"
