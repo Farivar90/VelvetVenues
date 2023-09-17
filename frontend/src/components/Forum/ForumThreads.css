@@ -1,0 +1,49 @@
+.forum-threads-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.forum-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(54, 30, 84);
+    font-size: 250%;
+}
+
+.forum-thread-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.forum-thread-item {
+    margin: 10px 0;
+    font-size: 150%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.2s;
+}
+
+.forum-thread-link {
+    text-decoration: none;
+    color: #610092;
+    transition: color 0.2s;
+}
+
+.forum-thread-link:hover {
+    color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.thread-details {
+    font-size: 80%;
+    color: #777; 
+    margin-top: 5px;
+}

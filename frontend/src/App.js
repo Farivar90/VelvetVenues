@@ -23,6 +23,11 @@ import LogoutPage from './components/LogoutPage/LogoutPage';
 import { logout } from './store/session';
 import { Link } from 'react-router-dom';
 import WaitingPage from './components/WaitingPage/WaitingPage';
+import ForumThreads from './components/Forum/ForumThreads';
+import ForumPosts from './components/Forum/ForumPosts';
+import ForumCategories from './components/Forum/ForumCategories';
+import PostDetails from './components/Forum/PostDetails';
+import CreateThread from './components/Forum/CreateThread';
 
 
 const App = () => {
@@ -86,6 +91,10 @@ const App = () => {
         <Route exact path="/conversation/:userName/:userId" component={Conversation} />
         <Route exact path="/start-new-conversation" component={NewConversation} />
         <Route exact path="/forum" component={Forum} />
+        <Route exact path="/forum/:categoryId" component={ForumThreads} />
+        <Route exact path="/forum/:categoryId/forum_threads_new" component={CreateThread} />
+        <Route exact path="/forum/:categoryId/forum_threads/:threadId" component={ForumPosts} />
+        {/* <Route exact path="/forum/:categoryId/forum_threads/:threadId/:postId" component={PostDetails} /> */}
         <Route exact path="/contact-us" component={ContactUs} />
         <Route exact path="/logout" component={LogoutPage} />
         <Redirect to="/"/>
