@@ -1398,6 +1398,8 @@ thread1 = ForumThread.create!(title: 'Welcome to the Community!', user: user1, f
 thread2 = ForumThread.create!(title: 'How to take good photos for your listing?', user: user2, forum_category: listing_category)
 thread3 = ForumThread.create!(title: 'How to detect frauds?', user: user4, forum_category: fraud_alert)
 thread4 = ForumThread.create!(title: 'FAQ', user: user1, forum_category: general_category)
+thread5 = ForumThread.create!(title: 'Show prospects a property before or after they apply? Which is best?', user: user6, forum_category: listing_category)
+thread6 = ForumThread.create!(title: 'Avoid Being A Victim Of Property Fraud', user: user11, forum_category: fraud_alert)
 
 puts "Forum Thread seeded successfully!"
 
@@ -1406,6 +1408,18 @@ post_to_vote2 = ForumPost.create!(content: 'Hey.', user: user10, forum_thread: t
 post_to_vote3 = ForumPost.create!(content: 'Hi.', user: user11, forum_thread: thread1)
 post_to_vote4 = ForumPost.create!(content: 'Mahmoud Reza Khavari who lives in Canada now is a criminal. He  is a former Iranian banker, businessman, and fugitive embezzler who was involved in the 2011 Iranian embezzlement scandal. In 2005, he became a Canadian citizen. He is a fugitive wanted by the judicial authorities of Islamic Republic of Iran, and as of October 2016, Khavari was wanted by Interpol.
 He was the chairman of Bank Melli Iran until September 2011 and chairman of Bank Sepah’s board of directors from December 2003 until March 2005. In 2011, Khavari resigned from his position at Bank Melli amid allegations of being involved in the $2.6 billion Iranian embezzlement scandal', user: user1, forum_thread: thread3)
+post5 = ForumPost.create!(content: 'I know what you’re thinking – “It won’t happen to me.” Unfortunately, no one is 100% protected from fraudulent activity and fraudsters who use sophisticated ways to access your most personal data, steal your identity with fake identities, and then your assets', user: user11, forum_thread: thread6)
+post6 = ForumPost.create(
+  content: 'Hi Everyone. please share your thought.', 
+  user: user6, 
+  forum_thread: thread5
+)
+post7 = ForumPost.create(
+  content: 'I like to know that too.', 
+  user: user17, 
+  forum_thread: thread5
+)
+
 v1 = Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
 v2 = Vote.create!(user: user2, forum_post: post_to_vote2, value: 1)
 v3 = Vote.create!(user: user2, forum_post: post_to_vote, value: -1)
