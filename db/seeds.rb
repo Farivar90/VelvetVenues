@@ -1419,6 +1419,11 @@ post7 = ForumPost.create(
   user: user17, 
   forum_thread: thread5
 )
+post8 = ForumPost.create(
+  content: 'Does anyone have some investment advice?', 
+  user: user18, 
+  forum_thread: thread4
+)
 
 v1 = Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
 v2 = Vote.create!(user: user2, forum_post: post_to_vote2, value: 1)
