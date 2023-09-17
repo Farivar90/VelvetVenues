@@ -1,8 +1,6 @@
-json.array! @categories do |category|
-    json.id category.id
-    json.name category.name
-    json.description category.description
-    json.created_at category.created_at
-    json.updated_at category.updated_at
-end
+@categories.each do |category|
+    json.set! category.id do
+      json.extract! category, :id, :name, :description, :created_at, :updated_at
+    end
+  end
   
