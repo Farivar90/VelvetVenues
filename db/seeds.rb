@@ -1425,13 +1425,13 @@ post8 = ForumPost.create(
   forum_thread: thread4
 )
 
-v1 = Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
-v2 = Vote.create!(user: user2, forum_post: post_to_vote2, value: 1)
-v3 = Vote.create!(user: user2, forum_post: post_to_vote, value: -1)
-v4 = Vote.create!(user: user10, forum_post: post_to_vote4, value: 1)
-v5 = Vote.create!(user: user16, forum_post: post_to_vote4, value: 1)
-v6 = Vote.create!(user: user17, forum_post: post_to_vote4, value: 1)
-v7 = Vote.create!(user: user18, forum_post: post_to_vote4, value: 1)
+# v1 = Vote.create!(user: user1, forum_post: post_to_vote, value: 1)
+# v2 = Vote.create!(user: user2, forum_post: post_to_vote2, value: 1)
+# v3 = Vote.create!(user: user2, forum_post: post_to_vote, value: -1)
+# v4 = Vote.create!(user: user10, forum_post: post_to_vote4, value: 1)
+# v5 = Vote.create!(user: user16, forum_post: post_to_vote4, value: 1)
+# v6 = Vote.create!(user: user17, forum_post: post_to_vote4, value: 1)
+# v7 = Vote.create!(user: user18, forum_post: post_to_vote4, value: 1)
 
 puts "Forum Post Vote seeded successfully!"
 
