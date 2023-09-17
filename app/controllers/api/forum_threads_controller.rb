@@ -9,7 +9,7 @@ class Api::ForumThreadsController < ApplicationController
     
     def create
       @thread = @forum_category.forum_threads.build(thread_params)
-      @thread.user = current_user # Assuming you have a current_user method
+      @thread.user = current_user
       if @thread.save
         render json: @thread, status: :created
       else

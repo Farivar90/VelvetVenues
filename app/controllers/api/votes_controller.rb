@@ -1,12 +1,15 @@
 class Api::VotesController < ApplicationController
-    def create
-      @vote = current_user.votes.build(vote_params)
-      if @vote.save
+  def create
+    @vote = current_user.votes.build(vote_params)
+    @vote.forum_post_id = params[:forum_post_id]
+    
+    if @vote.save
         render json: @vote, status: :created
-      else
+    else
         render json: @vote.errors, status: :unprocessable_entity
-      end
     end
+end
+
 
     def show
       @vote = Vote.find(params[:id])
