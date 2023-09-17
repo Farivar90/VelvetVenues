@@ -117,7 +117,7 @@ function ForumPosts() {
                 {posts.map(post => (
                     <li key={post.id} className="forum-post-item">
                         <div className="forum-post-header">
-                            <h3 className="forum-post-user">{post.user}</h3>
+                        <Link to={`/users/${post.userId}`} className="forum-post-user-link">{post.user}</Link>
                             {/* <div className="post-votes">
                                 <button onClick={() => handleUpvote(post.id)}>Upvote</button>
                                 <button onClick={() => handleDownvote(post.id)}>Downvote</button>

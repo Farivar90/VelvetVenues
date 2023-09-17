@@ -28,7 +28,6 @@ import ForumPosts from './components/Forum/ForumPosts';
 import ForumCategories from './components/Forum/ForumCategories';
 import PostDetails from './components/Forum/PostDetails';
 import CreateThread from './components/Forum/CreateThread';
-import CreatePost from './components/Forum/CreatePost';
 
 
 const App = () => {
@@ -95,7 +94,6 @@ const App = () => {
         <Route exact path="/forum/:categoryId" component={ForumThreads} />
         <Route exact path="/forum/:categoryId/forum_threads_new" component={CreateThread} />
         <Route exact path="/forum/:categoryId/forum_threads/:threadId" component={ForumPosts} />
-        <Route exact path="/forum/:categoryId/forum_threads/:threadId/new" component={CreatePost} />
         {/* <Route exact path="/forum/:categoryId/forum_threads/:threadId/:postId" component={PostDetails} /> */}
         <Route exact path="/contact-us" component={ContactUs} />
         <Route exact path="/logout" component={LogoutPage} />

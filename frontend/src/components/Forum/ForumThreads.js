@@ -32,6 +32,8 @@ function ForumThreads() {
         return <Redirect to={`/`} />;
     }
 
+    console.log(threads)
+
     return (
         <div>
             <h2 className="forum-title">Threads</h2>
@@ -39,13 +41,13 @@ function ForumThreads() {
             <Link to={`/forum/${categoryId}/forum_threads_new`}>Create New Thread</Link>
             {error && <p className="error-message">{error}</p>}
             <ul className="forum-thread-list">
-                {threads.map(thread => (
+                {threads && Object.values(threads).map(thread => (
                 <li key={thread.id} className="forum-thread-item">
                     <Link className="forum-thread-link" to={`/forum/${categoryId}/forum_threads/${thread.id}/`}>
                         {thread.title}
                     </Link>
                     <div className="thread-details">
-                        Created by {thread.user_id} on {new Date(thread.created_at).toLocaleDateString()}
+                        Created by <Link to={`/users/${thread.user_id}`} className="forum-thread-user-link">{thread.username}</Link> on {new Date(thread.created_at).toLocaleDateString()}
                     </div>
                 </li>                
                 ))}

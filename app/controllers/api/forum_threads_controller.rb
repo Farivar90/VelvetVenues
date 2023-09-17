@@ -3,9 +3,18 @@ class Api::ForumThreadsController < ApplicationController
     before_action :set_forum_thread, only: [:show, :update, :destroy]
   
     def index
-      @threads = @forum_category.forum_threads
-      render json: @threads
+      @threads = @forum_category.forum_threads.includes(:user)
+      response_data = {}
+    
+      @threads.each do |thread|
+        response_data[thread.id] = thread.as_json.merge({
+          "username" => thread.user.username
+        })
+      end
+    
+      render json: response_data
     end
+    
     
     def create
       @thread = @forum_category.forum_threads.build(thread_params)
