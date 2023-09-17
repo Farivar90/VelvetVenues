@@ -41,3 +41,9 @@
     color: red;
     font-weight: bold;
 }
+
+.thread-details {
+    font-size: 80%;
+    color: #777; 
+    margin-top: 5px;
+}

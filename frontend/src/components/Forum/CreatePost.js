@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import csrfFetch from '../../store/csrf';
+import './ForumPosts.css';
 
 function CreatePost() {
     const { categoryId, threadId } = useParams();

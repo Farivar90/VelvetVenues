@@ -28,8 +28,9 @@ function ForumCategories() {
     }
 
     return (
-        <div className="forum-categories-container">
+        <div>
             <h2 className="forum-title">Forum Categories</h2>
+        <div className="forum-categories-container">
             {error && <p className="error-message">{error}</p>}
             <ul className="forum-category-list">
                 {categories.map(category => (
@@ -38,6 +39,7 @@ function ForumCategories() {
                     </li>
                 ))}
             </ul>
+        </div>
         </div>
     );
 }

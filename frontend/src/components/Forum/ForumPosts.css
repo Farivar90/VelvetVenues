@@ -3,6 +3,8 @@
     background-color: #f7f7f7;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 40px auto;
 }
 
 .forum-title {
@@ -30,13 +32,10 @@
 
 .forum-post-content {
     text-decoration: none;
-    color: #007BFF;
+    color: #000000;
     transition: color 0.2s;
 }
 
-.forum-post-content:hover {
-    color: #0056b3;
-}
 
 .post-votes {
     margin-top: 10px;
@@ -50,3 +49,24 @@
     color: red;
     font-weight: bold;
 }
+
+.create-post-page{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    font-size: 180%;
+}
+
+.create-post-page input, textarea{
+    width: 95%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px inset rgb(54, 30, 84);
+    border-radius: 5px;
+    font-size: 100%;
+}
+
+
