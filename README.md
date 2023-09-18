@@ -90,4 +90,6 @@ VelvetVenues is a real estate application that caters exclusively to high-end pr
 
 <img width="300" alt="about" src="app/assets/about.png">
 
+### `Auto logout for users safety`
+
 ### `And last but not least, it works with any screen sizes, disability settings and cellphones`
