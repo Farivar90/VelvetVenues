@@ -8,7 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1001;
+    animation: slide-down 300ms ease-out forwards;;
   }
   
   .modal-content {
@@ -20,6 +21,8 @@
     animation: slide-down 300ms ease-out forwards;
     justify-items: center;
     align-items: center;
+    max-height: calc(95% - 8%);
+    overflow: auto;
   }
   
   .toggle-button {
