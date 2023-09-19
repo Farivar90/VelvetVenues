@@ -167,3 +167,8 @@ a{
     border-radius: 4px;
 }
 
+.search-not-exist{
+    color: red;
+    font-weight: bold;
+    font-size: 150%;
+}

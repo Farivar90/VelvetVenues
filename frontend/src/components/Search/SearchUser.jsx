@@ -23,19 +23,23 @@ function SearchUser() {
                 placeholder="Search by username or full name"
             />
             <div className="user-profile-boxes">
-                {searchResults.map(user => (
-                    <div className="user-profile-box" key={user.id}>
-                        <Link to={`/users/${user.id}`} className="profile-box">
-                            <div className="user-image">
-                                <img src={user?.imageUrl || '/resfiles/default-profile-image.png'} alt={`Profile of ${user.username}`} />
-                            </div>
-                            <div>
-                                <p className='search-res'><strong>Username: </strong>{user.username}</p>
-                                <p className='search-res'><strong>Full Name: </strong>{user.fullName}</p>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
+                {searchResults.length > 0 ? (
+                    searchResults.map(user => (
+                        <div className="user-profile-box" key={user.id}>
+                            <Link to={`/users/${user.id}`} className="profile-box">
+                                <div className="user-image">
+                                    <img src={user?.imageUrl || '/resfiles/default-profile-image.png'} alt={`Profile of ${user.username}`} />
+                                </div>
+                                <div>
+                                    <p className='search-res'><strong>Username: </strong>{user.username}</p>
+                                    <p className='search-res'><strong>Full Name: </strong>{user.fullName}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))
+                ) : searchTerm ? (
+                    <p className='search-not-exist'>Result not exist.</p>
+                ) : null}
             </div>
         </div>
     );
