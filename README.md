@@ -20,6 +20,44 @@ VelvetVenues is a real estate application that caters exclusively to high-end pr
 
 
 
+## Installation
+Follow these steps to get VelvetVenues up and running on your local machine:
+
+### Prerequisites
+Ensure you have the following installed:
+* Ruby
+* PostgreSQL
+* Node.js
+
+### Clone the Repository
+1. Open a terminal and run:
+   ```bash
+   git clone https://github.com/https:/Farivar90/VelvetVenues.git
+2. Navigate to the directory:
+   ```bash
+   cd VelvetVenues
+### Set Up the Backend
+1. Install the required Ruby gems:
+   ```bash
+   bundle install
+2. Set up the database:
+   ```bash
+   rails db:create
+   rails db:migrate
+3. Start the Rails server:
+   ```bash
+   rails server
+### Set Up the Frontend
+1. Install the required Node modules:
+   ```bash
+   npm install
+2. Start the React development server:
+   ```bash
+   npm start
+### Accessing the Application
+Open your browser and navigate to `http://localhost:3000/`
+* You should now see the VelvetVenues application running locally!
+
 ## Technologies
 
 * Ruby on Rails
