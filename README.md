@@ -59,43 +59,49 @@ A comprehensive display of luxury properties, allowing users to create, edit, an
 #### `Display of Properties:`
 <img width="300" alt="list" src="app/assets/listshow.png">
 
-### `Ability to search lists on map`
+#### `Search Properties on Map:`
 
 <img width="300" alt="map" src="app/assets/searchmap.png">
 
-### `Ability to search user(by username or full name) ,search lists and advance search`
 
-<img width="300" alt="s0" src="app/assets/s0.png">
-<img width="300" alt="s1" src="app/assets/s1.png">
-<img width="300" alt="s2" src="app/assets/s2.png">
-
-### `list details`
+#### `Detailed Property Listings:`
 
 <img width="300" alt="detail1" src="app/assets/detail1.png">
 <img width="300" alt="detail2" src="app/assets/detail2.png">
 
-### `Ability to create, edit and delete your list(s)`
+#### `Listing Creation, Edition, and Deletion:`
 
 <img width="300" alt="lc0" src="app/assets/lc0.png">
 <img width="300" alt="lc1" src="app/assets/lc1.png">
 <img width="300" alt="lc2" src="app/assets/lc2.png">
 
-### `Ability to add our delete user favorite(s)`
+### `Advanced Search Features:`
+Users can search properties, or other users by their username or full name.
+
+<img width="300" alt="s0" src="app/assets/s0.png">
+<img width="300" alt="s1" src="app/assets/s1.png">
+<img width="300" alt="s2" src="app/assets/s2.png">
+
+### `User Interactions`
+Users can mark their favorite properties and engage in a forum, promoting a community-driven experience.
+
+#### `Favorites Management:`
 
 <img width="300" alt="f1" src="app/assets/f1.png">
 <img width="300" alt="f2" src="app/assets/f2.png">
 
-### `Forum and Ability to create threads and posts`
+### `Forum and Discussion Threads:`
 
 <img width="300" alt="fr1" src="app/assets/fr1.png">
 <img width="300" alt="fr2" src="app/assets/fr2.png">
 <img width="300" alt="fr3" src="app/assets/fr3.png">
 <img width="300" alt="fr4" src="app/assets/fr4.png">
 
-### `About me with dynamic background`
-
+### `Additional Features`
+#### About Me with Dynamic Background: Provides a more personalized touch.
 <img width="300" alt="about" src="app/assets/about.png">
 
-### `Auto logout for users safety`
-
-### `And last but not least, it works with any screen sizes, disability settings and cellphones`
+#### Auto Logout:
+For enhanced user security, ensuring session timeouts after prolonged inactivity.
+#### Responsive Design:
+Built with a mobile-first approach, the platform ensures optimal display and interaction across various screen sizes, including mobile devices and accessibility settings.
