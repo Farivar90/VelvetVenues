@@ -32,25 +32,31 @@ VelvetVenues is a real estate application that caters exclusively to high-end pr
 
 ## Features
 
-### `sign in and Registration with validation check`
+### `User Authentication and Profile Management`
+Sign in and registration have been fortified with stringent validation checks to ensure a secure user experience.
+#### `Sign In and Registration:`
 <img width="300" alt="login" src="app/assets/login.png">
 
 <img width="300" alt="reg" src="app/assets/registration.png">
 
-### `User profile and edit and delete user`
+#### `User Profile, Edit, and Delete:`
 
 <img width="300" alt="user" src="app/assets/userp.png">
 
 <img width="300" alt="usered" src="app/assets/usered.png">
 
-### `Inbox, Send and Recieve messages`
+### `Messaging System`
+Incorporate an inbox feature where users can send and receive messages, facilitating communication between buyers and sellers.
+#### `Inbox and Messaging:`
 
 <img width="300" alt="inbox" src="app/assets/inbox.png">
 
 <img width="300" alt="sr" src="app/assets/sr.png">
 
-### `Show list of properties`
+### `Property Listings and Management`
+A comprehensive display of luxury properties, allowing users to create, edit, and delete their listings.
 
+#### `Display of Properties:`
 <img width="300" alt="list" src="app/assets/listshow.png">
 
 ### `Ability to search lists on map`
